@@ -1,0 +1,359 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+	title="Fight Stick Tester - Test Arcade Stick Buttons & SOCD Online" 
+	description="Free fight stick tester online. Check arcade stick buttons, lever directions, SOCD and input lag in your browser. Works with leverless controllers too."
+>
+
+
+	<div class="header">
+		<h1>Fight Stick Tester</h1>
+		<p>Test your arcade stick or leverless controller. Keyboard inputs (WASD/Arrows + UIOP/JKL;) are also supported for Hitbox simulation.</p>
+	</div>
+
+	<div id="api-error" class="error-banner" style="display: none;">
+		⚠️ <strong>API Not Supported:</strong> Your browser does not support the required APIs. Please use Chrome, Edge, or Firefox.
+	</div>
+
+	<div class="dashboard">
+		<!-- Main Arcade Visualizer Panel -->
+		<div class="panel visualizer-panel">
+			<div class="visualizer-header">
+				<div class="title-group">
+					<h2><span style="color: #FF7300;">🕹️</span> Vewlix Layout</h2>
+					<p id="connection-status" class="status-indicator">Press any button (or keyboard) to connect...</p>
+				</div>
+				
+				<div class="toggle-group">
+					<button id="mode-stick" class="mode-btn active">Stick</button>
+					<button id="mode-hitbox" class="mode-btn">Hitbox</button>
+				</div>
+			</div>
+			
+			<div class="visualizer-container">
+				<svg id="fight-stick-svg" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; max-width: 600px;">
+					<!-- Arcade Deck Base -->
+					<rect x="20" y="20" width="560" height="310" rx="16" fill="var(--bg-main)" stroke="var(--border-color)" stroke-width="2" />
+					<circle cx="40" cy="40" r="4" fill="var(--border-color)" /><circle cx="560" cy="40" r="4" fill="var(--border-color)" />
+					<circle cx="40" cy="310" r="4" fill="var(--border-color)" /><circle cx="560" cy="310" r="4" fill="var(--border-color)" />
+
+					<!-- Traditional Joystick View -->
+					<g id="view-stick">
+						<!-- Stick Dust Washer -->
+						<circle cx="150" cy="180" r="50" fill="none" stroke="var(--border-color)" stroke-width="4"/>
+						<circle cx="150" cy="180" r="40" fill="var(--bg-panel)"/>
+						
+						<!-- 8-Way Gate Notches -->
+						<circle id="notch-8" class="stick-notch" cx="150" cy="130" r="3" />
+						<circle id="notch-2" class="stick-notch" cx="150" cy="230" r="3" />
+						<circle id="notch-4" class="stick-notch" cx="100" cy="180" r="3" />
+						<circle id="notch-6" class="stick-notch" cx="200" cy="180" r="3" />
+						<circle id="notch-7" class="stick-notch" cx="115" cy="145" r="3" />
+						<circle id="notch-3" class="stick-notch" cx="185" cy="215" r="3" />
+						<circle id="notch-9" class="stick-notch" cx="185" cy="145" r="3" />
+						<circle id="notch-1" class="stick-notch" cx="115" cy="215" r="3" />
+						
+						<!-- Stick Ball -->
+						<circle id="stick-ball" cx="150" cy="180" r="22" fill="var(--text-muted)" stroke="var(--border-color)" stroke-width="2" style="transition: transform 0.05s linear; z-index: 10;"/>
+					</g>
+
+					<!-- Hitbox/Leverless View (Hidden by default) -->
+					<g id="view-hitbox" style="display: none;">
+						<g id="hb-left" class="fs-btn"><circle cx="85" cy="160" r="16"/><text x="85" y="160">←</text></g>
+						<g id="hb-down" class="fs-btn"><circle cx="125" cy="180" r="16"/><text x="125" y="180">↓</text></g>
+						<g id="hb-right" class="fs-btn"><circle cx="165" cy="160" r="16"/><text x="165" y="160">→</text></g>
+						<g id="hb-up" class="fs-btn"><circle cx="125" cy="235" r="22"/><text x="125" y="235">↑</text></g>
+					</g>
+
+					<!-- Action Buttons (Vewlix Arc) -->
+					<g id="face-buttons" transform="translate(300, 120)">
+						<!-- Top Row (X, Y, RB, LB) -->
+						<g id="fs-btn-2" class="fs-btn"><circle cx="0" cy="30" r="22"/><text x="0" y="30">X</text></g>
+						<g id="fs-btn-3" class="fs-btn"><circle cx="65" cy="15" r="22"/><text x="65" y="15">Y</text></g>
+						<g id="fs-btn-5" class="fs-btn"><circle cx="130" cy="15" r="22"/><text x="130" y="15">RB</text></g>
+						<g id="fs-btn-4" class="fs-btn"><circle cx="195" cy="30" r="22"/><text x="195" y="30">LB</text></g>
+						<!-- Bottom Row (A, B, RT, LT) -->
+						<g id="fs-btn-0" class="fs-btn"><circle cx="0" cy="95" r="22"/><text x="0" y="95">A</text></g>
+						<g id="fs-btn-1" class="fs-btn"><circle cx="65" cy="80" r="22"/><text x="65" y="80">B</text></g>
+						<g id="fs-btn-7" class="fs-btn"><circle cx="130" cy="80" r="22"/><text x="130" y="80">RT</text></g>
+						<g id="fs-btn-6" class="fs-btn"><circle cx="195" cy="95" r="22"/><text x="195" y="95">LT</text></g>
+					</g>
+				</svg>
+			</div>
+		</div>
+
+		<!-- Side Modules -->
+		<div class="side-panel-group">
+			
+			<!-- SOCD Cleaner Test -->
+			<div class="panel socd-panel">
+				<h3>⚡ SOCD Cleaner Test</h3>
+				<div class="socd-grid">
+					<div class="socd-key" id="socd-l">←</div>
+					<div class="socd-key" id="socd-r">→</div>
+					<div class="socd-key" id="socd-u">↑</div>
+					<div class="socd-key" id="socd-d">↓</div>
+				</div>
+				<div class="socd-output">
+					<span class="label">SOCD OUTPUT</span>
+					<h4 id="socd-result">—</h4>
+				</div>
+				<p class="panel-hint">Press L+R or U+D simultaneously to test hardware cleaning priority.</p>
+			</div>
+
+			<!-- All Buttons Grid Box -->
+			<div class="panel all-buttons-panel">
+				<h3>🎯 All Buttons (<span id="total-buttons-count">17</span>)</h3>
+				<div id="all-buttons-grid" class="all-buttons-grid">
+					<!-- Dynamically populated or rendered slots -->
+					{Array.from({ length: 17 }).map((_, i) => (
+						<div class="raw-btn-slot" id={`raw-btn-${i}`}>{i}</div>
+					))}
+				</div>
+			</div>
+
+			<!-- History -->
+			<div class="panel history-panel">
+				<div class="panel-header">
+					<h3>📋 Input History</h3>
+					<button id="clear-history-btn" class="icon-btn" title="Clear History">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+					</button>
+				</div>
+				<div id="input-history-container" class="history-log">
+					<!-- History injected via JS -->
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="info-tip">
+		<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+		<span><strong>Tip:</strong> This tester uses standard Numpad Notation for fighting games. <strong style="color: var(--text-main);">236 = ↓↘→</strong> (Quarter Circle Forward), <strong style="color: var(--text-main);">623 = →↓↘</strong> (Dragon Punch).</span>
+	</div>
+	<article class="content-section">
+		<h2>Test Your Fight Stick Before It Costs You a Match</h2>
+		<p>You lose a round to a dropped input. Was that your execution, or did the button not register?</p>
+		<p>In fighting games that difference matters more than in any other genre. A microswitch that misses one press in fifty will not bother you in a single player game. In a first to three, it decides sets.</p>
+		<p>This fight stick tester shows every input your stick sends, live on screen. Connect it, press everything, and you will know in a minute whether the hardware is clean or whether something needs attention before your next session.</p>
+
+		<h2>What This Arcade Stick Test Checks</h2>
+		<p>The tool reads raw input from your stick and displays it as it happens.</p>
+		<ul>
+			<li>All eight action buttons, in whatever layout your stick uses</li>
+			<li>Lever directions: up, down, left, right and all four diagonals</li>
+			<li>Leverless direction buttons on hitbox style controllers</li>
+			<li>Start, Select, Home and any option buttons</li>
+			<li>Touchpad click on PlayStation compatible sticks</li>
+			<li>Extra buttons on the side or top panel</li>
+			<li>Turbo and lock switch behaviour</li>
+		</ul>
+		<p>Press an input, watch it light up. If it does not, you have found the problem.</p>
+
+		<h2>How to Test an Arcade Stick on PC</h2>
+		<ol>
+			<li>Connect the stick by USB. Almost all fight sticks are wired.</li>
+			<li>Open this page and press any button so the browser detects it.</li>
+			<li>Press every action button one at a time.</li>
+			<li>Move the lever to all four cardinal directions.</li>
+			<li>Push into all four diagonals and hold each one.</li>
+			<li>Test Start, Select and any extra buttons.</li>
+			<li>Check your <strong>SOCD behaviour</strong>, covered below.</li>
+		</ol>
+		<p>If your stick has a mode switch for PS4, Xbox or PC, set it before you plug in. Switching modes while connected can leave the device in a state your PC reads badly.</p>
+
+		<h2>Testing Buttons for Dead and Sticky Switches</h2>
+		<p>Arcade buttons take a lot of abuse. A competitive player might hit each one tens of thousands of times a month. Press each button several times and watch for these:</p>
+		<ul>
+			<li><strong>Nothing registers:</strong> dead microswitch or a disconnected quick disconnect</li>
+			<li><strong>Registers only on a hard press:</strong> switch is wearing out, will fail soon</li>
+			<li><strong>Lights up on its own:</strong> stuck plunger, debris under the button, or a shorted switch</li>
+			<li><strong>Double inputs from one press:</strong> switch bounce, a serious problem in fighting games</li>
+			<li><strong>Delayed release:</strong> plunger is sticking in the housing</li>
+		</ul>
+		<p>Switch bounce is the one that quietly ruins your play. One press sending two inputs will drop combos and cause unintended repeats, and it feels exactly like an execution error. This test makes it visible.</p>
+		<p>The good news is that fight stick buttons are the easiest controller part to replace. Sanwa and Seimitsu buttons are cheap, and most sticks use quick disconnects that need no soldering.</p>
+
+		<h2>Testing the Lever and Gate</h2>
+		<p>Push the lever fully into each cardinal direction and hold. Each should light up cleanly and stay lit.</p>
+		<p>Then check the diagonals. Push into each corner and confirm two directions register together. Up and right for up-forward, down and left for down-back, and so on. Things to watch for:</p>
+		<ul>
+			<li>A diagonal that only registers one direction, meaning a microswitch is not being reached</li>
+			<li>A direction that flickers while you hold it, meaning the switch is worn or the actuator is loose</li>
+			<li>Diagonals that are hard to hit, often a gate issue rather than a fault</li>
+		</ul>
+		<p>Gate types affect what you should expect. A square gate makes diagonals land in the corners with a firm stop. An octagonal gate gives eight distinct notches, which some players find easier for quarter circles. A circular gate has no notches at all. None of these is faulty behaviour, they just feel different.</p>
+		<p>If one specific diagonal is unreliable across many attempts, the microswitch for one of its directions is likely on the way out.</p>
+
+		<h2>Checking SOCD Behaviour</h2>
+		<p><strong>SOCD</strong> stands for <em>simultaneous opposite cardinal directions</em>. It is what your controller does when you press left and right at the same time, or up and down together. This matters enormously on leverless controllers, and it matters for tournament legality.</p>
+		<p>Press left and right together and watch what the tool shows:</p>
+		<ul>
+			<li><strong>Neutral:</strong> both inputs cancel, nothing registers. The most common ruleset.</li>
+			<li><strong>Last input wins:</strong> the direction you pressed most recently takes over.</li>
+			<li><strong>Up priority:</strong> for up and down together, up wins. Standard in most rulesets.</li>
+			<li><strong>Both register:</strong> no SOCD cleaning at all. This is banned in almost every tournament.</li>
+		</ul>
+		<p>If your stick shows both left and right active at once, your SOCD cleaner is either off or not present. Check your controller's settings or firmware before you take it to an event, because it may not pass hardware check. Leverless players should test this every time they update firmware.</p>
+
+		<h2>Which Sticks and Leverless Controllers Work</h2>
+		<p>This test supports:</p>
+		<ul>
+			<li>Traditional sticks: Hori Real Arcade Pro, Mad Catz TE and TE2, Qanba Obsidian and Drone, Razer Panthera</li>
+			<li>Leverless controllers: Hit Box, Snack Box Micro, Junkfood, All Fight Sticks builds</li>
+			<li>Custom builds using Brook, GP2040-CE, Etokki or other boards</li>
+			<li>Budget sticks from Mayflash, PXN and similar brands</li>
+			<li>Console sticks in PC mode</li>
+		</ul>
+		<p>Custom builds running open firmware sometimes report unusual button numbers. Everything still registers, the labels just may not match a standard layout.</p>
+
+		<h2>Checking Input Lag on a Fight Stick</h2>
+		<p>Fighting games run at 60 frames per second. One frame is roughly 16.7 milliseconds. Many important actions have a one to three frame window. That is why <strong>fight stick input lag</strong> gets discussed so seriously. Adding two frames of delay genuinely removes options from your game.</p>
+		<p>A well built stick on a wired connection should sit in the low single digit milliseconds. If your stick is measurably slower than that, likely causes are:</p>
+		<ul>
+			<li>A converter or adapter between stick and PC</li>
+			<li>A cheap USB hub instead of a direct port</li>
+			<li>Older PCB firmware that has since been improved</li>
+			<li>Wireless mode on a stick that supports it, which you should not use competitively</li>
+		</ul>
+		<p>Always test through the same connection you actually play on. A result from a rear USB port tells you nothing about the venue setup you will be using.</p>
+
+		<h2>When to Test Your Fight Stick</h2>
+		<p>Sensible times to run a check:</p>
+		<ul>
+			<li>The night before a tournament, not the morning of</li>
+			<li>After any button or lever part replacement</li>
+			<li>After a firmware update, especially on custom boards</li>
+			<li>When you buy a used stick, before the return window closes</li>
+			<li>After travelling with it, since transit loosens quick disconnects</li>
+			<li>When your execution suddenly gets worse for no clear reason</li>
+			<li>Before selling, so you can describe its condition accurately</li>
+		</ul>
+
+		<h2>Keeping a Fight Stick in Good Condition</h2>
+		<p>Sticks are built to be maintained, which is one of the best things about them.</p>
+		<ul>
+			<li>Open the panel every few months and reseat all quick disconnects</li>
+			<li>Blow dust out of the button housings with compressed air</li>
+			<li>Replace worn microswitches rather than whole buttons where possible</li>
+			<li>Keep drinks well away, liquid inside a stick is far worse than in a pad</li>
+			<li>Do not carry it loose in a bag without padding around the lever</li>
+			<li>Keep a couple of spare buttons and a spare microswitch in your bag</li>
+		</ul>
+		<p>Most people replace buttons long before the stick body wears out. That is normal, and it is cheap.</p>
+
+		<h2>Run Your Fight Stick Test</h2>
+		<p>Plug in your stick and press any button to begin. Work through every button several times, hit all eight lever directions, hold the diagonals, and check your SOCD behaviour on opposing inputs.</p>
+		<p>A few minutes now tells you whether that dropped combo was your hands or your hardware. Better to find out at your desk than in a bracket.</p>
+	</article>
+
+	<style>
+		.header { text-align: center; margin-bottom: 2rem; }
+		.header h1 { margin-bottom: 0.5rem; color: var(--text-main); }
+		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif;}
+
+		.error-banner { background: rgba(231, 76, 60, 0.15); border: 1px solid #E74C3C; color: var(--text-main); padding: 1rem; border-radius: 12px; text-align: center; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;}
+
+		.dashboard { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; width: 100%; margin-bottom: 1.5rem; }
+
+		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 18px; padding: 1.5rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); font-family: 'Inter', sans-serif;}
+		
+		.visualizer-panel { min-height: 500px; display: flex; flex-direction: column; }
+		.side-panel-group { display: flex; flex-direction: column; gap: 1.5rem; }
+
+		.visualizer-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+		.title-group h2 { margin: 0 0 0.25rem 0; font-size: 1.25rem; color: var(--text-main); }
+		.status-indicator { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+
+		/* Toggle Group */
+		.toggle-group { display: flex; background: var(--bg-panel); border-radius: 10px; padding: 4px; border: 1px solid var(--border-color); }
+		.mode-btn { background: transparent; border: none; color: var(--text-muted); padding: 6px 14px; font-weight: 600; font-family: 'Inter', sans-serif; font-size: 0.85rem; cursor: pointer; border-radius: 6px; transition: all 0.2s; }
+		.mode-btn:hover { color: var(--text-main); background: var(--bg-main); }
+		.mode-btn.active { background: #FF7300; color: #FFF; box-shadow: 0 2px 8px rgba(255, 115, 0, 0.4); }
+
+		.visualizer-container { flex: 1; display: flex; align-items: center; justify-content: center; }
+
+		/* Arcade Button SVG Styles */
+		.fs-btn circle { fill: var(--bg-main); stroke: var(--border-color); stroke-width: 2; transition: all 0.05s linear; }
+		.fs-btn text { font-size: 13px; fill: var(--text-muted); font-weight: 700; text-anchor: middle; dominant-baseline: central; font-family: 'Inter', sans-serif; pointer-events: none; transition: all 0.05s linear;}
+		.fs-btn.active circle { fill: #FF7300; stroke: #FF9800; }
+		.fs-btn.active text { fill: #FFF; }
+
+		/* Stick Notch Styles */
+		.stick-notch { fill: var(--border-color); transition: all 0.1s ease; }
+		.stick-notch.active { fill: #00F2FE; filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.8)); r: 4.5; } 
+
+		h3 { color: var(--text-main); font-size: 1.05rem; font-weight: 600; margin: 0 0 1rem 0; }
+
+		/* SOCD Module */
+		.socd-grid { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
+		.socd-key { width: 36px; height: 36px; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-weight: bold; transition: all 0.1s; }
+		.socd-key.active { background: #FF7300; border-color: #FF9800; color: #FFF; box-shadow: 0 0 12px rgba(255, 115, 0, 0.4); }
+		.socd-output { background: var(--bg-main); border: 1px solid var(--border-color); padding: 1rem; border-radius: 12px; text-align: center; margin-bottom: 0.75rem;}
+		.socd-output .label { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 600; letter-spacing: 1px; margin-bottom: 0.25rem; }
+		.socd-output h4 { margin: 0; color: var(--text-main); font-size: 1.1rem; }
+		.panel-hint { font-size: 0.8rem; color: var(--text-muted); text-align: center; margin: 0; }
+
+		/* All Buttons Grid Module Styles */
+		.all-buttons-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
+		.raw-btn-slot { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); transition: all 0.05s linear; }
+		.raw-btn-slot.active { background: #FF7300; border-color: #FF9800; color: #FFF; box-shadow: 0 0 10px rgba(255, 115, 0, 0.4); }
+
+		/* History */
+		.panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+		.icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;}
+		.icon-btn:hover { background: var(--border-color); color: var(--text-main); border-color: var(--text-muted);}
+
+		.history-log { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem; min-height: 120px; max-height: 150px; overflow-y: auto; display: flex; flex-wrap: wrap; gap: 0.4rem; align-content: flex-start; }
+		.hist-chip { background: var(--bg-panel); border: 1px solid var(--border-color); color: var(--text-main); padding: 4px 8px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; }
+		.hist-chip.arrow { color: #FF7300; border-color: rgba(255,115,0,0.3); background: rgba(255,115,0,0.1); font-size: 1.1rem; padding: 2px 8px; }
+
+		.info-tip { display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: rgba(255, 115, 0, 0.05); border: 1px solid rgba(255, 115, 0, 0.2); padding: 1rem; border-radius: 12px; color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.9rem; }
+
+		@media (max-width: 900px) {
+			.dashboard { grid-template-columns: 1fr; }
+		}
+
+		/* Content Section Styles */
+		.content-section {
+			margin-top: 4rem;
+			padding: 2.5rem;
+			background: var(--bg-panel);
+			border: 1px solid var(--border-color);
+			border-radius: 16px;
+			color: var(--text-muted);
+			font-family: 'Inter', sans-serif;
+			line-height: 1.7;
+		}
+		.content-section h2 {
+			color: var(--text-main);
+			font-size: 1.8rem;
+			margin-top: 2.5rem;
+			margin-bottom: 1rem;
+			border-bottom: 1px solid var(--border-color);
+			padding-bottom: 0.5rem;
+		}
+		.content-section h2:first-child { margin-top: 0; }
+		.content-section h3 {
+			color: var(--accent-primary);
+			font-size: 1.3rem;
+			margin-top: 1.5rem;
+			margin-bottom: 0.75rem;
+		}
+		.content-section p { margin-bottom: 1.25rem; font-size: 1.05rem; }
+		.content-section ul, .content-section ol {
+			margin-bottom: 1.5rem;
+			padding-left: 1.5rem;
+			font-size: 1.05rem;
+		}
+		.content-section li { margin-bottom: 0.5rem; }
+		.content-section strong { color: var(--text-main); font-weight: 700; }
+	</style>
+	<script>
+		import { FightStickEngine } from '../scripts/fightStickEngine.ts';
+		new FightStickEngine();
+	</script>
+</BaseLayout>

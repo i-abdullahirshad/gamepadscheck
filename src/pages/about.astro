@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="About Us | GamepadsCheck" 
+  description="Learn why we built GamepadsCheck and how our free, browser-based controller testing tools work to keep your data local."
+>
+  <div class="page-container">
+    <header class="page-header">
+      <h1>About <span>Us</span></h1>
+    </header>
+
+    <div class="page-content">
+      
+      <p>GamepadsCheck is a small site built around one simple idea. You should be able to test your controller in seconds, without downloading anything.</p>
+      
+      <p>We started because testing a gamepad on PC was harder than it needed to be. If your stick was drifting or a button stopped working, you had two options. Install some random software from a forum post, or guess. Neither one felt right. So we built free browser tools that just run in your tab and show you exactly what your controller is sending.</p>
+      
+      <h2>What we offer</h2>
+      <p>Right now you can use six free tools on gamepadscheck.com:</p>
+      <ul>
+        <li><strong>Gamepad Tester</strong> for a full check of buttons, sticks and triggers</li>
+        <li><strong>Xbox Controller Test</strong> built around Xbox pads and their common problems</li>
+        <li><strong>Gamepad Mapping Test</strong> to see how your buttons are mapped and where they land</li>
+        <li><strong>Latency Test</strong> to measure your input delay in milliseconds</li>
+        <li><strong>Fight Stick Tester</strong> for arcade sticks and hitbox style controllers</li>
+        <li><strong>Steering Wheel Tester</strong> for racing wheels and pedals</li>
+      </ul>
+      
+      <p>Everything works in your browser. Nothing gets installed. Nothing gets sent to a server. Your controller data stays on your own machine.</p>
+      
+      <h2>Why we also write</h2>
+      <p>Testing shows you the problem. It does not always tell you what to do next.</p>
+      
+      <p>That is why we write guides alongside the tools. If your stick has drift, you probably want to know why it happens and what actually fixes it. If your Xbox controller keeps blinking, you want the real reason, not five pages of filler. We cover deadzones, circularity error, snapback, polling rates, wired versus wireless, remapping, DS4Windows setup and the long list of small issues that stop a controller from working in a game.</p>
+      
+      <p>We aim for the same thing in every article. Clear answers, tested where we can test them, and no padding.</p>
+      
+      <h2>Who this is for</h2>
+      <p>Anyone with a controller and a question. Competitive players checking their input lag. Someone about to buy a used pad and wanting to know if the sticks are worn. A parent trying to work out why the controller stopped responding after a Windows update. It is all welcome here.</p>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 800px;
+    margin: 2rem auto 4rem auto;
+    padding: 3rem;
+    background: var(--bg-panel);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    color: var(--text-muted);
+  }
+  
+  .page-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  
+  .page-header span {
+    color: var(--accent-primary);
+  }
+
+  /* Typography for the text content */
+  .page-content :global(h2) { 
+    color: var(--text-main); 
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem; 
+    margin-bottom: 1rem;
+  }
+  .page-content :global(h3) { 
+    color: var(--text-muted); 
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem; 
+    margin-bottom: 0.75rem;
+  }
+  .page-content :global(p) { 
+    color: var(--text-muted); 
+    line-height: 1.8; 
+    margin-bottom: 1.25rem; 
+    font-size: 1.05rem;
+  }
+  .page-content :global(ul), .page-content :global(ol) { 
+    color: var(--text-muted);
+    margin-bottom: 1.5rem; 
+    padding-left: 1.5rem; 
+    line-height: 1.7;
+  }
+  .page-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .page-content :global(strong) {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+  .page-content :global(a) { 
+    color: var(--accent-primary); 
+    text-decoration: none; 
+  }
+  .page-content :global(a:hover) { 
+    text-decoration: underline; 
+  }
+</style>

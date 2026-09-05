@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Contact Us | GamepadsCheck" 
+  description="Got a question, found a bug, or want a tool we do not have yet? Get in touch with the team at GamepadsCheck."
+>
+  <div class="page-container">
+    <header class="page-header">
+      <h1>Contact <span>Us</span></h1>
+    </header>
+
+    <div class="page-content">
+      
+      <p>Got a question, found a bug, or want a tool we do not have yet? We would like to hear it.</p>
+      
+      <h2>Email</h2>
+      <p><a href="mailto:frankmarshall8353@gmail.com">frankmarshall8353@gmail.com</a></p>
+      <p>We read every message. Replies usually take one to two working days.</p>
+      
+      <h2>What to write about</h2>
+      <ul>
+        <li><strong>Something broken?</strong> Tell us which tool, which controller you were using, and what browser. Those three things solve most reports on the first try. A screenshot helps if you have one.</li>
+        <li><strong>Controller not detected?</strong> Send the same three details. Sometimes it is your browser, sometimes it is the pad, and we can usually tell which one from the report.</li>
+        <li><strong>Want a new tool?</strong> Say what you would test and why. A few of our tools started as reader requests.</li>
+        <li><strong>Spotted a mistake in a guide?</strong> Point us at it. If we got something wrong we will fix it and say so.</li>
+        <li><strong>Working on something related?</strong> Feedback, corrections and collaboration ideas are all fine. We do not do paid link placements or sponsored posts, so please skip those.</li>
+      </ul>
+      
+      <h2>Before you write</h2>
+      <p>If your controller is not showing up in the tester, try this first. Press any button on the pad, since browsers only see a controller once it sends input. Then check the cable or dongle, and reload the page. That fixes it more often than not.</p>
+      
+      <h2>Who you are writing to</h2>
+      <p>Game Pads Check is run by a small team. There is no support desk and no ticket system. Your message goes straight to a person who works on the site.</p>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 800px;
+    margin: 2rem auto 4rem auto;
+    padding: 3rem;
+    background: var(--bg-panel);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    color: var(--text-muted);
+  }
+  
+  .page-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  
+  .page-header span {
+    color: var(--accent-primary);
+  }
+
+  /* Typography for the text content */
+  .page-content :global(h2) { 
+    color: var(--text-main); 
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem; 
+    margin-bottom: 1rem;
+  }
+  .page-content :global(h3) { 
+    color: var(--text-muted); 
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem; 
+    margin-bottom: 0.75rem;
+  }
+  .page-content :global(p) { 
+    color: var(--text-muted); 
+    line-height: 1.8; 
+    margin-bottom: 1.25rem; 
+    font-size: 1.05rem;
+  }
+  .page-content :global(ul), .page-content :global(ol) { 
+    color: var(--text-muted);
+    margin-bottom: 1.5rem; 
+    padding-left: 1.5rem; 
+    line-height: 1.7;
+  }
+  .page-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .page-content :global(strong) {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+  .page-content :global(a) { 
+    color: var(--accent-primary); 
+    text-decoration: none; 
+  }
+  .page-content :global(a:hover) { 
+    text-decoration: underline; 
+  }
+</style>

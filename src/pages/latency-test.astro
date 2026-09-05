@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+	title="Controller Latency Test - Measure Input Lag Online Free" 
+	description="Free controller latency test online. Measure input lag in milliseconds, compare wired vs wireless, and check polling rate in your browser. No download."
+>
+	
+
+	<div class="header">
+		<h1>Controller Latency Test</h1>
+		<p>Measure your controller-to-PC input delay, polling rate (Hz), and connection jitter.</p>
+	</div>
+
+	<div class="dashboard">
+		<div class="panel visualizer-panel">
+			<div class="visualizer-header">
+				<h2 style="margin:0;"><span style="color: #FF7300;">⏱️</span> Latency Visualizer</h2>
+				
+				<div style="display: flex; gap: 0.75rem; align-items: center;">
+					<button id="pause-btn" class="icon-btn" title="Pause/Resume Polling" disabled>
+						<svg id="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+						<svg id="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+					</button>
+					<span id="connection-status" class="status-badge disconnected">Disconnected</span>
+				</div>
+			</div>
+			
+			<div class="visualizer-container">
+				<div class="gauge-container">
+					<svg class="circular-gauge" viewBox="0 0 200 200">
+						<circle class="gauge-bg" cx="100" cy="100" r="80" />
+						<circle id="gauge-arc" class="gauge-fill" cx="100" cy="100" r="80" stroke-dasharray="502" stroke-dashoffset="502" />
+					</svg>
+					<div class="gauge-text">
+						<span id="main-latency" class="main-val">--</span>
+						<span class="unit">MS</span>
+						<span id="main-hz" class="sub-val">-- Hz</span>
+					</div>
+				</div>
+
+				<div class="chart-container">
+					<canvas id="latency-chart" width="400" height="80"></canvas>
+				</div>
+
+				<div class="webhid-container" id="webhid-container">
+					<button id="webhid-btn" class="webhid-btn">⚡ Unlock 1000Hz (WebHID)</button>
+					<p class="webhid-hint">Standard API is limited to ~200Hz. WebHID provides true hardware precision.</p>
+				</div>
+
+				<div class="device-info-card">
+					<div class="device-header">
+						<span class="chip">⚙️ DEVICE CONNECTED</span>
+					</div>
+					<h3 id="device-name">Waiting for connection...</h3>
+					<div class="device-meta">
+						<div><span class="meta-label">VENDOR ID</span><br/><span id="vendor-id">----</span></div>
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+						<div><span class="meta-label">PRODUCT ID</span><br/><span id="product-id">----</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="side-panel-group">
+			
+			<div class="panel">
+				<h3>📊 Latency Statistics</h3>
+				<div class="stats-grid">
+					<div class="stat-card">
+						<span class="stat-label">AVERAGE</span>
+						<div class="stat-value"><span id="stat-avg">--</span> <span class="stat-unit">ms</span></div>
+					</div>
+					<div class="stat-card">
+						<span class="stat-label">JITTER</span>
+						<div class="stat-value" style="color: var(--text-main);"><span id="stat-jitter">--</span> <span class="stat-unit">ms</span></div>
+					</div>
+					<div class="stat-card">
+						<span class="stat-label">MINIMUM</span>
+						<div class="stat-value"><span id="stat-min">--</span> <span class="stat-unit">ms</span></div>
+					</div>
+					<div class="stat-card">
+						<span class="stat-label">MAXIMUM</span>
+						<div class="stat-value"><span id="stat-max">--</span> <span class="stat-unit">ms</span></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel">
+				<h3>⚡ Polling Rate</h3>
+				<div class="polling-card">
+					<span id="stat-hz" class="polling-val">--</span>
+					<span class="polling-unit">HZ</span>
+				</div>
+			</div>
+
+			<div class="panel">
+				<h3>ℹ️ Latency Guide</h3>
+				<div class="guide-list">
+					<div class="guide-item" style="border-color: rgba(46, 204, 113, 0.3);">
+						<div class="guide-dot" style="background: #2ECC71; box-shadow: 0 0 8px #2ECC71;"></div>
+						<div class="guide-text"><strong>0-2ms</strong><br/><span>Excellent • Pro-level (1000Hz)</span></div>
+					</div>
+					<div class="guide-item" style="border-color: rgba(52, 152, 219, 0.3);">
+						<div class="guide-dot" style="background: #3498DB; box-shadow: 0 0 8px #3498DB;"></div>
+						<div class="guide-text"><strong>2-5ms</strong><br/><span>Great • Wired USB (250Hz+)</span></div>
+					</div>
+					<div class="guide-item" style="border-color: rgba(243, 195, 0, 0.3);">
+						<div class="guide-dot" style="background: #F3C300; box-shadow: 0 0 8px #F3C300;"></div>
+						<div class="guide-text"><strong>5-8ms</strong><br/><span>Average • 2.4GHz Wireless</span></div>
+					</div>
+					<div class="guide-item" style="border-color: rgba(231, 76, 60, 0.3);">
+						<div class="guide-dot" style="background: #E74C3C; box-shadow: 0 0 8px #E74C3C;"></div>
+						<div class="guide-text"><strong>8ms+</strong><br/><span>High • Standard Bluetooth</span></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="info-tip">
+		<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF7300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+		<span><strong>Note:</strong> Continuously rotate your analog sticks to force the hardware to send data packets for accurate polling.</span>
+	</div>
+
+	<article class="content-section">
+		<h2>Measure Your Controller Input Lag in Milliseconds</h2>
+		<p>You press the button. The character jumps a fraction too late. It is small enough that you cannot prove it, but big enough that you keep losing trades you should be winning.</p>
+		<p>That gap has a number. This controller latency test measures it.</p>
+		<p>Connect your controller, press a button when the tool asks, and you will see how many milliseconds pass between your input and the moment your PC registers it. No install, no cost, works in any modern browser.</p>
+
+		<h2>What Controller Latency Actually Is</h2>
+		<p><strong>Input lag</strong> is the delay between your finger moving and the game reacting.</p>
+		<p>It builds up in stages:</p>
+		<ul>
+			<li><strong>Button travel:</strong> the physical time the switch takes to close</li>
+			<li><strong>Controller processing:</strong> the pad turning that press into data</li>
+			<li><strong>Transmission:</strong> sending it over cable, Bluetooth or a wireless dongle</li>
+			<li><strong>Polling:</strong> how often your PC checks for new input</li>
+			<li><strong>Game engine:</strong> the game reading the input and acting on it</li>
+			<li><strong>Display:</strong> your monitor drawing the result</li>
+		</ul>
+		<p>This test measures the input side of that chain. It cannot see your monitor or your game engine, but it can tell you whether your controller and its connection are adding delay before the game even gets involved.</p>
+		<p>That is the part you can actually change.</p>
+
+		<h2>How to Test Controller Input Lag</h2>
+		<ol>
+			<li>Connect your controller by cable, Bluetooth or a wireless dongle.</li>
+			<li>Open this page and press any button so the browser detects it.</li>
+			<li>Follow the on-screen prompt and press when told.</li>
+			<li>Repeat several times, at least ten presses.</li>
+			<li>Look at your average rather than any single reading.</li>
+		</ol>
+		<p>One press proves nothing. A single result can be thrown off by a background download, a browser tab waking up, or you simply being slow that one time. The average across ten or more presses is the number worth trusting.</p>
+		<p>Close heavy programs before testing. A running game, a video render or a big file copy will all inflate your result.</p>
+
+		<h2>Reading Your Latency Numbers</h2>
+		<p>Rough guide for what your average means:</p>
+		<ul>
+			<li><strong>Under 8ms:</strong> excellent, typical of a good wired connection</li>
+			<li><strong>8ms to 16ms:</strong> good, most players will never feel this</li>
+			<li><strong>16ms to 30ms:</strong> noticeable in fast games, fine for slower ones</li>
+			<li><strong>30ms to 50ms:</strong> you will feel this in shooters and fighting games</li>
+			<li><strong>Over 50ms:</strong> something is wrong, worth investigating</li>
+		</ul>
+		<p>Context matters more than the raw number. A 25ms delay is irrelevant in a strategy game or an RPG. In a fighting game, where a single frame is roughly 16.7ms, 25ms means you are losing inputs on reaction-speed situations.</p>
+		<p>Also watch the spread. A controller that averages 12ms but occasionally spikes to 60ms is worse to play on than one that sits steadily at 20ms. Consistency is what your hands learn. Random spikes are what break your timing.</p>
+
+		<h2>Wired vs Wireless Controller Latency</h2>
+		<p>This is the question most people are really asking.</p>
+		<p><strong>Wired USB</strong> is the fastest and the most consistent. There is nothing to interfere with it. If you want the lowest possible input lag, use a cable.</p>
+		<p><strong>2.4GHz wireless dongles</strong> come close to wired. The dedicated receiver means less negotiation and fewer collisions than Bluetooth. Xbox Wireless Adapter and most third party dongles sit in this group.</p>
+		<p><strong>Bluetooth</strong> is the slowest of the three and the most variable. It shares crowded spectrum with WiFi, other Bluetooth devices, and anything else on 2.4GHz. It is perfectly fine for casual play and noticeably worse for competitive play.</p>
+		<p>The realistic gap between wired and Bluetooth is usually a handful of milliseconds. That is nothing in most games and meaningful in a few.</p>
+		<p>Test your own setup both ways instead of trusting general numbers. Your room, your dongle and your USB ports all affect the result.</p>
+
+		<h2>Polling Rate and Why It Matters</h2>
+		<p><strong>Polling rate</strong> is how many times per second your PC asks the controller for its current state.</p>
+		<ul>
+			<li><strong>125Hz:</strong> checks every 8ms</li>
+			<li><strong>250Hz:</strong> every 4ms</li>
+			<li><strong>500Hz:</strong> every 2ms</li>
+			<li><strong>1000Hz:</strong> every 1ms</li>
+		</ul>
+		<p>Most standard controllers poll at 125Hz or 250Hz. Higher end pads and some third party controllers support 1000Hz.</p>
+		<p>A higher polling rate lowers the worst case delay between your press and the PC noticing it. The gain from 125Hz to 500Hz is real but small. The gain from 500Hz to 1000Hz is very small. Do not spend money chasing it unless everything else in your chain is already optimised.</p>
+
+		<h2>What Causes High Controller Latency</h2>
+		<p>If your numbers came back worse than expected, work through these.</p>
+		
+		<h3>Connection problems</h3>
+		<ul>
+			<li>Bluetooth interference from WiFi routers, phones or other paired devices</li>
+			<li>A wireless dongle plugged into a crowded USB hub</li>
+			<li>Distance or obstacles between controller and receiver</li>
+			<li>A low controller battery, which some pads respond to by cutting transmission power</li>
+		</ul>
+
+		<h3>PC side problems</h3>
+		<ul>
+			<li>Background downloads, updates or virus scans</li>
+			<li>Too many browser tabs eating CPU time</li>
+			<li>Power saving modes throttling your USB ports</li>
+			<li>Outdated controller firmware</li>
+			<li>Overlay software from Steam, Discord or your GPU driver adding a layer</li>
+		</ul>
+
+		<h3>Hardware problems</h3>
+		<ul>
+			<li>A cheap or damaged USB cable</li>
+			<li>A worn microswitch that needs a fraction longer to close</li>
+			<li>Some third party controllers simply have slower internal processing</li>
+		</ul>
+
+		<h2>How to Reduce Controller Input Lag</h2>
+		<p>Cheapest fixes first.</p>
+		<ul>
+			<li>Switch to a wired connection. Biggest single improvement available.</li>
+			<li>Move the wireless dongle to a front USB port or use a short extension so it is closer to you and away from metal.</li>
+			<li>Use a rear motherboard USB port for wired pads rather than a hub.</li>
+			<li>Charge the controller fully before testing or playing.</li>
+			<li>Close background apps that are using CPU or network.</li>
+			<li>Update controller firmware through the manufacturer's app.</li>
+			<li>Turn off unnecessary overlays in Steam and Discord.</li>
+			<li>Disable USB power saving in Windows Device Manager under USB Root Hub properties.</li>
+			<li>Move your router or other 2.4GHz devices further from your play area if you must use Bluetooth.</li>
+		</ul>
+		<p>Test again after each change so you know which one actually helped.</p>
+
+		<h2>When to Run a Latency Test</h2>
+		<p>Good times to check:</p>
+		<ul>
+			<li>Before a ranked session or a tournament</li>
+			<li>After switching from wired to wireless or the other way round</li>
+			<li>When comparing two controllers before deciding which to keep</li>
+			<li>After a Windows or driver update</li>
+			<li>When a game suddenly feels heavier than it did last week</li>
+			<li>Before buying a new controller, to confirm the old one is actually the problem</li>
+			<li>After moving your setup to a different room</li>
+		</ul>
+
+		<h2>Understanding the Limits of This Test</h2>
+		<p>Be honest about what these numbers cover.</p>
+		<p>This measures the delay from your press to the browser receiving it. It does not include your monitor's response time, your game's engine delay, your frame rate, or your network ping in online play.</p>
+		<p>Total lag in a real match is always higher than what you see here. What this test gives you is the input portion in isolation, which is exactly what you need when you are trying to work out whether the problem is your controller or something further down the chain.</p>
+		<p>If your input latency is low but the game still feels slow, the problem is your display, your frame rate, or your connection, not your pad.</p>
+
+		<h2>Start Your Controller Latency Test</h2>
+		<p>Plug in your controller and press any button to begin.</p>
+		<p>Run at least ten presses and note your average. Then change one thing, cable instead of Bluetooth, a different USB port, a full charge, and test again.</p>
+		<p>Within a few minutes you will know whether your controller is adding delay or whether the lag you are feeling is coming from somewhere else entirely.</p>
+	</article>
+
+	<style>
+		.header { text-align: center; margin-bottom: 2rem; }
+		.header h1 { margin-bottom: 0.5rem; color: var(--text-main); }
+		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif;}
+
+		.dashboard { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; width: 100%; margin-bottom: 1.5rem; }
+
+		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 18px; padding: 1.5rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); font-family: 'Inter', sans-serif;}
+		
+		.visualizer-panel { min-height: 550px; display: flex; flex-direction: column; }
+		.side-panel-group { display: flex; flex-direction: column; gap: 1.5rem; }
+
+		.visualizer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+		.visualizer-header h2 { margin: 0; font-size: 1.25rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;}
+		
+		.status-badge { padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid transparent; }
+		.status-badge.disconnected { background: var(--border-color); border-color: var(--border-color); color: var(--text-muted); }
+		.status-badge.connected { background: rgba(46, 204, 113, 0.1); border-color: #2ECC71; color: #2ECC71; box-shadow: 0 0 10px rgba(46, 204, 113, 0.2); }
+		.status-badge.webhid { background: rgba(255, 115, 0, 0.1); border-color: #FF7300; color: #FF7300; box-shadow: 0 0 10px rgba(255, 115, 0, 0.3); }
+
+		.icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 20px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;}
+		.icon-btn:not(:disabled):hover { background: var(--border-color); color: var(--text-main); border-color: var(--text-muted); }
+		.icon-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+		.icon-btn.paused { border-color: #FF7300; color: #FF7300; background: rgba(255, 115, 0, 0.1); box-shadow: 0 0 10px rgba(255, 115, 0, 0.2); }
+
+		.visualizer-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.75rem; }
+
+		/* Circular Gauge */
+		.gauge-container { position: relative; width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; }
+		.circular-gauge { width: 100%; height: 100%; transform: rotate(-90deg); position: absolute; top: 0; left: 0; }
+		.gauge-bg { fill: none; stroke: var(--border-color); stroke-width: 12; }
+		.gauge-fill { fill: none; stroke: #FF7300; stroke-width: 12; stroke-linecap: round; transition: stroke-dashoffset 0.1s linear; filter: drop-shadow(0 0 8px rgba(255, 115, 0, 0.5)); }
+		
+		.gauge-text { text-align: center; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 2px; }
+		.main-val { font-size: 2.5rem; font-weight: 800; color: #FF7300; line-height: 1.1; font-variant-numeric: tabular-nums; }
+		.unit { font-size: 1rem; color: var(--text-muted); font-weight: 600; letter-spacing: 2px; margin-bottom: 0.5rem; }
+		.sub-val { font-size: 0.9rem; color: var(--text-muted); background: var(--bg-main); padding: 2px 10px; border-radius: 12px; font-variant-numeric: tabular-nums;}
+
+		/* Histogram */
+		.chart-container { width: 100%; max-width: 400px; height: 70px; position: relative; }
+		#latency-chart { width: 100%; height: 100%; }
+
+		/* WebHID Button */
+		.webhid-container { width: 100%; max-width: 400px; text-align: center; }
+		.webhid-btn { width: 100%; background: var(--text-main); color: var(--bg-main); border: none; padding: 0.85rem; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+		.webhid-btn:hover { background: var(--text-muted); box-shadow: 0 4px 20px rgba(0,0,0,0.2); transform: translateY(-1px); }
+		.webhid-btn.active { background: rgba(46, 204, 113, 0.15); color: #2ECC71; border: 1px solid #2ECC71; box-shadow: none; pointer-events: none; }
+		.webhid-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem; margin-bottom: 0; }
+
+		/* Device Card */
+		.device-info-card { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; width: 100%; max-width: 400px; text-align: center; }
+		.device-header { margin-bottom: 0.75rem; }
+		.chip { background: rgba(52, 152, 219, 0.15); color: #3498DB; border: 1px solid rgba(52, 152, 219, 0.3); font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 1px; }
+		.device-info-card h3 { margin: 0 0 1rem 0; font-size: 1rem; color: var(--text-main); word-wrap: break-word; }
+		
+		.device-meta { display: flex; justify-content: space-around; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1rem; }
+		.meta-label { font-size: 0.65rem; color: var(--text-muted); font-weight: 700; letter-spacing: 1px; }
+		.device-meta span:not(.meta-label) { font-family: monospace; color: var(--text-muted); font-size: 0.9rem; }
+
+		/* Side Modules */
+		h3 { color: var(--text-main); font-size: 1.05rem; font-weight: 600; margin: 0 0 1.25rem 0; }
+		
+		.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+		.stat-card { background: var(--bg-main); border: 1px solid var(--border-color); padding: 1rem; border-radius: 10px; }
+		.stat-label { display: block; font-size: 0.7rem; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 0.5rem; }
+		.stat-value { font-size: 1.5rem; font-weight: 800; color: #FF7300; font-variant-numeric: tabular-nums; display: flex; align-items: baseline; gap: 4px;}
+		.stat-unit { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+
+		.polling-card { background: var(--bg-main); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 10px; text-align: center; }
+		.polling-val { font-size: 2.5rem; font-weight: 800; color: #A855F7; text-shadow: 0 0 15px rgba(168, 85, 247, 0.4); font-variant-numeric: tabular-nums;}
+		.polling-unit { font-size: 1rem; color: var(--text-muted); font-weight: 700; }
+
+		.guide-list { display: flex; flex-direction: column; gap: 0.75rem; }
+		.guide-item { display: flex; align-items: center; gap: 1rem; padding: 0.75rem; background: var(--bg-main); border: 1px solid transparent; border-radius: 8px; }
+		.guide-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+		.guide-text strong { color: var(--text-main); font-size: 0.95rem; }
+		.guide-text span { color: var(--text-muted); font-size: 0.8rem; }
+
+		.info-tip { display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: rgba(255, 115, 0, 0.05); border: 1px solid rgba(255, 115, 0, 0.2); padding: 1rem; border-radius: 12px; color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.9rem; }
+
+		@media (max-width: 900px) {
+			.dashboard { grid-template-columns: 1fr; }
+		}
+
+		/* Content Section Styles */
+		.content-section {
+			margin-top: 4rem;
+			padding: 2.5rem;
+			background: var(--bg-panel);
+			border: 1px solid var(--border-color);
+			border-radius: 16px;
+			color: var(--text-muted);
+			font-family: 'Inter', sans-serif;
+			line-height: 1.7;
+		}
+		.content-section h2 {
+			color: var(--text-main);
+			font-size: 1.8rem;
+			margin-top: 2.5rem;
+			margin-bottom: 1rem;
+			border-bottom: 1px solid var(--border-color);
+			padding-bottom: 0.5rem;
+		}
+		.content-section h2:first-child { margin-top: 0; }
+		.content-section h3 {
+			color: var(--accent-primary);
+			font-size: 1.3rem;
+			margin-top: 1.5rem;
+			margin-bottom: 0.75rem;
+		}
+		.content-section p { margin-bottom: 1.25rem; font-size: 1.05rem; }
+		.content-section ul, .content-section ol {
+			margin-bottom: 1.5rem;
+			padding-left: 1.5rem;
+			font-size: 1.05rem;
+		}
+		.content-section li { margin-bottom: 0.5rem; }
+		.content-section strong { color: var(--text-main); font-weight: 700; }
+	</style>
+	<script>
+		import { LatencyEngine } from '../scripts/latencyEngine.ts';
+		new LatencyEngine();
+	</script>
+</BaseLayout>

@@ -1,0 +1,452 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+	title="Gamepad Tester - Test Your Controller Online Free (No Download)" 
+	description="Free online gamepad tester. Check buttons, sticks, triggers and stick drift in your browser. Works with Xbox, PS5 and PC controllers. No download needed."
+>
+
+
+	<div class="header">
+		<h1>Free Online Gamepad Tester</h1>
+		<p>No software downloads required, just connect. Get real data on your controller's analog sticks, buttons, and vibration performance.</p>
+	</div>
+
+	<div id="api-error" class="error-banner" style="display: none;">
+		⚠️ <strong>API Not Supported:</strong> Your current browser does not support the Web Gamepad API. Please use a modern version of Chrome, Edge, or Firefox.
+	</div>
+
+	<div class="dashboard">
+		<div class="panel visualizer-panel">
+			
+			<div class="visualizer-header">
+				<div class="status-group">
+					<h2>🎮 Controller Visualizer</h2>
+					<p id="connection-status" class="status-indicator">Press any button to connect...</p>
+				</div>
+				<div class="meta-group">
+					<div class="polling-rate">Rate: <span id="hz-display">0</span> Hz</div>
+					
+					<div class="player-selector" id="player-selector">
+						<button class="player-btn" data-index="0">P1 <span class="dot"></span></button>
+						<button class="player-btn" data-index="1">P2 <span class="dot"></span></button>
+						<button class="player-btn" data-index="2">P3 <span class="dot"></span></button>
+						<button class="player-btn" data-index="3">P4 <span class="dot"></span></button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="visualizer-container">
+				<svg id="controller-svg" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; max-width: 600px;">
+					<g id="btn-6" style="color: var(--border-color);"><rect x="180" y="30" width="36" height="70" rx="18" fill="currentColor" stroke="var(--border-color)" stroke-width="2"/></g>
+					<g id="btn-7" style="color: var(--border-color);"><rect x="384" y="30" width="36" height="70" rx="18" fill="currentColor" stroke="var(--border-color)" stroke-width="2"/></g>
+					<g id="btn-4" style="color: var(--border-color);"><rect x="160" y="80" width="64" height="28" rx="8" fill="currentColor" stroke="var(--border-color)" stroke-width="2"/><text x="192" y="99" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="var(--text-muted)" text-anchor="middle">LB</text></g>
+					<g id="btn-5" style="color: var(--border-color);"><rect x="376" y="80" width="64" height="28" rx="8" fill="currentColor" stroke="var(--border-color)" stroke-width="2"/><text x="408" y="99" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="var(--text-muted)" text-anchor="middle">RB</text></g>
+					
+					<!-- Main Controller Body -->
+					<path d="M 170,110 C 220,110 250,110 300,110 C 350,110 380,110 430,110 C 500,110 540,160 550,240 C 560,330 540,410 490,420 C 450,428 420,380 400,330 C 370,300 340,290 300,290 C 260,290 230,300 200,330 C 180,380 150,428 110,420 C 60,410 40,330 50,240 C 60,160 100,120 170,110 Z" fill="var(--bg-panel)" stroke="var(--border-color)" stroke-width="4" stroke-linejoin="round"/>
+					<path d="M 170,110 C 140,180 140,260 200,330" fill="none" stroke="var(--border-color)" stroke-width="3"/>
+					<path d="M 430,110 C 460,180 460,260 400,330" fill="none" stroke="var(--border-color)" stroke-width="3"/>
+					
+					<g transform="translate(190, 210)"><circle cx="0" cy="0" r="44" fill="var(--bg-main)" stroke="var(--border-color)" stroke-width="2"/><g id="btn-10" style="color: var(--border-color);"><circle cx="0" cy="0" r="32" fill="currentColor"/><circle cx="0" cy="0" r="12" fill="var(--text-muted)" pointer-events="none"/></g></g>
+					<g transform="translate(380, 280)"><circle cx="0" cy="0" r="44" fill="var(--bg-main)" stroke="var(--border-color)" stroke-width="2"/><g id="btn-11" style="color: var(--border-color);"><circle cx="0" cy="0" r="32" fill="currentColor"/><circle cx="0" cy="0" r="12" fill="var(--text-muted)" pointer-events="none"/></g></g>
+					
+					<g transform="translate(250, 290)"><circle cx="0" cy="0" r="44" fill="var(--bg-main)" stroke="var(--border-color)" stroke-width="2"/><g id="btn-12" style="color: var(--border-color);"><path d="M -13,-33 L 13,-33 L 13,-13 L -13,-13 Z" fill="currentColor"/></g><g id="btn-13" style="color: var(--border-color);"><path d="M -13,13 L 13,13 L 13,33 L -13,33 Z" fill="currentColor"/></g><g id="btn-14" style="color: var(--border-color);"><path d="M -33,-13 L -13,-13 L -13,13 L -33,13 Z" fill="currentColor"/></g><g id="btn-15" style="color: var(--border-color);"><path d="M 13,-13 L 33,-13 L 33,13 L 13,13 Z" fill="currentColor"/></g><rect x="-13" y="-13" width="26" height="26" fill="var(--border-color)"/></g>
+					
+					<!-- Face Buttons -->
+					<g transform="translate(440, 200)"><circle cx="0" cy="0" r="46" fill="var(--bg-main)" stroke="var(--border-color)" stroke-width="2"/>
+						<g id="btn-3" style="color: var(--bg-panel);" transform="translate(0, -28)"><circle cx="0" cy="0" r="14" fill="currentColor" stroke="#F1C40F" stroke-width="3"/><text x="0" y="5" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="var(--text-main)" text-anchor="middle">Y</text></g>
+						<g id="btn-1" style="color: var(--bg-panel);" transform="translate(28, 0)"><circle cx="0" cy="0" r="14" fill="currentColor" stroke="#E74C3C" stroke-width="3"/><text x="0" y="5" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="var(--text-main)" text-anchor="middle">B</text></g>
+						<g id="btn-0" style="color: var(--bg-panel);" transform="translate(0, 28)"><circle cx="0" cy="0" r="14" fill="currentColor" stroke="#2ECC71" stroke-width="3"/><text x="0" y="5" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="var(--text-main)" text-anchor="middle">A</text></g>
+						<g id="btn-2" style="color: var(--bg-panel);" transform="translate(-28, 0)"><circle cx="0" cy="0" r="14" fill="currentColor" stroke="#3498DB" stroke-width="3"/><text x="0" y="5" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="var(--text-main)" text-anchor="middle">X</text></g>
+					</g>
+					
+					<!-- Menu Buttons -->
+					<g id="btn-16" style="color: var(--border-color);" transform="translate(315, 145)"><circle cx="0" cy="0" r="20" fill="currentColor"/><path d="M -8,-8 L 8,8 M -8,8 L 8,-8" stroke="var(--text-muted)" stroke-width="4" stroke-linecap="round"/></g>
+					<g id="btn-8" style="color: var(--border-color);" transform="translate(265, 195)"><circle cx="0" cy="0" r="12" fill="currentColor"/><rect x="-5" y="-4" width="5" height="4" fill="none" stroke="var(--text-muted)" stroke-width="1.5"/><rect x="-1" y="0" width="5" height="4" fill="none" stroke="var(--text-muted)" stroke-width="1.5"/></g>
+					<g id="btn-9" style="color: var(--border-color);" transform="translate(365, 195)"><circle cx="0" cy="0" r="12" fill="currentColor"/><line x1="-5" y1="-3" x2="5" y2="-3" stroke="var(--text-muted)" stroke-width="1.5" stroke-linecap="round"/><line x1="-5" y1="0" x2="5" y2="0" stroke="var(--text-muted)" stroke-width="1.5" stroke-linecap="round"/><line x1="-5" y1="3" x2="5" y2="3" stroke="var(--text-muted)" stroke-width="1.5" stroke-linecap="round"/></g>
+					<g id="btn-17" style="color: var(--border-color);" transform="translate(315, 225)"><rect x="-14" y="-9" width="28" height="18" rx="9" fill="currentColor"/><path d="M 0,3 L 0,-3 M -3,-1 L 0,-4 L 3,-1 M -4,4 L 4,4" fill="none" stroke="var(--text-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+				</svg>
+			</div>
+		</div>
+
+		<div class="panel">
+			<div class="panel-header">
+				<h2>🎯 Analog Sticks</h2>
+				<button id="reset-sticks-btn" class="icon-btn" title="Reset Paths (P)">
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+				</button>
+			</div>
+			<div class="module-layout">
+				<div class="module-col">
+					<div class="stick-ui">
+						<canvas id="ls-canvas" width="90" height="90" class="overlay-canvas"></canvas>
+						<canvas id="ls-circ-canvas" width="90" height="90" class="overlay-canvas"></canvas>
+						<div class="crosshair-x"></div>
+						<div class="crosshair-y"></div>
+						<div id="ls-dot" class="stick-dot"></div>
+					</div>
+					<div class="data-row">LS: <span id="ls-data">0.00, 0.00</span></div>
+					<div class="data-row error-text">Error: <span id="ls-error">0.0%</span></div>
+				</div>
+				<div class="module-col">
+					<div class="stick-ui">
+						<canvas id="rs-canvas" width="90" height="90" class="overlay-canvas"></canvas>
+						<canvas id="rs-circ-canvas" width="90" height="90" class="overlay-canvas"></canvas>
+						<div class="crosshair-x"></div>
+						<div class="crosshair-y"></div>
+						<div id="rs-dot" class="stick-dot"></div>
+					</div>
+					<div class="data-row">RS: <span id="rs-data">0.00, 0.00</span></div>
+					<div class="data-row error-text">Error: <span id="rs-error">0.0%</span></div>
+				</div>
+			</div>
+			
+			<div class="deadzone-container">
+				<label class="deadzone-label">Deadzone: <span id="deadzone-value">0.10</span></label>
+				<input type="range" id="deadzone-slider" class="deadzone-slider" min="0" max="0.5" step="0.01" value="0.10">
+			</div>
+		</div>
+
+		<div class="panel">
+			<h2>🕹️ Triggers</h2>
+			<div class="module-layout">
+				<div class="module-col">
+					<div class="trigger-track"><div id="lt-bar" class="trigger-fill"></div></div>
+					<div class="data-row">LT: <span id="lt-data">0.00</span></div>
+				</div>
+				<div class="module-col">
+					<div class="trigger-track"><div id="rt-bar" class="trigger-fill"></div></div>
+					<div class="data-row">RT: <span id="rt-data">0.00</span></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel">
+			<h2>📳 Vibration Test</h2>
+			<div class="vib-visualizer" id="vib-visualizer" style="border-color: #FF9800; box-shadow: 0 0 15px rgba(255, 152, 0, 0.15);">
+				<div class="ripple"></div><div class="ripple delay"></div>
+				<div class="vib-icon">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+				</div>
+			</div>
+
+			<div class="vib-grid">
+				<button class="vib-btn btn-heavy">Heavy</button>
+				<button class="vib-btn btn-light">Light</button>
+				<button class="vib-btn btn-burst">Burst</button>
+				<button class="vib-btn btn-pulse">Pulse</button>
+			</div>
+
+			<div class="vib-controls-container">
+				<label class="vib-control">
+					<span class="vib-control-label">Infinite Vibration</span>
+					<div class="switch">
+						<input type="checkbox" id="infinite-vib-toggle" class="vib-control-toggle">
+						<span class="slider"></span>
+					</div>
+				</label>
+			</div>
+		</div>
+
+		<div class="panel">
+			<h2>🎙️ Microphone Tester</h2>
+			<div class="mic-controls-container">
+				<div class="mic-visualizer-container">
+					<p id="mic-status" class="status-indicator">Press "Start Recording" to begin...</p>
+				</div>
+				<div class="mic-selector-container">
+					<select id="mic-input-select" class="mic-selector-select">
+						<option value="" disabled selected>Select Microphone...</option>
+					</select>
+				</div>
+				<button class="vib-btn mic-btn" id="start-recording-btn">Start Recording</button>
+				
+				<div id="audio-playback-container" style="display: none; margin-top: 1rem;">
+					<audio id="audio-playback" controls style="width: 100%; height: 35px;"></audio>
+				</div>
+			</div>
+		</div>
+	</div> 
+
+	<div class="bottom-tools-stack">
+		<div class="panel history-panel">
+			<h2>⏱️ Button History</h2>
+			<div id="button-history-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem; min-height: 40px; align-items: flex-start; color: var(--text-muted);">
+				Waiting for input...
+			</div>
+		</div>
+
+		<div class="panel data-panel">
+			<h2>🔢 Raw Data</h2>
+			<div id="raw-buttons-container" class="raw-grid">Waiting for input...</div>
+		</div>
+	</div>
+
+	<!-- SEO Content Section -->
+	<article class="content-section">
+		<h2>Test Your Controller in Seconds With a Free Gamepad Tester</h2>
+		<p>Your controller feels off. Maybe the aim keeps sliding to the left when you are not touching the stick. Maybe one button needs a hard press to work. Maybe the whole thing just stopped showing up in your game.</p>
+		<p>Before you buy a new one, find out what is actually wrong.</p>
+		<p>This gamepad tester runs in your browser. Plug in your controller, press a few buttons, and you will see exactly what your PC sees. No install, no account, no waiting.</p>
+
+		<h2>What Is a Gamepad Tester?</h2>
+		<p>A gamepad tester is a tool that reads the raw input coming from your controller and shows it on screen in real time.</p>
+		<p>When you press A, the tool lights up A. When you move the left stick, you see the numbers change. If a button lights up on its own, you just found your problem. It is the same idea as the old Windows joy.cpl panel, but it works online, looks clearer, and supports modern controllers that Windows sometimes reads badly.</p>
+		<p>The browser talks to your controller through the <strong>Gamepad API</strong>. That is a built-in feature of Chrome, Edge, Firefox and Opera. Because of that, this controller tester needs zero setup on your side.</p>
+
+		<h2>How to Test Your Controller Online</h2>
+		<p>The whole process takes under a minute.</p>
+		<ol>
+			<li>Connect your controller by USB cable, Bluetooth or a wireless dongle.</li>
+			<li>Open this page.</li>
+			<li>Press any button. The tool wakes up as soon as it detects input.</li>
+			<li>Work through every button, both sticks and both triggers.</li>
+			<li>Watch the screen and note anything that does not match what you are doing.</li>
+		</ol>
+		<p>That is it. If you want to test your controller online free and without installing software, this is the fastest way to do it.</p>
+
+		<h2>What You Can Check Here</h2>
+		
+		<h3>Buttons</h3>
+		<p>Every face button, bumper, D-pad direction, stick click and menu button shows up on screen. Press one and it lights up instantly. Look out for:</p>
+		<ul>
+			<li>A button that stays dark when you press it (<strong>dead switch</strong>)</li>
+			<li>A button that lights up on its own (<strong>stuck switch or debris</strong>)</li>
+			<li>A button that needs extra force before it registers</li>
+			<li>A button that lights up twice from one press (<strong>double input</strong>)</li>
+		</ul>
+
+		<h3>Analog Sticks</h3>
+		<p>Both sticks report live X and Y values, usually between -1.00 and 1.00. Centre is 0.00.</p>
+		<p>This is where you check <strong>controller stick drift</strong>. Let go of both sticks completely and look at the numbers. A healthy stick sits at or very near 0.00. If your value floats at 0.08 or keeps crawling upward on its own, that stick has drift.</p>
+		<p>You can also check the full range. Roll each stick slowly around its edge. The values should reach close to -1.00 and 1.00 in every direction. If one side only hits 0.72, the sensor or the ring is worn.</p>
+
+		<h3>Triggers</h3>
+		<p>Xbox and PlayStation triggers are analog, which means they report how far you pulled them, not just pressed or not pressed.</p>
+		<p>Pull each trigger slowly. The value should climb smoothly from 0.00 to 1.00. Jumpy numbers, a trigger that starts above zero, or one that never reaches full pull all point to worn trigger hardware.</p>
+
+		<h3>Connection and Device Name</h3>
+		<p>The tool shows the name your system gives the controller and which slot it is using. This tells you whether the PC sees it as an Xbox pad, a generic HID device or something else entirely. That detail matters a lot when a game refuses to read your controller.</p>
+
+		<h2>Which Controllers Work</h2>
+		<p>Pretty much all of them. This gamepad test online supports:</p>
+		<ul>
+			<li>Xbox Series X and S, Xbox One, Xbox 360 and Xbox Elite</li>
+			<li>PlayStation 5 DualSense, PS4 DualShock 4 and PS3 pads</li>
+			<li>Nintendo Switch Pro Controller and Joy-Cons</li>
+			<li>8BitDo, GameSir, PowerA, Razer, Turtle Beach and other third party pads</li>
+			<li>Generic USB joysticks and older PC gamepads</li>
+		</ul>
+		<p>Wired connections are the most reliable for testing. Bluetooth works fine too, but if the browser is not picking anything up, try a USB cable first before you assume the controller is broken.</p>
+
+		<h2>Reading Your Results</h2>
+		<p>Here is how to turn what you see into a decision.</p>
+		<ul>
+			<li><strong>Everything responds correctly:</strong> Your hardware is fine. The problem is in the game or in Windows. Check your in-game controller settings, Steam Input settings, or whether a second input device is fighting for control.</li>
+			<li><strong>One or two buttons are dead:</strong> Usually dirt or a worn microswitch. A careful clean with isopropyl alcohol fixes a surprising number of these. If not, the switch can be replaced cheaply.</li>
+			<li><strong>A stick drifts at rest:</strong> Common on Xbox and PlayStation pads after a year or two of heavy use. Small drift can be hidden with a bigger in-game deadzone. Large drift needs a new stick module.</li>
+			<li><strong>Triggers are jumpy or capped:</strong> Worn potentiometers. This is repairable but fiddly. On a cheap pad it is usually not worth it.</li>
+			<li><strong>Nothing shows up at all:</strong> Not a hardware fault yet. Try a different USB port, a different cable, and check whether the controller is charged. Also make sure no other software is grabbing exclusive control of the device.</li>
+		</ul>
+
+		<h2>Why Use a Browser Based Controller Tester</h2>
+		<p>A few reasons this beats the alternatives.</p>
+		<ul>
+			<li><strong>Nothing to install:</strong> No driver packs, no random EXE files from forums.</li>
+			<li><strong>Works everywhere:</strong> Windows, macOS, Linux and Chromebooks all run the same test.</li>
+			<li><strong>Honest results:</strong> You see raw values, not a game's smoothed and filtered version of them.</li>
+			<li><strong>Fast:</strong> Under a minute from plugging in to knowing the answer.</li>
+			<li><strong>Free:</strong> No trial, no limits.</li>
+		</ul>
+
+		<h2>When You Should Run a Controller Test</h2>
+		<p>Some good moments to check:</p>
+		<ul>
+			<li>Right after buying a controller, new or used, while returns are still open</li>
+			<li>Before a ranked session or a tournament</li>
+			<li>When your aim feels slightly wrong but you cannot explain why</li>
+			<li>After the controller takes a fall or a drink spill</li>
+			<li>Before you sell or trade it, so you can describe its condition honestly</li>
+			<li>When a game suddenly stops reading your inputs</li>
+		</ul>
+		<p>Testing a used controller before the return window closes has saved a lot of people a lot of money.</p>
+
+		<h2>Small Habits That Keep Controllers Alive</h2>
+		<p>Most controller failures are slow, not sudden. A little care goes a long way.</p>
+		<ul>
+			<li>Keep drinks away from your setup</li>
+			<li>Wipe around the stick bases now and then, that is where grit collects</li>
+			<li>Do not yank the USB cable out sideways</li>
+			<li>Store the pad somewhere it will not get sat on or dropped</li>
+			<li>Charge before the battery hits zero and stays there for weeks</li>
+			<li>Run a quick check every couple of months so you notice wear early</li>
+		</ul>
+
+		<h2>Ready to Check Your Controller?</h2>
+		<p>Plug it in and press a button. The gamepad tester picks it up on its own.</p>
+		<p>Go through the buttons, roll both sticks, pull both triggers, and let go to check for drift. In under a minute you will know whether you are dealing with a hardware fault, a settings problem, or a controller that is actually working perfectly fine.</p>
+		<p>No download. No sign up. Just plug in and test.</p>
+	</article>
+
+	<style>
+		.header { text-align: center; margin-bottom: 2rem; }
+		.header h1 { margin-bottom: 0.5rem; color: var(--text-main); }
+		.header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+		.error-banner { background: rgba(231, 76, 60, 0.15); border: 1px solid #E74C3C; color: var(--text-main); padding: 1rem; border-radius: 12px; text-align: center; margin-bottom: 1.5rem; font-weight: 500; font-family: 'Inter', sans-serif;}
+
+		.dashboard { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1.5rem; width: 100%; margin-bottom: 1.5rem; }
+
+		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 18px; padding: 1.75rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); }
+		.visualizer-panel { grid-column: span 1; grid-row: span 2; min-height: 450px; display: flex; flex-direction: column; }
+		
+		.panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+		.panel-header h2 { margin-bottom: 0; }
+		.icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; padding: 0;}
+		.icon-btn:hover { background: var(--border-color); color: var(--text-main); border-color: var(--text-muted); }
+
+		.visualizer-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 1rem; }
+		.status-group { flex: 1; min-width: 0; }
+		.status-group h2 { margin-bottom: 0.25rem; }
+		.meta-group { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; flex-shrink: 0; }
+		
+		.polling-rate { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--accent-primary); background: rgba(0, 242, 254, 0.1); padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(0, 242, 254, 0.2); font-variant-numeric: tabular-nums;}
+		
+		.player-selector { display: flex; background: var(--bg-main); border-radius: 10px; padding: 4px; border: 1px solid var(--border-color); }
+		.player-btn { background: transparent; border: none; color: var(--text-muted); padding: 6px 10px; font-weight: bold; font-family: 'Inter', sans-serif; font-size: 0.85rem; cursor: pointer; border-radius: 6px; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+		.player-btn .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); transition: all 0.2s; }
+		.player-btn.connected { color: var(--text-muted); }
+		.player-btn.connected .dot { background: var(--text-muted); }
+		.player-btn.active { background: var(--bg-panel); color: var(--text-main); }
+		.player-btn.active .dot { background: #2ECC71; box-shadow: 0 0 8px #2ECC71; }
+
+		.visualizer-container { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; }
+
+		h2 { color: var(--text-main); font-size: 1.15rem; font-weight: 600; margin-top: 0; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; font-family: 'Inter', sans-serif;}
+		.status-indicator { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.5; font-family: 'Inter', sans-serif;}
+		
+		.data-row { margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; font-variant-numeric: tabular-nums; font-size: 1.05rem; color: var(--text-main); }
+		.error-text { font-size: 0.85rem; color: #E74C3C; font-weight: 500; }
+		
+		.module-layout { display: flex; justify-content: space-around; text-align: center; margin-top: 0.5rem; }
+		.module-col { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+
+		.stick-ui { width: 90px; height: 90px; border: 2px solid var(--border-color); border-radius: 50%; position: relative; background: var(--bg-main); }
+		.overlay-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; pointer-events: none; z-index: 1; }
+		.crosshair-x { position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--border-color); }
+		.crosshair-y { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--border-color); }
+		.stick-dot { position: absolute; width: 14px; height: 14px; background: var(--accent-primary); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(0, 242, 254, 0.5); pointer-events: none; z-index: 2; }
+
+		.deadzone-container { margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1rem; }
+		.deadzone-label { display: block; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+		.deadzone-slider { width: 80%; cursor: pointer; accent-color: var(--accent-primary); }
+
+		.trigger-track { width: 44px; height: 100px; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; position: relative; overflow: hidden; }
+		.trigger-fill { position: absolute; bottom: 0; left: 0; right: 0; height: 0%; background: #FF7300; box-shadow: 0 -4px 12px rgba(255, 115, 0, 0.4); transition: height 0.05s linear; }
+
+		.raw-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted); font-family: 'Inter', sans-serif;}
+		.vib-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
+		.vib-btn { background: var(--bg-panel); color: var(--text-main); border: 1px solid var(--border-color); padding: 0.75rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif;}
+		
+		.btn-heavy { border-color: #E74C3C; }
+		.btn-heavy:hover { background: rgba(231, 76, 60, 0.1); border-color: #E74C3C; box-shadow: 0 0 8px rgba(231, 76, 60, 0.3); }
+		.btn-light { border-color: #3498DB; }
+		.btn-light:hover { background: rgba(52, 152, 219, 0.1); border-color: #3498DB; box-shadow: 0 0 8px rgba(52, 152, 219, 0.3); }
+		.btn-burst { border-color: #F3C300; }
+		.btn-burst:hover { background: rgba(243, 195, 0, 0.1); border-color: #F3C300; box-shadow: 0 0 8px rgba(243, 195, 0, 0.3); }
+		.btn-pulse { border-color: #A855F7; }
+		.btn-pulse:hover { background: rgba(168, 85, 247, 0.1); border-color: #A855F7; box-shadow: 0 0 8px rgba(168, 85, 247, 0.3); }
+
+		.vib-visualizer { height: 100px; display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 1.2rem; border-radius: 12px; background: var(--bg-main); border: 1px solid var(--border-color); overflow: hidden; }
+		.vib-icon { z-index: 2; color: var(--text-main); background: var(--border-color); padding: 1rem; border-radius: 50%; transition: all 0.2s ease; }
+		.ripple { position: absolute; width: 50px; height: 50px; border-radius: 50%; border: 2px solid transparent; opacity: 0; transform: scale(0.5); }
+		.ripple.delay { animation-delay: 0.2s !important; }
+
+		.vib-controls-container { border-top: 1px solid var(--border-color); padding-top: 1rem; }
+		.vib-control { display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.95rem; }
+		.switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+		.switch input { opacity: 0; width: 0; height: 0; }
+		.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border-color); transition: .3s; border-radius: 24px; }
+		.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: var(--text-muted); transition: .3s; border-radius: 50%; }
+		input:checked + .slider { background-color: #A855F7; border-color: #A855F7; }
+		input:checked + .slider:before { transform: translateX(20px); background-color: #fff; }
+
+		.mic-visualizer-container { margin-bottom: 1rem; text-align: center; font-family: 'Inter', sans-serif;}
+		.mic-selector-container { margin-bottom: 1.25rem; font-family: 'Inter', sans-serif;}
+		.mic-selector-select { width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); color: var(--text-main); padding: 10px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.9rem; cursor: pointer; outline: none; transition: border-color 0.2s;}
+		.mic-selector-select option { background-color: var(--bg-main); color: var(--text-main); }
+		.mic-selector-select:focus { border-color: #A855F7; }
+		.mic-btn { border-color: var(--border-color); width: 100%; color: var(--text-main); background: var(--bg-panel);}
+		.mic-btn:not(:disabled):hover { background: var(--border-color); box-shadow: 0 0 8px rgba(255,255,255,0.1); }
+		.mic-btn.recording { background: rgba(231, 76, 60, 0.15); border-color: #E74C3C; color: #E74C3C; box-shadow: 0 0 12px rgba(231, 76, 60, 0.4); }
+		.mic-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+		.bottom-tools-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+		@keyframes shake-heavy { 0% { transform: translate(3px, 3px) } 50% { transform: translate(-3px, -3px) } 100% { transform: translate(3px, -3px) } }
+		@keyframes shake-light { 0% { transform: translate(1px, 1px) } 50% { transform: translate(-1px, -1px) } 100% { transform: translate(1px, -1px) } }
+		@keyframes pulse-shake { 0%, 100% { transform: scale(1) } 50% { transform: scale(1.15) translate(1px, 1px) } }
+		@keyframes ripple-out { 0% { transform: scale(0.8); opacity: 1; } 100% { transform: scale(3.5); opacity: 0; } }
+		@keyframes ripple-pulse { 0%, 100% { transform: scale(0.8); opacity: 0; } 50% { transform: scale(2); opacity: 0.8; } }
+		/* Vibration Active Animation States */
+		.vib-active-heavy .vib-icon { animation: shake-heavy 0.1s infinite; color: #E74C3C; background: rgba(231, 76, 60, 0.2); box-shadow: 0 0 20px rgba(231, 76, 60, 0.4); }
+		.vib-active-heavy .ripple { animation: ripple-out 0.4s linear infinite; border-color: #E74C3C; }
+		.vib-active-light .vib-icon { animation: shake-light 0.1s infinite; color: #3498DB; background: rgba(52, 152, 219, 0.2); box-shadow: 0 0 20px rgba(52, 152, 219, 0.4); }
+		.vib-active-light .ripple { animation: ripple-out 0.6s linear infinite; border-color: #3498DB; }
+		.vib-active-burst .vib-icon { animation: shake-heavy 0.05s infinite; color: #F3C300; background: rgba(243, 195, 0, 0.2); box-shadow: 0 0 20px rgba(243, 195, 0, 0.4); }
+		.vib-active-burst .ripple { animation: ripple-out 0.2s linear infinite; border-color: #F3C300; }
+		.vib-active-pulse .vib-icon { animation: pulse-shake 0.4s infinite; color: #A855F7; background: rgba(168, 85, 247, 0.2); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+		.vib-active-pulse .ripple { animation: ripple-pulse 0.8s infinite; border-color: #A855F7; }
+
+		@media (max-width: 900px) {
+			.dashboard { grid-template-columns: 1fr; }
+			.visualizer-panel { grid-row: span 1; }
+			.visualizer-header { flex-direction: column; gap: 1rem; }
+			.meta-group { align-items: flex-start; width: 100%; flex-direction: row; justify-content: space-between; }
+			.polling-rate { order: 2; }
+			.player-selector { order: 1; }
+			.bottom-tools-stack { grid-template-columns: 1fr; }
+		}
+
+		/* Content Section Styles */
+		.content-section {
+			margin-top: 4rem;
+			padding: 2rem;
+			background: var(--bg-panel);
+			border: 1px solid var(--border-color);
+			border-radius: 16px;
+			color: var(--text-muted);
+			font-family: 'Inter', sans-serif;
+			line-height: 1.7;
+		}
+		.content-section h2 {
+			color: var(--text-main);
+			font-size: 1.8rem;
+			margin-top: 2.5rem;
+			margin-bottom: 1rem;
+			border-bottom: 1px solid var(--border-color);
+			padding-bottom: 0.5rem;
+		}
+		.content-section h2:first-child { margin-top: 0; }
+		.content-section h3 {
+			color: var(--accent-primary);
+			font-size: 1.3rem;
+			margin-top: 1.5rem;
+			margin-bottom: 0.75rem;
+		}
+		.content-section p { margin-bottom: 1.25rem; font-size: 1.05rem; }
+		.content-section ul, .content-section ol {
+			margin-bottom: 1.5rem;
+			padding-left: 1.5rem;
+			font-size: 1.05rem;
+		}
+		.content-section li { margin-bottom: 0.5rem; }
+		.content-section strong { color: var(--text-main); font-weight: 700; }
+	</style>
+	<script>
+		import { GamepadEngine } from '../scripts/gamepadEngine.ts';
+		new GamepadEngine();
+	</script>
+</BaseLayout>

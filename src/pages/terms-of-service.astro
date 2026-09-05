@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Terms and Conditions | GamepadsCheck" 
+  description="Read the terms and conditions for using GamepadsCheck's free controller testing tools and written guides."
+>
+  <div class="page-container">
+    <header class="page-header">
+      <h1>Terms and <span>Conditions</span></h1>
+    </header>
+
+    <div class="page-content">
+      
+      <p><em>Last updated: September 6, 2026</em></p>
+      
+      <p>Welcome to gamepadscheck.com. By using this site you agree to the terms below. If you do not agree with them, please stop using the site.</p>
+      
+      <h2>About the site</h2>
+      <p>Game Pads Check provides free browser based tools for testing controllers, along with written guides about controllers and related hardware. The site is operated by Game Pads Check.</p>
+      
+      <h2>Using our tools</h2>
+      <p>Our tools are free to use for personal and commercial purposes. You do not need an account and you do not need permission from us.</p>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Copy the site or its tools and republish them as your own</li>
+        <li>Use automated scripts to overload the site or scrape it at high volume</li>
+        <li>Try to break, reverse engineer or interfere with how the tools work</li>
+        <li>Use the site for anything unlawful</li>
+      </ul>
+      
+      <h2>No warranty</h2>
+      <p>The tools and guides are provided as they are. We do our best to keep them accurate and working, but we do not promise that:</p>
+      <ul>
+        <li>The site will always be online or free of errors</li>
+        <li>Test results will be perfectly accurate on every device and browser</li>
+        <li>Any fix in our guides will solve your specific problem</li>
+      </ul>
+      <p>Browser based testing has limits. Readings such as latency and polling rate depend on your browser, your operating system and your hardware, so treat them as a useful guide rather than lab grade measurement.</p>
+      
+      <h2>Follow our advice at your own risk</h2>
+      <p>Some of our guides involve changing system settings, installing third party software or opening up a controller. You do this at your own risk. We are not responsible for damage to your controller, your computer or your data, or for a voided warranty. If you are not comfortable doing something, do not do it.</p>
+      
+      <h2>Third party software and links</h2>
+      <p>We sometimes mention or link to software and websites we do not control, such as DS4Windows or Steam. We do not own them, we do not support them, and we are not responsible for what they do or for their terms. Check their own terms before you use them.</p>
+      
+      <h2>Our content</h2>
+      <p>The text, guides, code and design on this site belong to Game Pads Check. You may quote short parts with a link back to the original page. You may not copy whole articles or republish our tools without written permission.</p>
+      <p>Brand names such as Xbox, PlayStation and Nintendo Switch belong to their owners. We are not connected to, endorsed by or partnered with any of them. We use those names only to describe the hardware our tools and guides cover.</p>
+      
+      <h2>Your data</h2>
+      <p>Our tools read controller input inside your browser. Details of what we collect and what we do not are in our Privacy Policy.</p>
+      
+      <h2>Changes to these terms</h2>
+      <p>We may update these terms from time to time. The date at the top shows when they last changed. Continuing to use the site after a change means you accept the new version.</p>
+      
+      <h2>Contact</h2>
+      <p>Questions about these terms? Reach us at <a href="mailto:contact@gamepadscheck.com">contact@gamepadscheck.com</a>.</p>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 800px;
+    margin: 2rem auto 4rem auto;
+    padding: 3rem;
+    background: var(--bg-panel);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    color: var(--text-muted);
+  }
+  
+  .page-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  
+  .page-header span {
+    color: var(--accent-primary);
+  }
+
+  /* Typography for the text content */
+  .page-content :global(h2) { 
+    color: var(--text-main); 
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem; 
+    margin-bottom: 1rem;
+  }
+  .page-content :global(h3) { 
+    color: var(--text-muted); 
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem; 
+    margin-bottom: 0.75rem;
+  }
+  .page-content :global(p) { 
+    color: var(--text-muted); 
+    line-height: 1.8; 
+    margin-bottom: 1.25rem; 
+    font-size: 1.05rem;
+  }
+  .page-content :global(ul), .page-content :global(ol) { 
+    color: var(--text-muted);
+    margin-bottom: 1.5rem; 
+    padding-left: 1.5rem; 
+    line-height: 1.7;
+  }
+  .page-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .page-content :global(strong) {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+  .page-content :global(a) { 
+    color: var(--accent-primary); 
+    text-decoration: none; 
+  }
+  .page-content :global(a:hover) { 
+    text-decoration: underline; 
+  }
+</style>

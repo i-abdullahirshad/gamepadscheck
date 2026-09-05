@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Privacy Policy | GamepadsCheck" 
+  description="Learn how GamepadsCheck handles your data. Our tools run locally in your browser to protect your privacy."
+>
+  <div class="page-container">
+    <header class="page-header">
+      <h1>Privacy <span>Policy</span></h1>
+    </header>
+
+    <div class="page-content">
+      
+      <p><em>Last updated: September 6, 2026</em></p>
+      
+      <p>This policy explains what happens to your information when you use gamepadscheck.com. We have tried to keep it plain.</p>
+      
+      <h2>The short version</h2>
+      <p>Our tools read your controller inside your browser. That data never leaves your device and we never see it. We do not ask you to sign up, and we do not sell anything about you to anyone.</p>
+      
+      <h2>Controller data</h2>
+      <p>When you use the Gamepad Tester, Xbox Controller Test, Latency Test or any of our other tools, your browser uses a built-in feature called the Gamepad API to read your controller.</p>
+      <p>Everything that happens next happens on your own machine. Button presses, stick positions, trigger values, latency readings, controller name and vendor ID are all processed in your browser tab and shown back to you on screen.</p>
+      <p>None of it is sent to us. None of it is stored on a server. Close the tab and it is gone.</p>
+      
+      <h2>Information we do collect</h2>
+      <ul>
+        <li><strong>Basic visit data:</strong> Like most websites, our host records standard technical information when a page loads. That includes your IP address, browser type, operating system, the page you visited and the time you visited it. This is used to keep the site running and secure.</li>
+        <li><strong>Analytics:</strong> We use analytics to understand which pages people read and which tools get used, so we know what to improve. This gives us numbers and trends, not individual identities (we use Google Analytics).</li>
+        <li><strong>Messages you send us:</strong> If you email us, we keep your message and address so we can reply. Nothing more.</li>
+      </ul>
+      
+      <h2>Cookies</h2>
+      <p>We use cookies on this site. A cookie is a small file your browser stores when you visit a page.</p>
+      <p>We use them for three things:</p>
+      <ul>
+        <li>Essential cookies that keep the site working and secure</li>
+        <li>Analytics cookies that tell us which pages and tools people use</li>
+        <li>Advertising cookies placed by Google and its partners, explained below</li>
+      </ul>
+      <p>You can block or delete cookies in your browser settings at any time. Our controller tools will still work normally if you do.</p>
+      
+      <h2>Advertising</h2>
+      <p>We show ads on this site through Google AdSense.</p>
+      <p>Here is what that means for you:</p>
+      <ul>
+        <li>Google, as a third-party vendor, uses cookies to serve ads on our site.</li>
+        <li>Google's use of advertising cookies lets it and its partners show ads to you based on your visits to this site and other sites on the internet.</li>
+        <li>You can turn off personalised advertising at any time by visiting Google Ads Settings at <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">adssettings.google.com</a>.</li>
+        <li>You can opt out of third-party vendor cookies for personalised advertising at <a href="https://aboutads.info" target="_blank" rel="noopener noreferrer">aboutads.info</a>.</li>
+      </ul>
+
+      <h2>Third party services</h2>
+      <p>Some pages link to other websites and software such as DS4Windows or Steam. Once you leave our site you are covered by their privacy policies, not ours. We have no control over what they collect.</p>
+      
+      <h2>Children</h2>
+      <p>This site is not aimed at children under 13 and we do not knowingly collect information from them. If you believe a child has sent us personal information, email us and we will delete it.</p>
+      
+      <h2>Your rights</h2>
+      <p>Depending on where you live, you may have the right to ask what information we hold about you, to ask us to correct or delete it, or to object to how it is used. Email us and we will handle it.</p>
+      <p>Because we do not run accounts and do not store controller data, in most cases the answer is that we hold very little about you.</p>
+      
+      <h2>Data security</h2>
+      <p>We use standard measures to protect the site, including HTTPS on every page. No website can promise perfect security, but the good news is that there is not much here to lose. We do not hold passwords, payment details or controller logs.</p>
+      
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy as the site grows. The date at the top shows the last change. Big changes will be noted on the page.</p>
+      
+      <h2>Contact</h2>
+      <p>Questions about privacy? Email <a href="mailto:contact@gamepadscheck.com">contact@gamepadscheck.com</a>.</p>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 800px;
+    margin: 2rem auto 4rem auto;
+    padding: 3rem;
+    background: var(--bg-panel);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    color: var(--text-muted);
+  }
+  
+  .page-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  
+  .page-header span {
+    color: var(--accent-primary);
+  }
+
+  /* Typography for the text content */
+  .page-content :global(h2) { 
+    color: var(--text-main); 
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem; 
+    margin-bottom: 1rem;
+  }
+  .page-content :global(h3) { 
+    color: var(--text-muted); 
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem; 
+    margin-bottom: 0.75rem;
+  }
+  .page-content :global(p) { 
+    color: var(--text-muted); 
+    line-height: 1.8; 
+    margin-bottom: 1.25rem; 
+    font-size: 1.05rem;
+  }
+  .page-content :global(ul), .page-content :global(ol) { 
+    color: var(--text-muted);
+    margin-bottom: 1.5rem; 
+    padding-left: 1.5rem; 
+    line-height: 1.7;
+  }
+  .page-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .page-content :global(strong) {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+  .page-content :global(a) { 
+    color: var(--accent-primary); 
+    text-decoration: none; 
+  }
+  .page-content :global(a:hover) { 
+    text-decoration: underline; 
+  }
+</style>

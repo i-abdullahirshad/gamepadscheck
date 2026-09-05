@@ -1,0 +1,89 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// 1. Generate a route for every article using entry.id
+export async function getStaticPaths() {
+  const articleEntries = await getCollection('articles');
+  return articleEntries.map(entry => ({
+    params: { slug: entry.id }, props: { entry },
+  }));
+}
+
+// 2. Get the specific article data and render function
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout 
+  title={entry.data.title} 
+  description={entry.data.description}
+  ogImage={entry.data.image}
+>
+  <div class="article-container content-section">
+    <header class="article-header">
+      <h1>{entry.data.title}</h1>
+      <p class="meta">Published on {entry.data.pubDate.toLocaleDateString()}</p>
+    </header>
+
+    <div class="article-content">
+      <Content /> 
+    </div>
+  </div>
+
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto 4rem auto;
+      padding: 2.5rem;
+      background: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      color: var(--text-muted);
+    }
+    .article-header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5rem;
+    }
+    .article-header h1 {
+      color: var(--text-main);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: var(--accent-primary);
+    }
+    
+    .article-content :global(h2) { color: var(--text-main); margin-top: 2rem; }
+    .article-content :global(h3) { 
+      color: var(--text-main); 
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 2rem; 
+      margin-bottom: 0.75rem;
+    }
+    .article-content :global(p) { 
+      color: var(--text-muted); 
+      line-height: 1.8; 
+      margin-bottom: 1.25rem; 
+      font-size: 1.05rem;
+    }
+    .article-content :global(ul), .article-content :global(ol) { 
+      color: var(--text-muted);
+      margin-bottom: 1.5rem; 
+      padding-left: 1.5rem; 
+      line-height: 1.7;
+    }
+    .article-content :global(li) {
+      margin-bottom: 0.5rem;
+    }
+    .article-content :global(strong) {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .article-content :global(a) { color: var(--accent-primary); text-decoration: none; }
+    .article-content :global(a:hover) { text-decoration: underline; }
+  </style>
+</BaseLayout>
