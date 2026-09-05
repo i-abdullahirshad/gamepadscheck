@@ -7,15 +7,7 @@
     <a href="/" class="logo">Gamepads<span>Check</span></a>
     
     <div class="header-right">
-      <!-- Main Nav (Desktop & Slide-out Sidebar on Mobile) -->
-      <nav class="main-nav" id="main-nav">
-        <div class="mobile-menu-header">
-          <span class="menu-title">Menu</span>
-          <button id="menu-close" class="menu-close-btn" aria-label="Close Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
-        </div>
-
+      <nav class="main-nav">
         <a href="/" class="nav-link">Home</a>
         
         <div class="tools-nav">
@@ -36,17 +28,9 @@
           <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
         </div>
       </button>
-
-      <!-- Hamburger Menu Button -->
-      <button id="menu-toggle" class="hamburger-btn" aria-label="Toggle Navigation Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
     </div>
   </div>
 </header>
-
-<!-- Backdrop overlay for mobile menu -->
-<div id="menu-backdrop" class="menu-backdrop"></div>
 
 <style>
   .site-header {
@@ -76,10 +60,11 @@
     color: var(--accent-primary);
   }
   
+  /* New wrapper to separate the nav pill and the theme button */
   .header-right {
     display: flex;
     align-items: center;
-    gap: 1rem; 
+    gap: 1.25rem; 
   }
 
   .main-nav {
@@ -125,8 +110,8 @@
   .dot-green { background-color: #10B981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
   .dot-indigo { background-color: #6366F1; box-shadow: 0 0 8px rgba(99, 102, 241, 0.4); }
 
-  /* Sleek Theme Button & Hamburger Button */
-  .theme-btn, .hamburger-btn {
+  /* Sleek Theme Button */
+  .theme-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,32 +127,10 @@
     padding: 0;
   }
   
-  .theme-btn:hover, .hamburger-btn:hover { 
+  .theme-btn:hover { 
     color: var(--accent-primary); 
     border-color: var(--accent-primary);
     transform: translateY(-2px);
-  }
-
-  .hamburger-btn {
-    display: none; /* Hidden on desktop */
-  }
-
-  .mobile-menu-header {
-    display: none; /* Hidden on desktop */
-  }
-
-  .menu-backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: 998;
-    opacity: 0;
-    transition: opacity 0.3s ease;
   }
 
   /* Icon Animation Logic */
@@ -185,103 +148,38 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  :global(html[data-theme="dark"]) .sun { opacity: 1; transform: rotate(0) scale(1); }
-  :global(html[data-theme="dark"]) .moon { opacity: 0; transform: rotate(-90deg) scale(0.5); }
-  :global(html[data-theme="light"]) .sun { opacity: 0; transform: rotate(90deg) scale(0.5); }
-  :global(html[data-theme="light"]) .moon { opacity: 1; transform: rotate(0) scale(1); }
+  /* Robust state styling tied directly to the HTML attribute */
+  :global(html[data-theme="dark"]) .sun { 
+    opacity: 1; 
+    transform: rotate(0) scale(1); 
+  }
+  :global(html[data-theme="dark"]) .moon { 
+    opacity: 0; 
+    transform: rotate(-90deg) scale(0.5); 
+  }
 
-  /* Mobile responsiveness & Drawer Styling */
+  :global(html[data-theme="light"]) .sun { 
+    opacity: 0; 
+    transform: rotate(90deg) scale(0.5); 
+  }
+  :global(html[data-theme="light"]) .moon { 
+    opacity: 1; 
+    transform: rotate(0) scale(1); 
+  }
+
+  /* Mobile responsiveness */
   @media (max-width: 1100px) {
-    .hamburger-btn {
-      display: flex;
-    }
-
-    .menu-backdrop.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .main-nav {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 280px;
-      height: 100vh;
-      background: var(--bg-panel);
-      flex-direction: column;
-      align-items: stretch;
-      border-radius: 0;
-      border-left: 1px solid var(--border-color);
-      border-top: none;
-      border-bottom: none;
-      border-right: none;
-      padding: 1.5rem 1rem;
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-      transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow-y: auto;
-    }
-
-    .main-nav.active {
-      right: 0;
-    }
-
-    .mobile-menu-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .menu-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .menu-close-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      padding: 0.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: color 0.2s ease;
-    }
-
-    .menu-close-btn:hover {
-      color: var(--text-main);
-    }
-
-    .tools-nav {
-      flex-direction: column;
-      align-items: stretch;
-      border-left: none;
-      border-right: none;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-      margin: 0.5rem 0;
-      padding: 0.5rem 0;
-      width: 100%;
-    }
-
-    .nav-link, .tool-link {
-      padding: 0.75rem 1rem;
-      width: 100%;
-      border-radius: 12px;
-      margin: 0.15rem 0;
-    }
+    .header-container { flex-direction: column; gap: 1rem; }
+    .header-right { flex-direction: column; width: 100%; gap: 1rem; }
+    .main-nav { flex-wrap: wrap; justify-content: center; border-radius: 20px; padding: 0.5rem; width: 100%; }
+    .tools-nav { flex-wrap: wrap; justify-content: center; border: none; margin: 0.5rem 0; }
   }
 </style>
 
 <script>
-  // Theme Toggle Logic
+  // Runs on client to handle the toggle click
   const themeToggle = document.getElementById('theme-toggle');
+  
   themeToggle?.addEventListener('click', () => {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
@@ -289,31 +187,5 @@
     
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-  });
-
-  // Mobile Menu Sidebar Drawer Logic
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuClose = document.getElementById('menu-close');
-  const mainNav = document.getElementById('main-nav');
-  const menuBackdrop = document.getElementById('menu-backdrop');
-
-  function toggleMenu() {
-    mainNav?.classList.toggle('active');
-    menuBackdrop?.classList.toggle('active');
-    document.body.style.overflow = mainNav?.classList.contains('active') ? 'hidden' : '';
-  }
-
-  menuToggle?.addEventListener('click', toggleMenu);
-  menuClose?.addEventListener('click', toggleMenu);
-  menuBackdrop?.addEventListener('click', toggleMenu);
-
-  // Close menu when clicking any nav link on mobile
-  const navLinks = mainNav?.querySelectorAll('a');
-  navLinks?.forEach(link => {
-    link.addEventListener('click', () => {
-      if (mainNav?.classList.contains('active')) {
-        toggleMenu();
-      }
-    });
   });
 </script>
