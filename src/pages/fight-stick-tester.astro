@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-	title="Fight Stick Tester - Test Arcade Stick Buttons & SOCD Online" 
-	description="Free fight stick tester online. Check arcade stick buttons, lever directions, SOCD and input lag in your browser. Works with leverless controllers too."
+	title="Fight Stick Tester: Check Hitbox Controllers & Arcade Sticks" 
+	description="Free fight stick and controller test in your browser. Check every button, lever direction, SOCD behaviour and input history. No download needed."
 >
 
 
@@ -135,119 +135,133 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<span><strong>Tip:</strong> This tester uses standard Numpad Notation for fighting games. <strong style="color: var(--text-main);">236 = ↓↘→</strong> (Quarter Circle Forward), <strong style="color: var(--text-main);">623 = →↓↘</strong> (Dragon Punch).</span>
 	</div>
 	<article class="content-section">
-		<h2>Test Your Fight Stick Before It Costs You a Match</h2>
-		<p>You lose a round to a dropped input. Was that your execution, or did the button not register?</p>
-		<p>In fighting games that difference matters more than in any other genre. A microswitch that misses one press in fifty will not bother you in a single player game. In a first to three, it decides sets.</p>
-		<p>This fight stick tester shows every input your stick sends, live on screen. Connect it, press everything, and you will know in a minute whether the hardware is clean or whether something needs attention before your next session.</p>
+		<h2>Fight Stick Tester: Check Hitbox Controllers & Arcade Sticks</h2>
+<p>You lose a round to a dropped input. Was that your execution, or did the button not register?</p>
+<p>In fighting games that difference matters more than in any other genre. A microswitch that misses one press in fifty will not bother you in a single player game. In a first to three, it decides sets.</p>
+<p>This controller test shows every input your stick sends, live on screen. Connect it, press everything, and in a minute you will know whether the hardware is clean or whether something needs attention before your next session.</p>
 
-		<h2>What This Arcade Stick Test Checks</h2>
-		<p>The tool reads raw input from your stick and displays it as it happens.</p>
-		<ul>
-			<li>All eight action buttons, in whatever layout your stick uses</li>
-			<li>Lever directions: up, down, left, right and all four diagonals</li>
-			<li>Leverless direction buttons on hitbox style controllers</li>
-			<li>Start, Select, Home and any option buttons</li>
-			<li>Touchpad click on PlayStation compatible sticks</li>
-			<li>Extra buttons on the side or top panel</li>
-			<li>Turbo and lock switch behaviour</li>
-		</ul>
-		<p>Press an input, watch it light up. If it does not, you have found the problem.</p>
+<h2>What This Arcade Stick Test Checks</h2>
+<p>The tool reads raw input from your stick and displays it as it happens. You get:</p>
+<ul>
+	<li>A Vewlix style panel that lights up as you press</li>
+	<li>All eight action buttons in the layout your stick uses</li>
+	<li>Lever directions: up, down, left, right and all four diagonals</li>
+	<li>Leverless direction buttons on hitbox style controllers</li>
+	<li>A numbered grid showing all 17 button indexes</li>
+	<li>A live SOCD cleaner readout</li>
+	<li>An input history log of everything you pressed</li>
+</ul>
+<p>Press an input and watch it light up. If it does not, you have found the problem.</p>
 
-		<h2>How to Test an Arcade Stick on PC</h2>
-		<ol>
-			<li>Connect the stick by USB. Almost all fight sticks are wired.</li>
-			<li>Open this page and press any button so the browser detects it.</li>
-			<li>Press every action button one at a time.</li>
-			<li>Move the lever to all four cardinal directions.</li>
-			<li>Push into all four diagonals and hold each one.</li>
-			<li>Test Start, Select and any extra buttons.</li>
-			<li>Check your <strong>SOCD behaviour</strong>, covered below.</li>
-		</ol>
-		<p>If your stick has a mode switch for PS4, Xbox or PC, set it before you plug in. Switching modes while connected can leave the device in a state your PC reads badly.</p>
+<h2>How to Test My Controller or Stick on PC</h2>
+<ol>
+	<li>Connect the stick by USB. Almost all fight sticks are wired.</li>
+	<li>Open this page and press any button so the browser detects it.</li>
+	<li>Pick the <strong>Stick</strong> or <strong>Hitbox</strong> layout at the top right to match your hardware.</li>
+	<li>Press every action button one at a time.</li>
+	<li>Move the lever to all four cardinal directions.</li>
+	<li>Push into all four diagonals and hold each one.</li>
+	<li>Test Start, Select and any extra buttons.</li>
+	<li>Press left and right together to check SOCD, covered below.</li>
+</ol>
+<p>If your stick has a mode switch for PS4, Xbox or PC, set it before you plug in. Switching modes while connected can leave the device in a state your PC reads badly.</p>
 
-		<h2>Testing Buttons for Dead and Sticky Switches</h2>
-		<p>Arcade buttons take a lot of abuse. A competitive player might hit each one tens of thousands of times a month. Press each button several times and watch for these:</p>
-		<ul>
-			<li><strong>Nothing registers:</strong> dead microswitch or a disconnected quick disconnect</li>
-			<li><strong>Registers only on a hard press:</strong> switch is wearing out, will fail soon</li>
-			<li><strong>Lights up on its own:</strong> stuck plunger, debris under the button, or a shorted switch</li>
-			<li><strong>Double inputs from one press:</strong> switch bounce, a serious problem in fighting games</li>
-			<li><strong>Delayed release:</strong> plunger is sticking in the housing</li>
-		</ul>
-		<p>Switch bounce is the one that quietly ruins your play. One press sending two inputs will drop combos and cause unintended repeats, and it feels exactly like an execution error. This test makes it visible.</p>
-		<p>The good news is that fight stick buttons are the easiest controller part to replace. Sanwa and Seimitsu buttons are cheap, and most sticks use quick disconnects that need no soldering.</p>
+<h2>Stick and Hitbox Layouts</h2>
+<p>The layout toggle changes how the panel is drawn. <strong>Stick mode</strong> shows a lever on the left with the button cluster to its right, the classic Vewlix arrangement used by most arcade cabinets and commercial sticks. <strong>Hitbox mode</strong> swaps the lever for four direction buttons.</p>
+<p>Pick whichever matches your hardware. The tool reads the same raw data either way, so this only changes what you see on screen. Leverless players will find the Hitbox view far easier to follow during a controller check.</p>
 
-		<h2>Testing the Lever and Gate</h2>
-		<p>Push the lever fully into each cardinal direction and hold. Each should light up cleanly and stay lit.</p>
-		<p>Then check the diagonals. Push into each corner and confirm two directions register together. Up and right for up-forward, down and left for down-back, and so on. Things to watch for:</p>
-		<ul>
-			<li>A diagonal that only registers one direction, meaning a microswitch is not being reached</li>
-			<li>A direction that flickers while you hold it, meaning the switch is worn or the actuator is loose</li>
-			<li>Diagonals that are hard to hit, often a gate issue rather than a fault</li>
-		</ul>
-		<p>Gate types affect what you should expect. A square gate makes diagonals land in the corners with a firm stop. An octagonal gate gives eight distinct notches, which some players find easier for quarter circles. A circular gate has no notches at all. None of these is faulty behaviour, they just feel different.</p>
-		<p>If one specific diagonal is unreliable across many attempts, the microswitch for one of its directions is likely on the way out.</p>
+<h2>Testing Buttons for Dead and Sticky Switches</h2>
+<p>Arcade buttons take a lot of abuse. A competitive player might hit each one tens of thousands of times a month. Press each button several times and watch for these:</p>
+<ul>
+	<li><strong>Nothing registers:</strong> dead microswitch or a disconnected quick disconnect</li>
+	<li><strong>Registers only on a hard press:</strong> the switch is wearing out and will fail soon</li>
+	<li><strong>Lights up on its own:</strong> stuck plunger, debris under the button, or a shorted switch</li>
+	<li><strong>Double inputs from one press:</strong> switch bounce, a serious problem in fighting games</li>
+	<li><strong>Delayed release:</strong> the plunger is sticking in the housing</li>
+</ul>
+<p>Switch bounce is the one that quietly ruins your play. One press sending two inputs will drop combos and cause repeats, and it feels exactly like an execution error.</p>
+<p>The good news is that fight stick buttons are the easiest controller part to replace. Sanwa and Seimitsu buttons are cheap, and most sticks use quick disconnects that need no soldering.</p>
 
-		<h2>Checking SOCD Behaviour</h2>
-		<p><strong>SOCD</strong> stands for <em>simultaneous opposite cardinal directions</em>. It is what your controller does when you press left and right at the same time, or up and down together. This matters enormously on leverless controllers, and it matters for tournament legality.</p>
-		<p>Press left and right together and watch what the tool shows:</p>
-		<ul>
-			<li><strong>Neutral:</strong> both inputs cancel, nothing registers. The most common ruleset.</li>
-			<li><strong>Last input wins:</strong> the direction you pressed most recently takes over.</li>
-			<li><strong>Up priority:</strong> for up and down together, up wins. Standard in most rulesets.</li>
-			<li><strong>Both register:</strong> no SOCD cleaning at all. This is banned in almost every tournament.</li>
-		</ul>
-		<p>If your stick shows both left and right active at once, your SOCD cleaner is either off or not present. Check your controller's settings or firmware before you take it to an event, because it may not pass hardware check. Leverless players should test this every time they update firmware.</p>
+<h2>Using the Input History to Catch Double Inputs</h2>
+<p>The input history panel is the part most people overlook, and it is the reason this beats a plain visual gamepad tester.</p>
+<p>The panel logs every press in order as it arrives. A button that flashes twice in a tenth of a second is almost impossible to see on a lit up diagram, but it shows as two clean entries in the log. That makes switch bounce visible instead of something you only suspect.</p>
+<p>How to use it well:</p>
+<ol>
+	<li>Clear the log with the bin icon before you start</li>
+	<li>Press one button ten times slowly, then stop</li>
+	<li>Count the entries. Ten presses should give ten entries</li>
+	<li>Repeat for every button that feels unreliable</li>
+</ol>
+<p>Anything that logs more presses than your hand actually made is a failing switch, not bad execution. This is also the fastest way to check controller input on a used stick before the return window shuts.</p>
 
-		<h2>Which Sticks and Leverless Controllers Work</h2>
-		<p>This test supports:</p>
-		<ul>
-			<li>Traditional sticks: Hori Real Arcade Pro, Mad Catz TE and TE2, Qanba Obsidian and Drone, Razer Panthera</li>
-			<li>Leverless controllers: Hit Box, Snack Box Micro, Junkfood, All Fight Sticks builds</li>
-			<li>Custom builds using Brook, GP2040-CE, Etokki or other boards</li>
-			<li>Budget sticks from Mayflash, PXN and similar brands</li>
-			<li>Console sticks in PC mode</li>
-		</ul>
-		<p>Custom builds running open firmware sometimes report unusual button numbers. Everything still registers, the labels just may not match a standard layout.</p>
+<h2>Testing the Lever and Gate</h2>
+<p>Push the lever fully into each cardinal direction and hold. Each should light up cleanly and stay lit.</p>
+<p>Then check the diagonals. Push into each corner and confirm two directions register together. Up and right for up forward, down and left for down back, and so on. Watch for:</p>
+<ul>
+	<li>A diagonal that only registers one direction, meaning a microswitch is not being reached</li>
+	<li>A direction that flickers while you hold it, meaning the switch is worn or the actuator is loose</li>
+	<li>Diagonals that are hard to hit, which is often a gate issue rather than a fault</li>
+</ul>
+<p>Gate types change what you should expect. A square gate makes diagonals land in the corners with a firm stop. An octagonal gate gives eight notches, which some players prefer for quarter circles. A circular gate has no notches at all. None of these is faulty, they just feel different.</p>
+<p>If one specific diagonal is unreliable across many attempts, the microswitch for one of its directions is likely on the way out.</p>
 
-		<h2>Checking Input Lag on a Fight Stick</h2>
-		<p>Fighting games run at 60 frames per second. One frame is roughly 16.7 milliseconds. Many important actions have a one to three frame window. That is why <strong>fight stick input lag</strong> gets discussed so seriously. Adding two frames of delay genuinely removes options from your game.</p>
-		<p>A well built stick on a wired connection should sit in the low single digit milliseconds. If your stick is measurably slower than that, likely causes are:</p>
-		<ul>
-			<li>A converter or adapter between stick and PC</li>
-			<li>A cheap USB hub instead of a direct port</li>
-			<li>Older PCB firmware that has since been improved</li>
-			<li>Wireless mode on a stick that supports it, which you should not use competitively</li>
-		</ul>
-		<p>Always test through the same connection you actually play on. A result from a rear USB port tells you nothing about the venue setup you will be using.</p>
+<h2>Analog Mode and the Stick Drift Test</h2>
+<p>Most fight sticks send digital directions, so there is nothing to drift. The switch is either closed or it is not.</p>
+<p>That changes if your stick has an LS or RS mode switch, which maps the lever to a left or right analog stick for games that want one. In that mode the lever reports as an axis, and a worn sensor can sit off centre. Run a quick stick drift test by setting the stick to analog mode, letting go of the lever, and checking whether anything registers while your hands are off it. A resting stick should report nothing at all.</p>
+<p>Switch back to digital mode afterwards. Analog mode causes odd behaviour in most fighting games.</p>
 
-		<h2>When to Test Your Fight Stick</h2>
-		<p>Sensible times to run a check:</p>
-		<ul>
-			<li>The night before a tournament, not the morning of</li>
-			<li>After any button or lever part replacement</li>
-			<li>After a firmware update, especially on custom boards</li>
-			<li>When you buy a used stick, before the return window closes</li>
-			<li>After travelling with it, since transit loosens quick disconnects</li>
-			<li>When your execution suddenly gets worse for no clear reason</li>
-			<li>Before selling, so you can describe its condition accurately</li>
-		</ul>
+<h2>Checking SOCD Behaviour</h2>
+<p>SOCD stands for simultaneous opposite cardinal directions. It is what your controller does when you press left and right together, or up and down together. This matters enormously on leverless controllers, and it matters for tournament legality.</p>
+<p>The SOCD panel has arrow buttons and a live output readout. Press opposing directions on your hardware and read what the output says:</p>
+<ul>
+	<li><strong>Neutral:</strong> both inputs cancel and nothing registers. The most common ruleset.</li>
+	<li><strong>Last input wins:</strong> the direction you pressed most recently takes over.</li>
+	<li><strong>Up priority:</strong> for up and down together, up wins. Standard in most rulesets.</li>
+	<li><strong>Both register:</strong> no SOCD cleaning at all. Banned at almost every event.</li>
+</ul>
+<p>If the output shows both left and right active at once, your SOCD cleaner is off or not present. Check your firmware before you take the stick to a tournament, because it may not pass hardware check. Leverless players should run this controller check after every firmware update.</p>
 
-		<h2>Keeping a Fight Stick in Good Condition</h2>
-		<p>Sticks are built to be maintained, which is one of the best things about them.</p>
-		<ul>
-			<li>Open the panel every few months and reseat all quick disconnects</li>
-			<li>Blow dust out of the button housings with compressed air</li>
-			<li>Replace worn microswitches rather than whole buttons where possible</li>
-			<li>Keep drinks well away, liquid inside a stick is far worse than in a pad</li>
-			<li>Do not carry it loose in a bag without padding around the lever</li>
-			<li>Keep a couple of spare buttons and a spare microswitch in your bag</li>
-		</ul>
-		<p>Most people replace buttons long before the stick body wears out. That is normal, and it is cheap.</p>
+<h2>The Numbered Button Grid and XInput</h2>
+<p>The grid lists all 17 button indexes your pad can report. Press a button and the matching number lights up.</p>
+<p>This is where an xinput tester earns its place. Your PC does not see "medium punch", it sees index 2. When a game asks you to bind Button 9 and you have no idea which one that is, press buttons here until 9 lights up. Custom builds running GP2040-CE or Brook boards often report unusual numbers, and this grid is the fastest way to map them without guessing.</p>
 
-		<h2>Run Your Fight Stick Test</h2>
-		<p>Plug in your stick and press any button to begin. Work through every button several times, hit all eight lever directions, hold the diagonals, and check your SOCD behaviour on opposing inputs.</p>
-		<p>A few minutes now tells you whether that dropped combo was your hands or your hardware. Better to find out at your desk than in a bracket.</p>
+<h2>Testing Without a Stick</h2>
+<p>You can run this test on a keyboard. The UIOP and JKL keys map to a hitbox style layout, so keyboard players can check their inputs and practise leverless finger placement without owning a stick.</p>
+<p>It is also handy when you want to confirm the tool is working before you decide your hardware is at fault.</p>
+
+<h2>Which Sticks and Controllers Work</h2>
+<ul>
+	<li><strong>Traditional sticks:</strong> Hori Real Arcade Pro, Mad Catz TE and TE2, Qanba Obsidian and Drone, Razer Panthera</li>
+	<li><strong>Leverless controllers:</strong> Hit Box, Snack Box Micro, Junkfood, All Fight Sticks builds</li>
+	<li><strong>Custom builds:</strong> Using Brook, GP2040-CE, Etokki or other boards</li>
+	<li><strong>Budget sticks:</strong> From Mayflash, PXN and similar brands</li>
+	<li><strong>Standard pads:</strong> Since the tool reads any device Windows sees as a controller</li>
+</ul>
+
+<h2>When to Run a Controller Test</h2>
+<ul>
+	<li>The night before a tournament, not the morning of</li>
+	<li>After any button or lever part replacement</li>
+	<li>After a firmware update, especially on custom boards</li>
+	<li>When you buy a used stick, before the return window closes</li>
+	<li>After travelling with it, since transit loosens quick disconnects</li>
+	<li>When your execution suddenly gets worse for no clear reason</li>
+</ul>
+
+<h2>Keeping a Fight Stick in Good Condition</h2>
+<ul>
+	<li>Open the panel every few months and reseat all quick disconnects</li>
+	<li>Blow dust out of the button housings with compressed air</li>
+	<li>Replace worn microswitches rather than whole buttons where possible</li>
+	<li>Keep drinks well away, since liquid inside a stick is far worse than in a pad</li>
+	<li>Do not carry it loose in a bag without padding around the lever</li>
+	<li>Keep a couple of spare buttons and a spare microswitch in your bag</li>
+</ul>
+<p>Most people replace buttons long before the stick body wears out. That is normal, and it is cheap.</p>
+
+<h2>Run Your Test</h2>
+<p>Plug in your stick and press any button to begin. Work through every button several times, watch the input history for doubles, hit all eight lever directions, hold the diagonals, and check your SOCD output on opposing inputs.</p>
+<p>A few minutes now tells you whether that dropped combo was your hands or your hardware. Better to find out at your desk than in a bracket.</p>
 	</article>
 
 	<style>
