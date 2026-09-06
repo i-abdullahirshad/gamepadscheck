@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-	title="Steering Wheel Tester - Test Racing Wheel & Pedals Online Free" 
-	description="Free steering wheel tester online. Check wheel rotation, pedals, shifter and buttons in your browser. Works with Logitech, Thrustmaster and Fanatec."
+	title="Steering Wheel Tester: Check Wheel, Pedals & Shifters Online" 
+	description="Free steering wheel tester in your browser. Check wheel rotation in degrees, pedal linearity, shifter buttons and raw axis data. No download needed."
 >
 	
 
@@ -153,109 +153,125 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</div>
 
 	<article class="content-section">
-		<h2>Test Your Racing Wheel and Pedals in Your Browser</h2>
-		<p>Your car pulls to one side on a straight. The brake pedal grabs before your foot has really moved. The wheel turns fine in Windows but the game barely reacts.</p>
-		<p>Any of these could be hardware. Any of these could be settings. Guessing is how people end up buying a new wheel they did not need.</p>
-		<p>This steering wheel tester shows you the raw input your PC is receiving. Connect your wheel, turn it, press the pedals, and watch the values move in real time. No install, no account, no cost.</p>
+		<h2>Steering Wheel Tester: Check Wheel, Pedals & Shifters Online</h2>
+<p>Your car pulls to one side on a straight. The brake grabs before your foot has really moved. The wheel turns fine in Windows but the game barely reacts.</p>
+<p>Any of these could be hardware. Any of these could be settings. Guessing is how people end up buying a new wheel they did not need.</p>
+<p>This steering wheel test shows the raw input your PC is receiving. Connect your wheel, turn it, press the pedals, and watch the numbers move in real time. No install, no account, no cost.</p>
 
-		<h2>What a Steering Wheel Tester Does</h2>
-		<p>Racing wheels send several separate signals to your PC at once. The wheel is one axis. Each pedal is its own axis. The shifter, the paddles and every button on the rim are separate inputs again.</p>
-		<p>A racing wheel test reads all of them and puts them on one screen. When you turn left, you see the steering value move negative. When you press the brake, you see that axis climb on its own, independent of the throttle.</p>
-		<p>This matters because a game can only use what it receives. If the brake axis is not moving here, no amount of tweaking inside the game will fix it.</p>
+<h2>What a Wheel Tester Does</h2>
+<p>Racing wheels send several separate signals to your PC at once. The wheel is one axis. Each pedal is its own axis. The shifter, the paddles and every button on the rim are separate inputs again.</p>
+<p>This wheel check reads all of them and puts them on one screen. You get:</p>
+<ul>
+	<li>A rotation dial showing your steering angle in degrees</li>
+	<li>Throttle, brake and clutch bars showing travel as a percentage</li>
+	<li>A live pedal linearity graph plotting all three pedals as curves</li>
+	<li>Raw axis data with values to three decimal places</li>
+	<li>A numbered grid of all 17 buttons</li>
+	<li>An event log recording every button press in order</li>
+</ul>
+<p>This matters because a game can only use what it receives. If the brake axis is not moving here, no amount of tweaking inside the game will fix it.</p>
 
-		<h2>How to Test Your Racing Wheel Online</h2>
-		<ol>
-			<li>Connect the wheel base to your PC by USB and plug in its power supply.</li>
-			<li>Attach the pedals, shifter and handbrake to the base first, then open this page.</li>
-			<li>Press any button on the rim so the browser detects the device.</li>
-			<li>Turn the wheel fully left, then fully right.</li>
-			<li>Press each pedal slowly from rest to the floor.</li>
-			<li>Move the shifter through every gear, and pull both paddles.</li>
-			<li>Press every button on the rim and hub.</li>
-		</ol>
-		<p><strong>Power matters here.</strong> A wheel connected by USB but not plugged into mains will often show up on your PC while giving no force feedback and sometimes no full rotation.</p>
+<h2>How to Test Your Steering Wheel Online</h2>
+<ol>
+	<li>Connect the wheel base to your PC by USB and plug in its power supply.</li>
+	<li>Attach the pedals, shifter and handbrake to the base first, then open this page.</li>
+	<li>Press any button on the rim so the browser detects the device.</li>
+	<li>Turn the wheel fully left, then fully right.</li>
+	<li>Press each pedal slowly from rest to the floor and watch the linearity graph.</li>
+	<li>Move the shifter through every gear and pull both paddles.</li>
+	<li>Press every button on the rim and hub, then read the event log.</li>
+</ol>
+<p>Power matters here. A wheel connected by USB but not plugged into mains will often show up on your PC while giving no force feedback and sometimes no full rotation.</p>
 
-		<h2>Checking Wheel Rotation and Centring</h2>
-		<p>Start with the wheel itself. Let go and look at the steering value.</p>
-		<ul>
-			<li><strong>Healthy wheel:</strong> sits at or very near 0.00 when centred and released.</li>
-			<li><strong>Off centre:</strong> the wheel physically sits straight but the value reads 0.06. Your car will drift on straights in every game. This normally means the wheel needs recalibrating, not replacing.</li>
-		</ul>
-		<p>Now turn the wheel slowly all the way left and all the way right. The value should reach close to -1.00 and 1.00 smoothly, with no jumps or flat spots.</p>
-		<p>Things worth noting:</p>
-		<ul>
-			<li><strong>Value maxes out early:</strong> rotation range is set lower than the hardware allows, usually in the driver software</li>
-			<li><strong>Jumpy or skipping numbers:</strong> worn optical encoder or a loose connection</li>
-			<li><strong>One side reaches full, the other does not:</strong> calibration is off centre</li>
-		</ul>
-		<p>Most wheels support 900 degrees of rotation, some go to 1080 and beyond. If the number hits its limit after only half a turn, check your Logitech G Hub, Thrustmaster Control Panel or Fanatec driver settings before assuming a fault.</p>
+<h2>Checking Wheel Rotation and Centring</h2>
+<p>Start with the wheel itself. Let go and look at the dial.</p>
+<ul>
+	<li><strong>Healthy wheel:</strong> reads 0 degrees when centred and released</li>
+	<li><strong>Off centre:</strong> the wheel physically sits straight but the dial reads 5 or 10 degrees. Your car will drift on straights in every game. This normally means recalibration, not replacement.</li>
+</ul>
+<p>Even a couple of degrees of offset is enough to feel on a long straight. If you want a finer reading, look at Axis 0 in the raw axis data panel, which shows the same steering position as a decimal between -1.000 and 1.000. A properly centred wheel sits at or very near 0.000 there.</p>
+<p>Now turn slowly to full lock each way. The degree reading should climb smoothly with no jumps or flat spots.</p>
+<p>Worth noting:</p>
+<ul>
+	<li><strong>Angle maxes out early:</strong> rotation range is set lower than the hardware allows, usually in the driver software</li>
+	<li><strong>Numbers jump or skip:</strong> worn optical encoder or a loose connection</li>
+	<li><strong>One side reaches full lock, the other does not:</strong> calibration is off centre</li>
+</ul>
+<p>Most wheels support 900 degrees of rotation, some go to 1080 and beyond. If the dial hits its limit after only half a turn, check your Logitech G Hub, Thrustmaster Control Panel or Fanatec driver settings before assuming a fault.</p>
 
-		<h2>Testing Pedals: Throttle, Brake and Clutch</h2>
-		<p>Each pedal is its own axis. Test them one at a time and watch which value moves. Press slowly and look for a smooth climb from rest to fully pressed.</p>
-		<p>Problem signs to watch for:</p>
-		<ul>
-			<li>Value sits above zero with your foot off the pedal</li>
-			<li>Numbers jump in steps instead of moving smoothly</li>
-			<li>Pedal never reaches its maximum value at full travel</li>
-			<li>Two axes move when you press one pedal</li>
-			<li>Value flickers while you hold steady pressure</li>
-		</ul>
-		<p><strong>Potentiometer</strong> pedals wear out over time and start behaving like this. <strong>Load cell</strong> brakes measure pressure rather than travel, so their curve feels different, but the value should still rise smoothly and settle back to zero.</p>
-		<p>A brake that reads 0.20 at rest will make your car feel permanently slow, and no amount of tuning in-game will fix that.</p>
+<h2>Reading the Pedal Linearity Graph</h2>
+<p>This is the most useful part of the tool and the fastest way to test a wheel sensor.</p>
+<p>The graph plots throttle in yellow, brake in red and clutch in blue as you press them. Instead of reading numbers and trying to remember what they did a second ago, you see the shape of each pedal's travel drawn out in front of you.</p>
+<p>Press one pedal slowly from rest to the floor and back, then read the curve:</p>
+<ul>
+	<li>A smooth, clean line means the <strong>sensor is healthy</strong></li>
+	<li>A jagged or stepped line means a <strong>dirty or worn potentiometer</strong></li>
+	<li>A line that flattens before the top means the <strong>pedal is not reaching full travel</strong></li>
+	<li>A line that starts above the baseline means the <strong>pedal reads pressed while your foot is off it</strong></li>
+	<li>A wobbly line while you hold steady means the <strong>sensor is losing contact</strong></li>
+</ul>
+<p>The percentage bars next to the graph give you the same information as a single figure. A brake sitting at 20 percent with your foot off it will make the car feel permanently slow, and no in-game tuning will fix that.</p>
+<p>Load cell brakes measure pressure rather than travel, so their curve looks different and often steeper. That is normal. What matters is that the line is smooth and returns to zero.</p>
 
-		<h2>Testing Shifters, Paddles and Buttons</h2>
-		<p>Paddle shifters register as buttons. Pull each one and confirm a separate input lights up for up and down.</p>
-		<p>H-pattern shifters send a different button for every gear. Move through 1 to 6 and reverse, checking that each gear gives its own distinct input. Two gears reporting the same button is a wiring or calibration fault.</p>
-		<p>Sequential shifters send one input for up and one for down. Handbrakes can be either an axis or a button, depending on model and mode. Pull it and see which one moves.</p>
-		<p>Rim buttons and rotary dials should each report separately. Rotaries often show up as a series of button presses as you turn them.</p>
+<h2>When Pedals Look Wrong or Sit at 50 Percent</h2>
+<p>Axis mapping varies by device, and this trips up a lot of people.</p>
+<p>If your pedals appear swapped, or one sits at 50 percent while you are not touching it, the wheel is probably in <strong>combined axis mode</strong>. In that mode the wheel sends throttle and brake down a single axis, with rest sitting at the halfway point. Older Logitech wheels do this by default in some setups.</p>
+<p>The fix is in your wheel driver, not in this tool. Look for a combined or split axes option in G Hub, the Thrustmaster Control Panel or your Fanatec driver, and switch to separate axes. Then reload this page and check again.</p>
+<p>Cross reference the raw axis data panel while you do this. Press one pedal and see which axis number moves. That tells you exactly how your device is mapped, whatever the labels say.</p>
 
-		<h2>Which Racing Wheels Work Here</h2>
-		<p>This wheel calibration test supports:</p>
-		<ul>
-			<li><strong>Logitech:</strong> G29, G920, G923, G Pro Racing Wheel, older G27 and G25</li>
-			<li><strong>Thrustmaster:</strong> T150, T248, T300RS, T500RS, TX, TS-XW, T-GT</li>
-			<li><strong>Fanatec:</strong> CSL DD, CSL Elite, ClubSport, DD1 and DD2</li>
-			<li><strong>Moza:</strong> R3, R5, R9, R12, R16 and R21</li>
-			<li>Simagic, Simucube and other direct drive bases</li>
-			<li>Budget wheels from PXN, Hori and similar brands</li>
-		</ul>
-		<p>Anything Windows recognises as a game controller will report here. Consoles-only modes may behave differently, so switch the wheel to PC mode if it has a toggle.</p>
+<h2>Testing Shifters, Paddles and Buttons</h2>
+<p>Paddle shifters register as buttons. Pull each one and confirm a separate index lights up in the numbered grid.</p>
+<p>An H-pattern shifter sends a different button for every gear. Move through 1 to 6 and reverse, and watch which number lights each time. Every gear should give its own distinct index. Two gears reporting the same number is a wiring or calibration fault, and using the grid as a shifter tester is the quickest way to prove it.</p>
+<p>Sequential shifters send one input for up and one for down. Handbrakes can be either an axis or a button depending on model and mode, so pull it and see which panel reacts.</p>
+<p>The event log records each press as it happens, with the newest at the top. That is handy for rotary dials, which fire a series of presses as you turn them, and for confirming that a button is not firing twice from one press. Clear the log with the bin icon before a careful run so you are only reading fresh events.</p>
 
-		<h2>Reading Your Results</h2>
-		<ul>
-			<li><strong>Everything moves correctly:</strong> Your hardware is fine. The issue is in the game or in your driver software. Check the game's controller settings, make sure the wheel is selected as the input device, and verify your rotation degrees match between the driver and the game. A mismatch here is the single most common cause of steering that feels wrong.</li>
-			<li><strong>Wheel does not centre at 0.00:</strong> Recalibrate through your wheel's official software. Unplug, let the wheel complete its startup rotation without touching it, then check again.</li>
-			<li><strong>A pedal reads above zero at rest:</strong> Adjust the <strong>deadzone</strong> or minimum travel setting in your driver software. If the value is high and unstable, the potentiometer is wearing out.</li>
-			<li><strong>Force feedback is missing:</strong> This test will not show force feedback, since the browser only reads input. Check that the wheel's power supply is connected, that the driver software sees the device, and that FFB is enabled in your game.</li>
-			<li><strong>Nothing is detected:</strong> Try a rear USB port instead of a hub. Confirm the power brick is plugged in. Make sure the wheel finished its startup calibration spin. Check whether the wheel is set to a console mode that your PC cannot read.</li>
-		</ul>
+<h2>Which Racing Wheels Work Here</h2>
+<p>This wheel test supports:</p>
+<ul>
+	<li><strong>Logitech:</strong> G29, G920, G923, G Pro Racing Wheel, older G27 and G25</li>
+	<li><strong>Thrustmaster:</strong> T150, T248, T300RS, T500RS, TX, TS-XW, T-GT</li>
+	<li><strong>Fanatec:</strong> CSL DD, CSL Elite, ClubSport, DD1 and DD2</li>
+	<li><strong>Moza:</strong> R3, R5, R9, R12, R16 and R21</li>
+	<li>Simagic, Simucube and other direct drive bases</li>
+	<li>Budget wheels from PXN, Hori and similar brands</li>
+</ul>
+<p>Anything Windows recognises as a game controller will report here. Console-only modes may behave differently, so switch the wheel to PC mode if it has a toggle.</p>
 
-		<h2>When to Run a Wheel Test</h2>
-		<p>Useful moments to check:</p>
-		<ul>
-			<li>After unboxing a new wheel, before your first race</li>
-			<li>When buying secondhand, while the return window is open</li>
-			<li>After moving your rig or reconnecting everything</li>
-			<li>When a car suddenly feels wrong in one game but fine in another</li>
-			<li>Before a league race or endurance event</li>
-			<li>After a driver or firmware update</li>
-			<li>Before selling, so you can describe the condition accurately</li>
-		</ul>
+<h2>Reading Your Results</h2>
+<ul>
+	<li><strong>Everything moves correctly:</strong> The hardware is fine. The problem is in the game or the driver. Check that the wheel is selected as the input device and that rotation degrees match between driver and game. A mismatch there is the most common cause of steering that feels wrong.</li>
+	<li><strong>Wheel does not centre at 0 degrees:</strong> Recalibrate through the official software. Unplug, let the wheel finish its startup spin without touching it, then check again.</li>
+	<li><strong>A pedal reads above zero at rest:</strong> Adjust the deadzone or minimum travel in your driver software. If the reading is high and unstable, the potentiometer is wearing out.</li>
+	<li><strong>Pedal curve is jagged:</strong> Dirty or worn sensor. Cleaning helps on some models. On others it is a replacement part.</li>
+	<li><strong>Force feedback is missing:</strong> This test cannot show force feedback, because the browser only reads input. Check the power supply, the driver software and your in-game FFB setting.</li>
+	<li><strong>Nothing is detected:</strong> Try a rear USB port instead of a hub, confirm the power brick is in, and make sure the wheel finished its startup calibration spin.</li>
+</ul>
 
-		<h2>Keeping Your Wheel and Pedals Healthy</h2>
-		<ul>
-			<li>Let the wheel complete its startup rotation without touching it</li>
-			<li>Keep pedals on a stable surface, sliding pedals strain the cables</li>
-			<li>Do not force the wheel past its rotation limit</li>
-			<li>Unplug power when the rig will sit unused for weeks</li>
-			<li>Clean dust from around the pedal arms, grit shortens potentiometer life</li>
-			<li>Keep firmware current through your manufacturer's software</li>
-		</ul>
+<h2>When to Run a Steering Wheel Test</h2>
+<ul>
+	<li>After unboxing a new wheel, before your first race</li>
+	<li>When buying secondhand, while the return window is open</li>
+	<li>After moving your rig or reconnecting everything</li>
+	<li>When a car feels wrong in one game but fine in another</li>
+	<li>Before a league race or endurance event</li>
+	<li>After a driver or firmware update</li>
+	<li>Before selling, so you can describe the condition accurately</li>
+</ul>
 
-		<h2>Run Your Steering Wheel Test Now</h2>
-		<p>Plug in your wheel, power it up, and press a button on the rim.</p>
-		<p>Turn full lock left and right and watch the centring. Press each pedal slowly and check for smooth travel. Run through your gears and every button on the hub.</p>
-		<p>In a couple of minutes you will know whether you are looking at a calibration problem, a game setting, or hardware that genuinely needs attention.</p>
+<h2>Keeping Your Wheel and Pedals Healthy</h2>
+<ul>
+	<li>Let the wheel complete its startup rotation without touching it</li>
+	<li>Keep pedals on a stable surface, since sliding pedals strain the cables</li>
+	<li>Do not force the wheel past its rotation limit</li>
+	<li>Unplug power when the rig will sit unused for weeks</li>
+	<li>Clean dust from around the pedal arms, because grit shortens potentiometer life</li>
+	<li>Keep firmware current through your manufacturer's software</li>
+</ul>
+
+<h2>Run Your Wheel Check Now</h2>
+<p>Plug in your wheel, power it up, and press a button on the rim.</p>
+<p>Turn full lock each way and watch the centring. Press each pedal slowly and read the linearity curve. Run through your gears and watch the button grid.</p>
+<p>In a couple of minutes you will know whether you are looking at a calibration problem, a driver setting, or hardware that genuinely needs attention.</p>
 	</article>
 
 	<style>
