@@ -2,6 +2,6 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://your-future-domain.com', 
+  site: 'https://gamepadscheck.com', 
   integrations: [sitemap()]
 });
