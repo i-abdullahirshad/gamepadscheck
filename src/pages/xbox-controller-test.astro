@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-	title="Xbox Controller Test - Check Buttons, Sticks & Drift Online Free" 
-	description="Free Xbox controller test online. Check buttons, triggers, bumpers and stick drift in your browser. Works with Series X, One, 360 and Elite pads."
+	title="Xbox Controller Tester: Check Input, Wireless & Vibration Online" 
+	description="Free Xbox controller tester online. Check buttons, stick drift, triggers and run a vibration test in your browser. No download, works on PC."
 >
 
 
@@ -188,123 +188,151 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	<!-- SEO Content Section -->
 	<article class="content-section">
-		<h2>Test Your Xbox Controller Online in Under a Minute</h2>
-		<p>Something is off with your Xbox controller. Your crosshair drifts when your thumbs are nowhere near the stick. The right bumper works when it feels like it. Or the whole pad has gone quiet in one game while working fine in another.</p>
-		<p>You do not need to guess, and you do not need to buy a replacement yet.</p>
-		<p>This Xbox controller test runs straight in your browser. Connect the pad, press some buttons, and you will see exactly what your PC is reading. Nothing to install and nothing to sign up for.</p>
+		<h2>Xbox Controller Tester: Check Input, Wireless & Vibration Online</h2>
+<p>Something is off with your Xbox controller. Your crosshair drifts when your thumbs are nowhere near the stick. The right bumper works when it feels like it. Or the rumble has gone quiet and you are not sure when it stopped.</p>
+<p>You do not need to guess, and you do not need to buy a replacement yet.</p>
+<p>This Xbox controller test runs straight in your browser. Connect the pad, press some buttons, run the rumble test, and you will see exactly what your PC is reading. Nothing to install and nothing to sign up for.</p>
 
-		<h2>What This Xbox Controller Test Checks</h2>
-		<p>The tool reads live input from your pad and shows it on screen as you press. Every part of the controller is covered.</p>
-		<ul>
-			<li><strong>Face buttons:</strong> A, B, X, Y</li>
-			<li><strong>Bumpers:</strong> LB and RB</li>
-			<li><strong>Triggers:</strong> LT and RT, with analog pull values</li>
-			<li><strong>Sticks:</strong> left and right, with live X and Y numbers</li>
-			<li><strong>Stick clicks:</strong> L3 and R3</li>
-			<li><strong>D-pad:</strong> all four directions</li>
-			<li><strong>Menu buttons:</strong> View, Menu, Xbox button and Share</li>
-			<li><strong>Elite paddles:</strong> P1 to P4 on Elite Series 2, when mapped</li>
-		</ul>
-		<p>If a button lights up on screen the moment you press it, that button is healthy. If it does not, you have found your fault.</p>
+<h2>What This Xbox Controller Test Checks</h2>
+<p>The tool reads live input from your pad and shows it on screen as you press. Every part of the controller is covered:</p>
+<ul>
+	<li><strong>Face buttons:</strong> A, B, X and Y</li>
+	<li><strong>Bumpers:</strong> LB and RB</li>
+	<li><strong>Triggers:</strong> LT and RT with analog pull values</li>
+	<li><strong>Sticks:</strong> left and right with live X and Y numbers plus an error reading</li>
+	<li><strong>Stick clicks:</strong> L3 and R3</li>
+	<li><strong>D-pad:</strong> all four directions</li>
+	<li><strong>Menu buttons:</strong> View, Menu, Xbox and Share</li>
+	<li><strong>Vibration:</strong> both rumble motors, tested separately</li>
+	<li><strong>Microphone:</strong> headset and built in mic input</li>
+	<li><strong>Elite paddles:</strong> P1 to P4 on Elite Series 2, when mapped</li>
+</ul>
+<p>If a button lights up the moment you press it, that button is healthy. If it does not, you have found your fault.</p>
 
-		<h2>How to Test an Xbox Controller on PC</h2>
-		<ol>
-			<li>Connect the controller with a USB-C cable, the Xbox Wireless Adapter, or Bluetooth.</li>
-			<li>Open this page in Chrome, Edge, Firefox or Opera.</li>
-			<li>Press any button so the browser detects the pad.</li>
-			<li>Work through every button one at a time.</li>
-			<li>Roll both sticks in full circles and then let go.</li>
-			<li>Pull each trigger slowly from rest to fully pressed.</li>
-		</ol>
-		<p>A wired connection gives the cleanest results. If nothing shows up wirelessly, plug in a cable before you assume anything is broken.</p>
+<h2>How to Test an Xbox Controller on PC</h2>
+<ol>
+	<li>Connect the pad with a USB-C cable, the Xbox Wireless Adapter or Bluetooth.</li>
+	<li>Open this page in Chrome, Edge, Firefox or Opera.</li>
+	<li>Press any button so the browser detects the controller.</li>
+	<li>Check which player slot lit up, P1 through P4.</li>
+	<li>Work through every button one at a time.</li>
+	<li>Roll both sticks in full circles, then let go and watch for drift.</li>
+	<li>Pull each trigger slowly from rest to fully pressed.</li>
+	<li>Run the vibration test and, if you use a headset, the mic test.</li>
+</ol>
+<p>A wired connection gives the cleanest results. If nothing shows up wirelessly, plug in a cable before you assume anything is broken.</p>
 
-		<h2>Checking for Xbox Controller Stick Drift</h2>
-		<p><strong>Stick drift</strong> is the most common Xbox controller fault, and it is the easiest one to confirm here.</p>
-		<p>Take your hands completely off both sticks and look at the numbers on screen.</p>
-		<ul>
-			<li><strong>0.00 or very close to it:</strong> healthy stick</li>
-			<li><strong>Sitting at 0.05 to 0.10:</strong> early drift, still playable with a bigger in-game deadzone</li>
-			<li><strong>Above 0.15, or numbers that keep creeping on their own:</strong> real drift that needs fixing</li>
-		</ul>
-		<p>Now check the range. Roll each stick slowly around its full edge. Every direction should get close to -1.00 or 1.00. If one direction only reaches 0.70, the sensor or the retaining ring is worn down.</p>
-		<p>Drift usually shows up on the left stick first, because that is the one doing the most work in shooters.</p>
+<h2>Xbox Controller Vibration Test</h2>
+<p>Rumble is the part people forget to check, because it fails quietly. A game feels a little flat, you assume it is the game, and months later you realise one motor died.</p>
+<p>An Xbox pad has two motors. The left one is heavier and produces a deep rumble. The right one is lighter and produces a finer buzz. Games use both together, so a single dead motor is easy to miss.</p>
+<p>The vibration panel gives you four tests:</p>
+<ul>
+	<li><strong>Heavy:</strong> drives the low frequency motor on its own</li>
+	<li><strong>Light:</strong> drives the high frequency motor on its own</li>
+	<li><strong>Burst:</strong> short sharp pulses, the pattern used for impacts and hits</li>
+	<li><strong>Pulse:</strong> a repeating on and off rhythm, good for spotting a motor that cuts out</li>
+</ul>
+<p>Run Heavy and Light one after the other and hold the pad loosely in both hands. You should feel a clear difference between them, and you should feel each one on its own side of the controller.</p>
+<p>What your results mean:</p>
+<ul>
+	<li><strong>Both motors respond clearly:</strong> Rumble hardware is fine. If a game has no vibration, check the game settings first.</li>
+	<li><strong>Only one side responds:</strong> That motor has failed or its wire has come loose. Replacement motors are cheap and the repair is straightforward on a standard pad.</li>
+	<li><strong>Rumble is weak on both sides:</strong> Usually low batteries. Some pads cut vibration power to save charge.</li>
+	<li><strong>Nothing at all on Bluetooth:</strong> Normal on some setups. Plug in a cable and test again before deciding the motors are dead.</li>
+</ul>
+<p>There is also an infinite vibration toggle if you want to run the motors continuously for a longer soak test. That is useful for catching a motor that works for two seconds and then drops out.</p>
 
-		<h2>Testing Xbox Triggers Properly</h2>
-		<p>LT and RT are <strong>analog</strong>. They report how far you pulled them, not just pressed or not pressed. That is why racing games can read a light throttle and shooters can read a half squeeze.</p>
-		<p>Pull each trigger slowly and watch the value.</p>
-		<ul>
-			<li><strong>Healthy trigger:</strong> a smooth climb from 0.00 to 1.00 with no jumps.</li>
-		</ul>
-		<p>Problem signs:</p>
-		<ul>
-			<li>Value sits above 0.00 when your finger is off the trigger</li>
-			<li>Numbers jump in chunks instead of moving smoothly</li>
-			<li>Trigger never reaches 1.00 no matter how hard you pull</li>
-			<li>Value drops back down while you are still holding</li>
-		</ul>
-		<p>Worn trigger potentiometers cause most of these. On a standard pad, replacement is often cheaper than repair. On an Elite, repair is usually worth it.</p>
+<h2>Checking for Xbox Stick Drift</h2>
+<p>Stick drift is the most common Xbox fault and the easiest one to confirm here.</p>
+<p>Take your hands completely off both sticks and read the numbers:</p>
+<ul>
+	<li><strong>0.00 or very close:</strong> healthy stick</li>
+	<li><strong>0.05 to 0.10:</strong> early drift, still playable with a larger in-game deadzone</li>
+	<li><strong>Above 0.15, or numbers that keep creeping:</strong> real drift that needs fixing</li>
+</ul>
+<p>Each stick also shows an <strong>error percentage</strong>. Roll the stick slowly around its outer edge and watch that figure. A worn stick cannot trace a clean circle and the error rises to show it.</p>
+<p>The deadzone slider underneath is more useful than it looks. Slide it up until your drifting stick reads clean at rest. Whatever value stops the drift is roughly the deadzone you will need in your games. If a small number fixes it, the pad is still usable. If you have to push it high, the stick module is going.</p>
+<p>Also check range. Roll each stick to its edge and every direction should reach close to -1.00 or 1.00. If one direction stops at 0.70, the sensor or the retaining ring is worn.</p>
+<p>Drift shows up on the left stick first, because that is the one doing the most work in shooters.</p>
 
-		<h2>Which Xbox Controllers Work Here</h2>
-		<p>This test supports the full lineup:</p>
-		<ul>
-			<li>Xbox Series X and Series S controllers</li>
-			<li>Xbox One, Xbox One S and Xbox One X controllers</li>
-			<li>Xbox Elite Series 1 and Series 2, including paddles</li>
-			<li>Xbox 360 wired and wireless controllers</li>
-			<li>Xbox Adaptive Controller</li>
-			<li>Third party Xbox pads from PowerA, GameSir, 8BitDo, Razer and Turtle Beach</li>
-		</ul>
-		<p>Older Xbox 360 pads may show up with a different device name, but every button still reports correctly.</p>
+<h2>Testing Xbox Triggers Properly</h2>
+<p>LT and RT are analog. They report how far you pulled them, which is why racing games can read a light throttle and shooters can read a half squeeze.</p>
+<p>Pull each trigger slowly and watch the value climb. A healthy trigger moves smoothly from 0.00 to 1.00 with no jumps.</p>
+<p>Problem signs:</p>
+<ul>
+	<li>Value sits above 0.00 when your finger is off the trigger</li>
+	<li>Numbers jump in chunks instead of moving smoothly</li>
+	<li>The trigger never reaches 1.00 no matter how hard you pull</li>
+	<li>The value drops while you are still holding</li>
+</ul>
+<p>Worn potentiometers cause most of these. On a standard pad, replacement is often cheaper than repair. On an Elite, repair is usually worth it.</p>
 
-		<h2>What Your Results Actually Mean</h2>
-		<ul>
-			<li><strong>Everything responds correctly:</strong> Your hardware is fine. The problem lives somewhere else. Check your in-game controller settings, your Steam Input configuration, or whether another connected device is competing for the same inputs. Deadzone settings inside the game are worth a look too.</li>
-			<li><strong>One button is dead:</strong> Usually dirt under the switch or a worn contact pad. Blow out the gaps with compressed air first. If that fails, a small amount of isopropyl alcohol around the button often revives it. Persistent failure means a hardware repair.</li>
-			<li><strong>A button fires on its own:</strong> Something is stuck. Crumbs, dried liquid, or a swollen membrane. Same cleaning steps apply, but be more thorough.</li>
-			<li><strong>Left stick drifts:</strong> The classic Xbox fault. Small drift can be masked with a larger deadzone in your game. Bigger drift needs a new stick module. Elite Series 2 owners should check warranty status first, Microsoft extended coverage on these at one point.</li>
-			<li><strong>Controller is not detected at all:</strong> Not necessarily broken. Try a different USB port and a different cable, since a lot of USB-C cables are charge only and carry no data. Check the battery. Make sure the Xbox button is lit solid and not blinking.</li>
-		</ul>
+<h2>Testing the Microphone and Connection</h2>
+<p>If you use a headset through the pad, the mic tester confirms audio is actually reaching your PC. Pick your input device from the dropdown, hit Start Recording, and speak. This separates a hardware problem from a Discord or in-game voice setting in about ten seconds.</p>
+<p>The polling rate readout shows how often your PC is receiving updates from the pad, in Hz. A wired Xbox controller reports a steadier figure than a Bluetooth one. A rate that jumps around points to an unstable wireless connection rather than a broken pad.</p>
 
-		<h2>Fixing an Xbox Controller That Will Not Connect</h2>
-		<p>If the browser sees nothing, work through these in order.</p>
-		<ol>
-			<li>Swap to a known data-carrying USB-C cable</li>
-			<li>Try a rear USB port on your desktop instead of a front panel or hub</li>
-			<li>Replace or recharge the batteries</li>
-			<li>Remove the pad from Bluetooth settings and pair it again</li>
-			<li>Update the controller firmware using the Xbox Accessories app</li>
-			<li>Close any other software holding the controller, like DS4Windows or a second launcher</li>
-			<li>Test the pad on another PC to separate a controller fault from a PC fault</li>
-		</ol>
-		<p>Firmware updates fix more Bluetooth problems than most people expect. It is worth doing before anything else.</p>
+<h2>How to Check Xbox Controller Battery on PC</h2>
+<p>This tool reads input, not battery level, so check the charge separately. On Windows, open the Xbox Accessories app and the battery percentage appears at the top. The Game Bar, opened with Windows key and G, also shows a battery icon for a connected pad.</p>
+<p>Worth checking before you blame the hardware, because a low battery causes weak rumble, dropped Bluetooth and inconsistent input.</p>
 
-		<h2>When to Run an Xbox Controller Test</h2>
-		<p>Good moments to check your pad:</p>
-		<ul>
-			<li>Right after buying, especially secondhand, while a return is still possible</li>
-			<li>Before a ranked match or a tournament</li>
-			<li>When your aim feels slightly wrong but you cannot say why</li>
-			<li>After a drop, a spill, or a long stretch in storage</li>
-			<li>Before selling or trading it, so you can describe it honestly</li>
-			<li>When one specific game stops reading your inputs</li>
-		</ul>
+<h2>Which Xbox Controllers Work Here</h2>
+<ul>
+	<li>Xbox Series X and Series S controllers</li>
+	<li>Xbox One, One S and One X controllers</li>
+	<li>Xbox Elite Series 1 and Series 2, including paddles</li>
+	<li>Xbox 360 wired and wireless controllers</li>
+	<li>Xbox Adaptive Controller</li>
+	<li>Third party Xbox pads from PowerA, GameSir, 8BitDo, Razer and Turtle Beach</li>
+</ul>
+<p>Older 360 pads may report a different device name, but every button still registers. Note that many third party wired pads have no rumble motors at all, so a blank vibration result on a budget pad is not always a fault.</p>
 
-		<h2>Keeping Your Xbox Controller Healthy Longer</h2>
-		<p>Most Xbox controller failures build up slowly. A few habits slow that down.</p>
-		<ul>
-			<li>Keep drinks off the desk near your setup</li>
-			<li>Clean around the stick bases every few weeks, that is where grit gathers</li>
-			<li>Pull cables straight out, never at an angle</li>
-			<li>Store the pad where nothing can sit on it</li>
-			<li>Do not leave batteries flat inside for months</li>
-			<li>Avoid pressing sticks harder than needed, force wears the sensors faster</li>
-		</ul>
-		<p>A quick test every couple of months catches drift while it is still small enough to work around.</p>
+<h2>What Your Results Actually Mean</h2>
+<ul>
+	<li><strong>Everything responds correctly:</strong> The hardware is fine. Check in-game controller settings, Steam Input, and whether another connected device is competing for the same slot.</li>
+	<li><strong>One button is dead:</strong> Usually dirt under the switch or a worn contact pad. Blow out the gaps with compressed air, then try a little isopropyl alcohol around the button.</li>
+	<li><strong>A button fires on its own:</strong> Something is stuck. Crumbs, dried liquid or a swollen membrane. Same cleaning steps, but be more thorough.</li>
+	<li><strong>Left stick drifts:</strong> The classic Xbox fault. Mask small drift with a bigger deadzone. Bigger drift needs a new stick module. Elite Series 2 owners should check warranty status first.</li>
+	<li><strong>Vibration is dead on one side:</strong> A failed motor, not a software issue.</li>
+	<li><strong>Not detected at all:</strong> Try another USB-C cable, since many are charge only and carry no data. Try a rear USB port, check the battery, and make sure the Xbox button is lit solid rather than blinking.</li>
+</ul>
 
-		<h2>Start Your Xbox Controller Test</h2>
-		<p>Plug in your pad and press any button. The tool picks it up automatically.</p>
-		<p>Run through the buttons, roll both sticks, then let go and watch for drift. Pull both triggers slowly and check the values climb smoothly.</p>
-		<p>In about a minute you will know whether you are dealing with a worn stick, a dead switch, a settings problem, or a controller that is working perfectly and did not need replacing at all.</p>
+<h2>Fixing a Controller That Will Not Connect</h2>
+<p>Work through these in order:</p>
+<ol>
+	<li>Swap to a known data-carrying USB-C cable</li>
+	<li>Use a rear USB port rather than a front panel or hub</li>
+	<li>Recharge or replace the batteries</li>
+	<li>Remove the pad from Bluetooth settings and pair it again</li>
+	<li>Update firmware through the Xbox Accessories app</li>
+	<li>Close other software holding the controller, such as DS4Windows</li>
+	<li>Test the pad on another PC to separate a controller fault from a PC fault</li>
+</ol>
+<p>Firmware updates fix more Bluetooth problems than most people expect.</p>
+
+<h2>When to Run an Xbox Controller Test</h2>
+<ul>
+	<li>Right after buying, especially secondhand, while a return is still possible</li>
+	<li>Before a ranked match or a tournament</li>
+	<li>When your aim feels slightly wrong but you cannot say why</li>
+	<li>After a drop, a spill or a long stretch in storage</li>
+	<li>Before selling or trading it, so you can describe it honestly</li>
+	<li>When one specific game stops reading your inputs</li>
+</ul>
+
+<h2>Keeping Your Xbox Controller Healthy</h2>
+<ul>
+	<li>Keep drinks off the desk near your setup</li>
+	<li>Clean around the stick bases every few weeks, since that is where grit gathers</li>
+	<li>Pull cables straight out, never at an angle</li>
+	<li>Store the pad where nothing can sit on it</li>
+	<li>Do not leave batteries flat inside for months</li>
+	<li>Avoid pressing sticks harder than needed, because force wears the sensors faster</li>
+</ul>
+
+<h2>Start Your Xbox Controller Test</h2>
+<p>Plug in your pad and press any button. The tool picks it up automatically.</p>
+<p>Run through the buttons, roll both sticks and let go to check for drift, pull both triggers, then hit Heavy and Light to test the motors.</p>
+<p>In about a minute you will know whether you are dealing with a worn stick, a dead switch, a failed motor, a settings problem, or a controller that is working perfectly and did not need replacing at all.</p>
 	</article>
 
 	<style>
