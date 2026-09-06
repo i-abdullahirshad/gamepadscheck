@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout 
-	title="Gamepad Mapping Test - Check Controller Button Numbers Online" 
-	description="Free gamepad mapping test online. Find button index numbers, check axis mapping and fix wrong controller layouts in your browser. No download needed."
+	title="Button Mapping Test: Check Controller Layout & Input" 
+	description="Free button mapping detection tool. See the exact index your PC assigns to every button and axis on your controller, with a live event log."
 >
 
 
@@ -126,109 +126,120 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	<!-- SEO Content Section -->
 	<article class="content-section">
-		<h2>Find Out Exactly How Your Controller Is Mapped</h2>
-		<p>You press A and the game reads it as B. The menu says "press Button 7" and you have no idea which physical button that is. Your D-pad works as a stick in one game and as buttons in another.</p>
-		<p>None of this means your controller is broken. It means the mapping is wrong somewhere.</p>
-		<p>This gamepad mapping test shows you the exact number your PC assigns to every button and axis on your pad. Once you know those numbers, fixing a bad layout takes minutes instead of an afternoon of trial and error.</p>
+		<h2>Button Mapping Test: Check Controller Layout & Input</h2>
+<p>You press A and the game reads it as B. The menu says "press Button 7" and you have no idea which physical button that is. Your D-pad works as a stick in one game and as buttons in another.</p>
+<p>None of this means your controller is broken. It means the mapping is wrong somewhere.</p>
+<p>This button mapping detection tool shows the exact number your PC assigns to every button and axis on your pad. Once you can see that, fixing a bad layout takes minutes instead of an afternoon of trial and error.</p>
 
-		<h2>What Gamepad Mapping Actually Means</h2>
-		<p>Your controller does not send the letter A to your PC. It sends a number.</p>
-		<p>When you press A on an Xbox pad, the controller reports that button index 0 is now active. The game then decides what index 0 should do. Every button, every trigger and every stick axis has its own index like this.</p>
-		<p>Problems start when the controller and the game disagree about what those numbers mean. The pad says index 0. The game was written expecting index 1 to be the confirm button. You press A and nothing happens, or the wrong thing happens.</p>
-		<p>A controller mapping test cuts through that confusion by showing you the raw numbers directly.</p>
+<h2>What Button Mapping Actually Means</h2>
+<p>Your controller does not send the letter A to your PC. It sends a number.</p>
+<p>When you press A on an Xbox pad, the controller reports that <strong>button index 0</strong> is now active. The game then decides what index 0 should do. Every button, every trigger and every stick axis has its own index like this.</p>
+<p>Problems start when the controller and the game disagree about what those numbers mean. The pad says index 0. The game was written expecting index 1 to be the confirm button. You press A and nothing happens, or the wrong thing happens entirely.</p>
+<p>Detecting the mapping directly cuts through that confusion, because you stop guessing and start reading what your hardware is really sending.</p>
 
-		<h2>How to Run a Controller Mapping Test</h2>
-		<ol>
-			<li>Connect your controller by USB, Bluetooth or a wireless dongle.</li>
-			<li>Open this page and press any button so the browser detects the pad.</li>
-			<li>Press each button one at a time and write down the index number that appears.</li>
-			<li>Move each stick and note which axis number responds.</li>
-			<li>Pull each trigger and check whether it reports as an axis or a button.</li>
-			<li>Test the D-pad, since it can report either way depending on the controller.</li>
-		</ol>
-		<p>Do it slowly and one input at a time. Pressing two things together makes it hard to tell which number belongs to which button.</p>
+<h2>How to Run Button Mapping Detection</h2>
+<ol>
+	<li>Connect your controller by USB, Bluetooth or a wireless dongle.</li>
+	<li>Open this page and press any button so the browser detects the pad.</li>
+	<li>Watch the on-screen pad. The area you pressed lights up with its index number.</li>
+	<li>Press each button one at a time and let the event log record it.</li>
+	<li>Move each stick and note which axis number responds.</li>
+	<li>Pull each trigger and check whether it reports as an axis or a button.</li>
+	<li>Test the D-pad, since it can report either way depending on the controller.</li>
+</ol>
+<p>Go slowly and press one input at a time. Pressing two things together makes it hard to tell which number belongs to which button.</p>
+<p>The main thing to watch is whether the lit area matches the button under your thumb. If you press A and something else lights up, you have a mapping modification or a driver issue rather than a hardware fault. That single check answers most questions people bring to a tool like this.</p>
 
-		<h2>Standard Button Index Numbers</h2>
-		<p>Most modern controllers follow the same layout when the browser reads them in standard mapping mode.</p>
-		<ul>
-			<li><strong>0:</strong> bottom face button (A on Xbox, Cross on PlayStation)</li>
-			<li><strong>1:</strong> right face button (B on Xbox, Circle on PlayStation)</li>
-			<li><strong>2:</strong> left face button (X on Xbox, Square on PlayStation)</li>
-			<li><strong>3:</strong> top face button (Y on Xbox, Triangle on PlayStation)</li>
-			<li><strong>4:</strong> left bumper</li>
-			<li><strong>5:</strong> right bumper</li>
-			<li><strong>6:</strong> left trigger</li>
-			<li><strong>7:</strong> right trigger</li>
-			<li><strong>8:</strong> View or Share</li>
-			<li><strong>9:</strong> Menu or Options</li>
-			<li><strong>10:</strong> left stick click</li>
-			<li><strong>11:</strong> right stick click</li>
-			<li><strong>12 to 15:</strong> D-pad up, down, left, right</li>
-			<li><strong>16:</strong> Xbox or PlayStation home button</li>
-		</ul>
-		<p>Axes usually follow this pattern:</p>
-		<ul>
-			<li><strong>Axis 0:</strong> left stick horizontal</li>
-			<li><strong>Axis 1:</strong> left stick vertical</li>
-			<li><strong>Axis 2:</strong> right stick horizontal</li>
-			<li><strong>Axis 3:</strong> right stick vertical</li>
-		</ul>
-		<p>Not every controller follows this. Older pads, arcade sticks, flight sticks and cheap third party controllers often come back with completely different numbers. That is exactly why running the test on your own hardware matters more than trusting a table.</p>
+<h2>Reading the Detected Button Map</h2>
+<p>The pad diagram labels every input with its index, so nothing is left to guesswork:</p>
+<ul>
+	<li><strong>A(0), B(1), X(2), Y(3):</strong> the four face buttons</li>
+	<li><strong>LB(4) and RB(5):</strong> the bumpers</li>
+	<li><strong>LT(6) and RT(7):</strong> the triggers, when they report as buttons</li>
+	<li><strong>8 and 9:</strong> View or Share, and Menu or Options</li>
+	<li><strong>LS(10) and RS(11):</strong> the stick clicks</li>
+	<li><strong>12, 13, 14, 15:</strong> D-pad up, down, left and right</li>
+	<li><strong>16:</strong> the Xbox or PlayStation home button</li>
+	<li><strong>17:</strong> touchpad click on a DualSense or DualShock pad</li>
+</ul>
+<p>Axes normally follow this pattern:</p>
+<ul>
+	<li><strong>Axis 0:</strong> left stick horizontal</li>
+	<li><strong>Axis 1:</strong> left stick vertical</li>
+	<li><strong>Axis 2:</strong> right stick horizontal</li>
+	<li><strong>Axis 3:</strong> right stick vertical</li>
+</ul>
+<p>Not every controller follows this. Older pads, arcade sticks, flight sticks and cheap third party controllers often come back with completely different numbers. That is exactly why running detection on your own hardware beats trusting any table, including this one.</p>
 
-		<h2>XInput vs DirectInput Explained</h2>
-		<p>This is the root cause of most wrong mapping problems on PC.</p>
-		<p><strong>XInput</strong> is the modern standard, built around the Xbox controller layout. Buttons are named, triggers are analog, and rumble is handled properly. Almost every game released in the last decade expects XInput.</p>
-		<p><strong>DirectInput</strong> is the older standard. It treats every controller as a generic device with numbered buttons and axes. It has no idea what a "face button" is. Older games, most flight sticks, many racing wheels and a lot of arcade sticks still use it.</p>
-		<p>The trouble comes when a pad connects in DirectInput mode to a game expecting XInput. Everything is present but the numbers land in the wrong places. Face buttons swap around. Triggers show up as a shared axis instead of two separate ones.</p>
-		<p>If your test results look nothing like the standard table above, you are probably in DirectInput mode.</p>
+<h2>Using the Real-time Event Log</h2>
+<p>The event log is what makes this faster than older mapping tools.</p>
+<p>Every press is recorded in order as it happens, so you do not need a notepad next to your keyboard. Press everything once, then read the whole list at the end.</p>
+<p>How to get a clean run:</p>
+<ol>
+	<li>Clear the log with the bin icon before you start</li>
+	<li>Press one button, pause, then press the next</li>
+	<li>Work in a fixed order so the list is easy to follow later</li>
+	<li>Use each pause to confirm the entry matches the button you just pressed</li>
+</ol>
+<p>The log also catches something a static diagram cannot show. If one press produces two entries, that button is double firing. That is a worn switch rather than a mapping problem, and it is worth knowing before you spend time remapping anything.</p>
 
-		<h2>Common Mapping Problems and Fixes</h2>
-		<ul>
-			<li><strong>Buttons are swapped in one game only:</strong> The game has its own controller profile and it is wrong. Look in the game's control settings for a remap option or a controller type selector. Many games let you switch between Xbox and PlayStation layouts.</li>
-			<li><strong>A controller works in Steam games but not outside Steam:</strong> Steam Input is translating for you. Non-Steam games see the raw device. Either add the game to Steam as a non-Steam game, or set up mapping in a separate tool.</li>
-			<li><strong>Triggers act like buttons, fully on or fully off:</strong> Classic DirectInput behaviour. In DirectInput the triggers often share a single axis, which is why pulling both at once cancels them out. Switch the controller to XInput mode if it has a toggle, or use a translation layer.</li>
-			<li><strong>D-pad shows up as an axis instead of four buttons:</strong> Common on older and third party pads. Some games handle this fine. Others need the pad remapped so the D-pad reports as separate buttons.</li>
-			<li><strong>Face buttons are mirrored on a PlayStation pad:</strong> The physical positions of Cross and Circle differ from A and B in some regions and some games. Check whether the game has a confirm button swap setting before remapping anything.</li>
-			<li><strong>No inputs register at all:</strong> That is not a mapping problem. Test basic connection first, then come back here once the pad is detected.</li>
-		</ul>
+<h2>Raw Axis Data and Fine Detail</h2>
+<p>The raw axis panel reports stick and trigger values to five decimal places, far more precise than the usual two.</p>
+<p>That precision matters when a stick is almost still. A stick that reads 0.00 on a rougher tool might actually be sitting at 0.00312 and slowly creeping. Let go of both sticks and watch the last few digits. Real drift keeps moving in one direction. Sensor noise wobbles around a fixed point.</p>
+<p>It helps with triggers too. Some pads rest at a tiny value rather than exactly zero, and seeing the true figure tells you whether a game needs a small trigger deadzone set.</p>
 
-		<h2>Tools That Fix Controller Mapping</h2>
-		<p>Once you know your button numbers, these are the usual options.</p>
-		<ul>
-			<li><strong>Steam Input:</strong> free, powerful, works on any game you add to your Steam library. Best starting point for most people.</li>
-			<li><strong>DS4Windows:</strong> made for PlayStation pads, presents them to Windows as Xbox controllers. Solves a huge number of PS4 and PS5 problems on PC.</li>
-			<li><strong>x360ce:</strong> older tool that makes DirectInput devices look like Xbox pads. Useful for legacy hardware.</li>
-			<li><strong>Manufacturer software:</strong> Xbox Accessories, G Hub, GameSir and 8BitDo apps all include remapping for their own hardware.</li>
-			<li><strong>In-game settings:</strong> always check here first. Many games have full remapping built in and you do not need anything else.</li>
-		</ul>
-		<p>Write your index numbers down before you open any of these. Every one of them will ask you which button is which.</p>
+<h2>XInput vs DirectInput</h2>
+<p>This is the root cause of most wrong mapping on PC.</p>
+<p><strong>XInput</strong> is the modern standard, built around the Xbox controller layout. Buttons are named, triggers are analog, and rumble is handled properly. Almost every game from the last decade expects XInput.</p>
+<p><strong>DirectInput</strong> is the older standard. It treats every controller as a generic device with numbered buttons and axes. It has no concept of a face button. Older games, most flight sticks, many racing wheels and a lot of arcade sticks still use it.</p>
+<p>Trouble comes when a pad connects in DirectInput mode to a game expecting XInput. Everything is present, but the numbers land in the wrong places. Face buttons swap around. Triggers show up as one shared axis instead of two separate ones.</p>
+<p>Your detection results tell you which mode you are in. If the numbers match the layout above, you are in standard XInput mapping. If they look nothing like it, and your triggers move a stick axis instead of reporting on their own, you are almost certainly in DirectInput mode.</p>
 
-		<h2>When to Run a Mapping Test</h2>
-		<p>Useful moments to check your layout:</p>
-		<ul>
-			<li>Before configuring a new controller in a game for the first time</li>
-			<li>When a game asks you to press a numbered button and you cannot tell which</li>
-			<li>After buying a third party or arcade-style controller</li>
-			<li>When one game reads your pad correctly and another does not</li>
-			<li>Before setting up Steam Input or DS4Windows profiles</li>
-			<li>When an older game refuses to recognise a modern pad</li>
-			<li>After a firmware update changes how the pad reports itself</li>
-		</ul>
+<h2>Common Mapping Problems and Fixes</h2>
+<ul>
+	<li><strong>Buttons swapped in one game only:</strong> the game has its own controller profile and it is wrong. Look in the control settings for a remap option or a controller type selector. Many games let you switch between Xbox and PlayStation layouts.</li>
+	<li><strong>Works in Steam games but not outside Steam:</strong> Steam Input is translating for you, and non-Steam games see the raw device. Either add the game to Steam as a non-Steam game, or set up mapping separately.</li>
+	<li><strong>Triggers act like buttons, fully on or fully off:</strong> classic DirectInput behaviour. The triggers often share one axis, which is why pulling both at once cancels them out. Switch the pad to XInput mode if it has a toggle.</li>
+	<li><strong>D-pad shows up as an axis instead of four buttons:</strong> common on older and third party pads. Some games handle it fine, others need the pad remapped.</li>
+	<li><strong>Face buttons mirrored on a PlayStation pad:</strong> the physical positions of Cross and Circle differ from A and B in some regions and games. Check for a confirm button swap setting before remapping anything.</li>
+	<li><strong>Nothing registers at all:</strong> that is not a mapping problem. Sort out the connection first, then come back here.</li>
+</ul>
 
-		<h2>Getting Reliable Results</h2>
-		<p>A few things that make your test cleaner:</p>
-		<ul>
-			<li>Connect one controller at a time, since a second pad can occupy the first slot</li>
-			<li>Close Steam and other launchers first, because they can intercept inputs before the browser sees them</li>
-			<li>Use a wired connection where possible for the most consistent reading</li>
-			<li>Test each input on its own rather than in combinations</li>
-			<li>Note whether the browser reports the pad in standard mapping mode, which tells you a lot on its own</li>
-		</ul>
+<h2>Tools That Fix Controller Mapping</h2>
+<p>Once detection has given you the numbers, these are the usual options.</p>
+<ul>
+	<li><strong>Steam Input:</strong> free, powerful, and works on any game you add to your Steam library. The best starting point for most people.</li>
+	<li><strong>DS4Windows:</strong> made for PlayStation pads, presents them to Windows as Xbox controllers. Solves a lot of PS4 and PS5 problems on PC.</li>
+	<li><strong>x360ce:</strong> older tool that makes DirectInput devices look like Xbox pads. Useful for legacy hardware.</li>
+	<li><strong>Manufacturer software:</strong> Xbox Accessories, G Hub, GameSir and 8BitDo apps all include remapping for their own hardware.</li>
+	<li><strong>In-game settings:</strong> always check here first. Many games have full remapping built in and you need nothing else.</li>
+</ul>
+<p>Every one of these will ask you which button is which. Run detection first and keep the event log open in a second tab while you configure them.</p>
 
-		<h2>Run Your Gamepad Mapping Test</h2>
-		<p>Plug in your controller and press any button to start.</p>
-		<p>Work through every button, both sticks, both triggers and the D-pad, writing down the number each one returns. Keep that list somewhere you can find it.</p>
-		<p>With those numbers in hand, configuring a game, setting up Steam Input, or getting an old title to recognise a modern pad stops being guesswork. You will know exactly what your controller is sending and exactly what needs to change.</p>
+<h2>When to Run Button Mapping Detection</h2>
+<ul>
+	<li>Before configuring a new controller in a game for the first time</li>
+	<li>When a game asks you to press a numbered button and you cannot tell which</li>
+	<li>After buying a third party or arcade style controller</li>
+	<li>When one game reads your pad correctly and another does not</li>
+	<li>Before setting up Steam Input or DS4Windows profiles</li>
+	<li>When an older game refuses to recognise a modern pad</li>
+	<li>After a firmware update changes how the pad reports itself</li>
+</ul>
+
+<h2>Getting Reliable Results</h2>
+<ul>
+	<li>Connect one controller at a time, since a second pad can take the first slot</li>
+	<li>Close Steam and other launchers first, because they can intercept inputs before the browser sees them</li>
+	<li>Use a wired connection where possible for the most consistent reading</li>
+	<li>Test each input on its own rather than in combinations</li>
+	<li>Clear the event log between runs so you never read stale entries</li>
+</ul>
+
+<h2>Start Your Detection Run</h2>
+<p>Plug in your controller and press any button to begin.</p>
+<p>Work through every button, both sticks, both triggers and the D-pad. Watch that the lit area matches what your thumb is doing, and let the event log build the list for you.</p>
+<p>With those numbers in hand, configuring a game, setting up Steam Input, or getting an old title to recognise a modern pad stops being guesswork. You will know exactly what your controller is sending and exactly what needs to change.</p>
 	</article>
 
 	<style>
