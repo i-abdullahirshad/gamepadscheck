@@ -186,108 +186,130 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	<!-- SEO Content Section -->
 	<article class="content-section">
-		<h2>Test Your Controller in Seconds With a Free Gamepad Tester</h2>
-		<p>Your controller feels off. Maybe the aim keeps sliding to the left when you are not touching the stick. Maybe one button needs a hard press to work. Maybe the whole thing just stopped showing up in your game.</p>
-		<p>Before you buy a new one, find out what is actually wrong.</p>
-		<p>This gamepad tester runs in your browser. Plug in your controller, press a few buttons, and you will see exactly what your PC sees. No install, no account, no waiting.</p>
+		<h2>Gamepad Tester: Check Your Controller Online in Under a Minute</h2>
+<p>Your controller feels off. Maybe your aim slides left when your thumb is nowhere near the stick. Maybe one button needs a hard press before it does anything. Maybe the pad just stopped showing up in your game.</p>
+<p>Before you spend money on a new one, find out what is actually wrong.</p>
+<p>This gamepad tester runs in your browser. Plug in your controller, press a few buttons, and you will see exactly what your PC sees. No install, no account, no waiting.</p>
 
-		<h2>What Is a Gamepad Tester?</h2>
-		<p>A gamepad tester is a tool that reads the raw input coming from your controller and shows it on screen in real time.</p>
-		<p>When you press A, the tool lights up A. When you move the left stick, you see the numbers change. If a button lights up on its own, you just found your problem. It is the same idea as the old Windows joy.cpl panel, but it works online, looks clearer, and supports modern controllers that Windows sometimes reads badly.</p>
-		<p>The browser talks to your controller through the <strong>Gamepad API</strong>. That is a built-in feature of Chrome, Edge, Firefox and Opera. Because of that, this controller tester needs zero setup on your side.</p>
+<h2>What Is a Gamepad Tester?</h2>
+<p>A gamepad tester is a tool that reads the raw input coming from your controller and shows it on screen as it happens.</p>
+<p>Press A and the tool lights up A. Move the left stick and you watch the numbers change. If a button lights up while your hands are still, you have found your problem. It is the same idea as the old Windows joy.cpl panel, but this controller test works online, reads more clearly, and handles modern pads that Windows often gets wrong.</p>
+<p>The browser talks to your controller through the <strong>Gamepad API</strong>, which is built into Chrome, Edge, Firefox and Opera. That is why this HTML5 gamepad tester needs no setup at all on your side.</p>
 
-		<h2>How to Test Your Controller Online</h2>
-		<p>The whole process takes under a minute.</p>
-		<ol>
-			<li>Connect your controller by USB cable, Bluetooth or a wireless dongle.</li>
-			<li>Open this page.</li>
-			<li>Press any button. The tool wakes up as soon as it detects input.</li>
-			<li>Work through every button, both sticks and both triggers.</li>
-			<li>Watch the screen and note anything that does not match what you are doing.</li>
-		</ol>
-		<p>That is it. If you want to test your controller online free and without installing software, this is the fastest way to do it.</p>
+<h2>How to Test Your Controller Online</h2>
+<p>The whole controller check takes under a minute.</p>
+<ol>
+	<li>Connect your controller by USB cable, Bluetooth or a wireless dongle.</li>
+	<li>Open this page.</li>
+	<li>Press any button. The tool wakes up the moment it detects input.</li>
+	<li>Watch the P1 to P4 slots light up so you know which port your pad took.</li>
+	<li>Work through every button, both sticks and both triggers.</li>
+	<li>Run the vibration test and, if your pad has a mic, the microphone test.</li>
+	<li>Note anything on screen that does not match what your hands are doing.</li>
+</ol>
+<p>That is the full process. If you want to test your game controller online for free without installing anything, this is the fastest route.</p>
 
-		<h2>What You Can Check Here</h2>
-		
-		<h3>Buttons</h3>
-		<p>Every face button, bumper, D-pad direction, stick click and menu button shows up on screen. Press one and it lights up instantly. Look out for:</p>
-		<ul>
-			<li>A button that stays dark when you press it (<strong>dead switch</strong>)</li>
-			<li>A button that lights up on its own (<strong>stuck switch or debris</strong>)</li>
-			<li>A button that needs extra force before it registers</li>
-			<li>A button that lights up twice from one press (<strong>double input</strong>)</li>
-		</ul>
+<h2>What This Controller Tester Checks</h2>
 
-		<h3>Analog Sticks</h3>
-		<p>Both sticks report live X and Y values, usually between -1.00 and 1.00. Centre is 0.00.</p>
-		<p>This is where you check <strong>controller stick drift</strong>. Let go of both sticks completely and look at the numbers. A healthy stick sits at or very near 0.00. If your value floats at 0.08 or keeps crawling upward on its own, that stick has drift.</p>
-		<p>You can also check the full range. Roll each stick slowly around its edge. The values should reach close to -1.00 and 1.00 in every direction. If one side only hits 0.72, the sensor or the ring is worn.</p>
+<h3>Buttons</h3>
+<p>The Controller Visualizer shows a full pad on screen. Every face button, bumper, D-pad direction, stick click and menu button appears there. Press one and it lights up instantly.</p>
+<p>Use this controller button tester to watch for:</p>
+<ul>
+	<li>A button that stays dark when you press it, which usually means a <strong>dead switch</strong></li>
+	<li>A button that lights up on its own, caused by a <strong>stuck switch or debris</strong></li>
+	<li>A button that only works when you press hard, meaning the <strong>switch is wearing out</strong></li>
+	<li>A button that fires twice from one press, known as <strong>double input</strong></li>
+</ul>
 
-		<h3>Triggers</h3>
-		<p>Xbox and PlayStation triggers are analog, which means they report how far you pulled them, not just pressed or not pressed.</p>
-		<p>Pull each trigger slowly. The value should climb smoothly from 0.00 to 1.00. Jumpy numbers, a trigger that starts above zero, or one that never reaches full pull all point to worn trigger hardware.</p>
+<h3>Analog Sticks and Stick Drift</h3>
+<p>Both sticks show a live position dot plus X and Y values between -1.00 and 1.00. Dead centre reads 0.00, 0.00.</p>
+<p>This is where you run a proper <strong>stick drift test</strong>. Let go of both sticks and look at the numbers. A healthy stick sits at or very close to 0.00. If the value floats at 0.08, or slowly crawls in one direction on its own, that stick has drift.</p>
+<p>Each stick also shows an <strong>Error percentage</strong>. Roll the stick slowly around its outer edge and watch that figure. A worn stick will not trace a clean circle, and the error number rises to show it. A low percentage means the sensor is still tracking properly.</p>
+<p>You can check range the same way. The values should reach close to -1.00 and 1.00 in every direction. If one side stops at 0.72, the sensor or the plastic ring is worn down.</p>
 
-		<h3>Connection and Device Name</h3>
-		<p>The tool shows the name your system gives the controller and which slot it is using. This tells you whether the PC sees it as an Xbox pad, a generic HID device or something else entirely. That detail matters a lot when a game refuses to read your controller.</p>
+<h3>Deadzone Slider</h3>
+<p>The deadzone slider sits under the sticks and starts at 0.10. It sets how much movement the tool ignores before it counts input as real.</p>
+<p>This is genuinely useful when you find drift. Slide it up slowly until the drifting stick reads clean at rest. Whatever number stops the drift is roughly the deadzone you will need inside your games. If a small value fixes it, the pad is still usable. If you have to push the slider high before the noise disappears, the stick module is on its way out.</p>
 
-		<h2>Which Controllers Work</h2>
-		<p>Pretty much all of them. This gamepad test online supports:</p>
-		<ul>
-			<li>Xbox Series X and S, Xbox One, Xbox 360 and Xbox Elite</li>
-			<li>PlayStation 5 DualSense, PS4 DualShock 4 and PS3 pads</li>
-			<li>Nintendo Switch Pro Controller and Joy-Cons</li>
-			<li>8BitDo, GameSir, PowerA, Razer, Turtle Beach and other third party pads</li>
-			<li>Generic USB joysticks and older PC gamepads</li>
-		</ul>
-		<p>Wired connections are the most reliable for testing. Bluetooth works fine too, but if the browser is not picking anything up, try a USB cable first before you assume the controller is broken.</p>
+<h3>Triggers</h3>
+<p>Xbox and PlayStation triggers are analog, so they report how far you pulled them rather than just on or off.</p>
+<p>Pull each trigger slowly and watch the bar fill. The value should climb smoothly from 0.00 to 1.00. Watch for numbers that jump in steps, a trigger that already reads above zero at rest, or one that never reaches full pull. All three point to worn trigger hardware.</p>
 
-		<h2>Reading Your Results</h2>
-		<p>Here is how to turn what you see into a decision.</p>
-		<ul>
-			<li><strong>Everything responds correctly:</strong> Your hardware is fine. The problem is in the game or in Windows. Check your in-game controller settings, Steam Input settings, or whether a second input device is fighting for control.</li>
-			<li><strong>One or two buttons are dead:</strong> Usually dirt or a worn microswitch. A careful clean with isopropyl alcohol fixes a surprising number of these. If not, the switch can be replaced cheaply.</li>
-			<li><strong>A stick drifts at rest:</strong> Common on Xbox and PlayStation pads after a year or two of heavy use. Small drift can be hidden with a bigger in-game deadzone. Large drift needs a new stick module.</li>
-			<li><strong>Triggers are jumpy or capped:</strong> Worn potentiometers. This is repairable but fiddly. On a cheap pad it is usually not worth it.</li>
-			<li><strong>Nothing shows up at all:</strong> Not a hardware fault yet. Try a different USB port, a different cable, and check whether the controller is charged. Also make sure no other software is grabbing exclusive control of the device.</li>
-		</ul>
+<h3>Controller Vibration Test</h3>
+<p>Most testers stop at input. This one can also drive the motors, which matters because rumble fails quietly and you rarely notice until a game feels flat.</p>
+<p>There are four patterns to try:</p>
+<ul>
+	<li><strong>Heavy:</strong> drives the low frequency motor, the deep rumble</li>
+	<li><strong>Light:</strong> drives the high frequency motor, the finer buzz</li>
+	<li><strong>Burst:</strong> fires short sharp pulses</li>
+	<li><strong>Pulse:</strong> runs a repeating on and off rhythm</li>
+</ul>
+<p>Run Heavy and Light one after the other. You should feel a clear difference between them. If only one side of the pad responds, one motor has failed. If nothing happens at all, check that your pad supports rumble over its current connection, because some controllers drop vibration on Bluetooth. There is also an infinite vibration toggle for longer soak testing.</p>
 
-		<h2>Why Use a Browser Based Controller Tester</h2>
-		<p>A few reasons this beats the alternatives.</p>
-		<ul>
-			<li><strong>Nothing to install:</strong> No driver packs, no random EXE files from forums.</li>
-			<li><strong>Works everywhere:</strong> Windows, macOS, Linux and Chromebooks all run the same test.</li>
-			<li><strong>Honest results:</strong> You see raw values, not a game's smoothed and filtered version of them.</li>
-			<li><strong>Fast:</strong> Under a minute from plugging in to knowing the answer.</li>
-			<li><strong>Free:</strong> No trial, no limits.</li>
-		</ul>
+<h3>Microphone Tester</h3>
+<p>Many modern pads carry a built in mic or a headset jack. The microphone tester lets you pick your input device from the dropdown, hit Start Recording, and confirm the audio is actually reaching your PC. Useful before a party chat session, and a fast way to prove whether a chat problem sits in the hardware or in your game settings.</p>
 
-		<h2>When You Should Run a Controller Test</h2>
-		<p>Some good moments to check:</p>
-		<ul>
-			<li>Right after buying a controller, new or used, while returns are still open</li>
-			<li>Before a ranked session or a tournament</li>
-			<li>When your aim feels slightly wrong but you cannot explain why</li>
-			<li>After the controller takes a fall or a drink spill</li>
-			<li>Before you sell or trade it, so you can describe its condition honestly</li>
-			<li>When a game suddenly stops reading your inputs</li>
-		</ul>
-		<p>Testing a used controller before the return window closes has saved a lot of people a lot of money.</p>
+<h3>Polling Rate and Device Slot</h3>
+<p>A live rate readout in Hz shows how often your PC is reading the controller. Higher means more frequent updates and slightly tighter response. A wired pad usually reports a steadier figure than a Bluetooth one, and a rate that jumps around points to an unstable connection rather than a broken pad.</p>
+<p>The P1 to P4 indicators show which slot your controller took. That detail matters when a game refuses to read your pad, because a second connected device may have claimed the first slot.</p>
 
-		<h2>Small Habits That Keep Controllers Alive</h2>
-		<p>Most controller failures are slow, not sudden. A little care goes a long way.</p>
-		<ul>
-			<li>Keep drinks away from your setup</li>
-			<li>Wipe around the stick bases now and then, that is where grit collects</li>
-			<li>Do not yank the USB cable out sideways</li>
-			<li>Store the pad somewhere it will not get sat on or dropped</li>
-			<li>Charge before the battery hits zero and stays there for weeks</li>
-			<li>Run a quick check every couple of months so you notice wear early</li>
-		</ul>
+<h2>Which Controllers Work</h2>
+<p>Almost all of them. This gamepad test online supports:</p>
+<ul>
+	<li>Xbox Series X and S, Xbox One, Xbox 360 and Xbox Elite</li>
+	<li>PlayStation 5 DualSense, PS4 DualShock 4 and PS3 pads</li>
+	<li>Nintendo Switch Pro Controller and Joy-Cons</li>
+	<li>8BitDo, GameSir, PowerA, Razer, Turtle Beach and other third party pads</li>
+	<li>Generic USB joysticks and older PC gamepads</li>
+</ul>
+<p>Wired connections give the most reliable results. Bluetooth works fine as well, but if the browser picks up nothing at all, try a cable before you decide the controller is dead.</p>
 
-		<h2>Ready to Check Your Controller?</h2>
-		<p>Plug it in and press a button. The gamepad tester picks it up on its own.</p>
-		<p>Go through the buttons, roll both sticks, pull both triggers, and let go to check for drift. In under a minute you will know whether you are dealing with a hardware fault, a settings problem, or a controller that is actually working perfectly fine.</p>
-		<p>No download. No sign up. Just plug in and test.</p>
+<h2>Reading Your Results</h2>
+<p>Here is how to turn what you see into a decision.</p>
+<ul>
+	<li><strong>Everything responds correctly:</strong> The hardware is fine. The fault sits in the game or in Windows. Check in-game controller settings, Steam Input, and whether a second device is fighting for the same slot.</li>
+	<li><strong>One or two buttons are dead:</strong> Usually dirt or a worn microswitch. A careful clean with isopropyl alcohol fixes a surprising number of these. If not, switches are cheap to replace.</li>
+	<li><strong>A stick drifts at rest:</strong> Common on Xbox and PlayStation pads after a year or two of heavy use. Small drift can be covered with a larger in-game deadzone. Large drift needs a new stick module.</li>
+	<li><strong>Triggers are jumpy or capped:</strong> Worn potentiometers. Repairable, but fiddly, and rarely worth it on a budget pad.</li>
+	<li><strong>Vibration does not fire:</strong> Check the connection type first, then the motors. A pad that rumbles on USB but not on Bluetooth is working normally.</li>
+	<li><strong>Nothing shows up at all:</strong> Not a hardware fault yet. Try a different USB port, a different cable, and check the charge. Make sure no other software has taken exclusive control of the device.</li>
+</ul>
+
+<h2>Why Use a Browser Based Controller Checker</h2>
+<ul>
+	<li><strong>Nothing to install:</strong> No driver packs and no random EXE files from forums.</li>
+	<li><strong>Works everywhere:</strong> Windows, macOS, Linux and Chromebooks all run the same test.</li>
+	<li><strong>Honest numbers:</strong> You see raw values, not a game's smoothed version of them.</li>
+	<li><strong>Fast:</strong> Under a minute from plugging in to knowing the answer.</li>
+	<li><strong>Free:</strong> No trial and no limits.</li>
+</ul>
+
+<h2>When You Should Run a Controller Test</h2>
+<ul>
+	<li>Right after buying a pad, new or used, while returns are still open</li>
+	<li>Before a ranked session or a tournament</li>
+	<li>When your aim feels slightly wrong and you cannot explain why</li>
+	<li>After the controller takes a fall or a drink spill</li>
+	<li>Before you sell or trade it, so you can describe its condition honestly</li>
+	<li>When a game suddenly stops reading your inputs</li>
+</ul>
+<p>Testing a used controller before the return window shuts has saved a lot of people a lot of money.</p>
+
+<h2>Small Habits That Keep Controllers Alive</h2>
+<p>Most controller failures are slow rather than sudden, so a little care goes a long way.</p>
+<ul>
+	<li>Keep drinks away from your setup</li>
+	<li>Wipe around the stick bases now and then, since that is where grit collects</li>
+	<li>Do not yank the USB cable out sideways</li>
+	<li>Store the pad where it will not get sat on or dropped</li>
+	<li>Charge before the battery sits flat for weeks</li>
+	<li>Run a quick gamepad check every couple of months so you catch wear early</li>
+</ul>
+
+<h2>Ready to Check Your Controller?</h2>
+<p>Plug it in and press a button. The gamepad tester picks it up on its own.</p>
+<p>Work through the buttons, roll both sticks and let go to check for drift, pull both triggers, then run the vibration and mic tests. In under a minute you will know whether you are looking at a hardware fault, a settings problem, or a controller that is working perfectly fine.</p>
+<p>No download. No sign up. Just plug in and test.</p>
 	</article>
 
 	<style>
