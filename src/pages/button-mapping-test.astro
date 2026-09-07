@@ -190,7 +190,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <h2>XInput vs DirectInput</h2>
 <p>This is the root cause of most wrong mapping on PC.</p>
-<p><strong>XInput</strong> is the modern standard, built around the Xbox controller layout. Buttons are named, triggers are analog, and rumble is handled properly. Almost every game from the last decade expects XInput.</p>
+<p><a href="/xinput-vs-directinput">XInput vs DirectInput</a> is a vital distinction to understand. <strong>XInput</strong> is the modern standard, built around the Xbox controller layout. Buttons are named, triggers are analog, and rumble is handled properly. Almost every game from the last decade expects XInput.</p>
 <p><strong>DirectInput</strong> is the older standard. It treats every controller as a generic device with numbered buttons and axes. It has no concept of a face button. Older games, most flight sticks, many racing wheels and a lot of arcade sticks still use it.</p>
 <p>Trouble comes when a pad connects in DirectInput mode to a game expecting XInput. Everything is present, but the numbers land in the wrong places. Face buttons swap around. Triggers show up as one shared axis instead of two separate ones.</p>
 <p>Your detection results tell you which mode you are in. If the numbers match the layout above, you are in standard XInput mapping. If they look nothing like it, and your triggers move a stick axis instead of reporting on their own, you are almost certainly in DirectInput mode.</p>
@@ -198,18 +198,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <h2>Common Mapping Problems and Fixes</h2>
 <ul>
 	<li><strong>Buttons swapped in one game only:</strong> the game has its own controller profile and it is wrong. Look in the control settings for a remap option or a controller type selector. Many games let you switch between Xbox and PlayStation layouts.</li>
-	<li><strong>Works in Steam games but not outside Steam:</strong> Steam Input is translating for you, and non-Steam games see the raw device. Either add the game to Steam as a non-Steam game, or set up mapping separately.</li>
+	<li><strong><a href="/works-in-steam-not-in-game">Works in Steam games but not outside Steam</a>:</strong> Steam Input is translating for you, and non-Steam games see the raw device. Either add the game to Steam as a non-Steam game, or set up mapping separately.</li>
 	<li><strong>Triggers act like buttons, fully on or fully off:</strong> classic DirectInput behaviour. The triggers often share one axis, which is why pulling both at once cancels them out. Switch the pad to XInput mode if it has a toggle.</li>
 	<li><strong>D-pad shows up as an axis instead of four buttons:</strong> common on older and third party pads. Some games handle it fine, others need the pad remapped.</li>
-	<li><strong>Face buttons mirrored on a PlayStation pad:</strong> the physical positions of Cross and Circle differ from A and B in some regions and games. Check for a confirm button swap setting before remapping anything.</li>
-	<li><strong>Nothing registers at all:</strong> that is not a mapping problem. Sort out the connection first, then come back here.</li>
+	<li><strong>Face buttons mirrored on a PlayStation pad:</strong> the physical positions of Cross and Circle differ from A and B in some regions and games. Check for a confirm button swap setting, or review <a href="/how-to-remap-buttons">how to remap controller buttons</a> before altering external profiles.</li>
+	<li><strong>Nothing registers at all:</strong> that is not a mapping problem. If your device is <a href="/detected-but-not-working">detected but not working</a>, sort out the connection first, then come back here.</li>
 </ul>
 
 <h2>Tools That Fix Controller Mapping</h2>
 <p>Once detection has given you the numbers, these are the usual options.</p>
 <ul>
 	<li><strong>Steam Input:</strong> free, powerful, and works on any game you add to your Steam library. The best starting point for most people.</li>
-	<li><strong>DS4Windows:</strong> made for PlayStation pads, presents them to Windows as Xbox controllers. Solves a lot of PS4 and PS5 problems on PC.</li>
+	<li><strong>DS4Windows:</strong> made for PlayStation pads, presents them to Windows as Xbox controllers. Check out a full <a href="/ds4windows-setup-guide">DS4Windows setup guide</a> if you need to solve PS4 and PS5 problems on PC.</li>
 	<li><strong>x360ce:</strong> older tool that makes DirectInput devices look like Xbox pads. Useful for legacy hardware.</li>
 	<li><strong>Manufacturer software:</strong> Xbox Accessories, G Hub, GameSir and 8BitDo apps all include remapping for their own hardware.</li>
 	<li><strong>In-game settings:</strong> always check here first. Many games have full remapping built in and you need nothing else.</li>
