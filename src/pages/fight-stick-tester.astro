@@ -129,13 +129,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<span><strong>Tip:</strong> This tester uses standard Numpad Notation for fighting games. <strong style="color: var(--text-main);">236 = ↓↘→</strong> (Quarter Circle Forward), <strong style="color: var(--text-main);">623 = →↓↘</strong> (Dragon Punch).</span>
 	</div>
 
-	<div class="header">
-		<h1>Fight Stick Tester Online: Check Arcade Sticks & Hitbox Controllers</h1>
-		<p>Test your arcade stick or leverless controller. Keyboard inputs (WASD/Arrows + UIOP/JKL;) are also supported for Hitbox simulation.</p>
-	</div>
-
 	<article class="content-section">
-		<h2>Fight Stick Tester: Check Hitbox Controllers & Arcade Sticks</h2>
+		<h1>Fight Stick Tester: Check Hitbox Controllers & Arcade Sticks</h1>
 <p>You lose a round to a dropped input. Was that your execution, or did the button not register?</p>
 <p>In fighting games that difference matters more than in any other genre. A microswitch that misses one press in fifty will not bother you in a single player game. In a first to three, it decides sets.</p>
 <p>This controller test shows every input your stick sends, live on screen. Connect it, press everything, and in a minute you will know whether the hardware is clean or whether something needs attention before your next session.</p>
@@ -265,10 +260,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</article>
 
 	<style>
-		.header { text-align: center; margin-bottom: 1rem; margin-top: 2rem; }
-		.header h1 { font-size: 1.75rem; margin-bottom: 0.25rem; color: var(--text-main); }
-		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif; font-size: 0.95rem; }
-
 		.error-banner { background: rgba(231, 76, 60, 0.15); border: 1px solid #E74C3C; color: var(--text-main); padding: 0.75rem; border-radius: 10px; text-align: center; margin-bottom: 1rem; font-family: 'Inter', sans-serif;}
 
 		.dashboard { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; width: 100%; margin-bottom: 1rem; }
@@ -342,6 +333,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			font-family: 'Inter', sans-serif;
 			line-height: 1.7;
 		}
+		
+		.content-section h1,
 		.content-section h2 {
 			color: var(--text-main);
 			font-size: 1.8rem;
@@ -350,7 +343,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			border-bottom: 1px solid var(--border-color);
 			padding-bottom: 0.5rem;
 		}
+		.content-section h1:first-child,
 		.content-section h2:first-child { margin-top: 0; }
+		
 		.content-section h3 {
 			color: var(--accent-primary);
 			font-size: 1.3rem;
