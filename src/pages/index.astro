@@ -178,14 +178,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		</div>
 	</div>
 
-	<div class="header">
-		<h1>Gamepad Tester: Check Your Controller & Joystick Online</h1>
-		<p>No software downloads required, just connect. Get real data on your controller's analog sticks, buttons, and vibration performance.</p>
-	</div>
-
 	<!-- SEO Content Section -->
 	<article class="content-section">
-		<h2>Gamepad Tester: Check Your Controller & Joystick Online</h2>
+		<h1>Gamepad Tester: Check Your Controller & Joystick Online</h1>
 <p>Your controller feels off. Maybe your aim slides left when your thumb is nowhere near the stick. Maybe one button needs a hard press before it does anything. Maybe the pad just stopped showing up in your game.</p>
 <p>Before you spend money on a new one, find out what is actually wrong.</p>
 <p>This gamepad tester runs in your browser. Plug in your controller, press a few buttons, and you will see exactly what your PC sees. No install, no account, no waiting.</p>
@@ -314,10 +309,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</article>
 
 	<style>
-		.header { text-align: center; margin-bottom: 1rem; margin-top: 2rem; }
-		.header h1 { font-size: 1.75rem; margin-bottom: 0.25rem; color: var(--text-main); }
-		.header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 0.95rem; }
-
 		.error-banner { background: rgba(231, 76, 60, 0.15); border: 1px solid #E74C3C; color: var(--text-main); padding: 0.75rem; border-radius: 10px; text-align: center; margin-bottom: 1rem; font-weight: 500; font-family: 'Inter', sans-serif;}
 
 		.dashboard { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; width: 100%; margin-bottom: 1rem; }
@@ -437,7 +428,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		/* Content Section Styles */
 		.content-section {
-			margin-top: 1rem;
+			margin-top: 2rem;
 			padding: 2rem;
 			background: var(--bg-panel);
 			border: 1px solid var(--border-color);
@@ -446,6 +437,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			font-family: 'Inter', sans-serif;
 			line-height: 1.7;
 		}
+		
+		.content-section h1,
 		.content-section h2 {
 			color: var(--text-main);
 			font-size: 1.8rem;
@@ -454,7 +447,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			border-bottom: 1px solid var(--border-color);
 			padding-bottom: 0.5rem;
 		}
+		.content-section h1:first-child,
 		.content-section h2:first-child { margin-top: 0; }
+		
 		.content-section h3 {
 			color: var(--accent-primary);
 			font-size: 1.3rem;
