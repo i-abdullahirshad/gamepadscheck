@@ -70,6 +70,10 @@ const {
 			--text-muted: #94A3B8;
 			--border-color: rgba(255, 255, 255, 0.08); 
 			--accent-primary: #00F2FE;
+			/* New link variables for dark mode */
+			--link-color: #F8FAFC; /* Ice white */
+			--link-underline: rgba(248, 250, 252, 0.3);
+			--link-hover: #FFD700; /* Electric gold */
 		}
 
 		:root[data-theme="light"] {
@@ -80,7 +84,11 @@ const {
 			--text-main: #0F172A;
 			--text-muted: #475569;
 			--border-color: rgba(0, 0, 0, 0.1);
-			--accent-primary: #0284C7; /* Darker blue for light mode contrast */
+			--accent-primary: #0284C7; 
+			/* New link variables for light mode */
+			--link-color: #0284C7; /* Matches your accent-primary */
+			--link-underline: rgba(2, 132, 199, 0.3);
+			--link-hover: #0F172A;
 		}
 
 		body {
@@ -102,6 +110,22 @@ const {
 			margin: 0 auto;
 			padding: 2rem;
 			box-sizing: border-box;
+		}
+
+		/* Global Link Styles */
+		main a {
+			color: var(--link-color);
+			text-decoration: underline;
+			text-decoration-color: var(--link-underline);
+			text-underline-offset: 3px;
+			text-decoration-thickness: 1px;
+			font-weight: 500;
+			transition: color 0.2s ease, text-decoration-color 0.2s ease;
+		}
+
+		main a:hover {
+			color: var(--link-hover);
+			text-decoration-color: var(--link-hover);
 		}
 	</style>
 </head>
