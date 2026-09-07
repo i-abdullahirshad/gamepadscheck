@@ -7,11 +7,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	description="Free online gamepad tester. Check buttons, stick drift, triggers, vibration and mic in your browser. No download, works with Xbox, PS5 and PS4 pads."
 >
 
-	<div class="header">
-		<h1>Gamepad Tester: Check Your Controller & Joystick Online</h1>
-		<p>No software downloads required, just connect. Get real data on your controller's analog sticks, buttons, and vibration performance.</p>
-	</div>
-
 	<div id="api-error" class="error-banner" style="display: none;">
 		⚠️ <strong>API Not Supported:</strong> Your current browser does not support the Web Gamepad API. Please use a modern version of Chrome, Edge, or Firefox.
 	</div>
@@ -183,6 +178,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		</div>
 	</div>
 
+	<div class="header">
+		<h1>Gamepad Tester: Check Your Controller & Joystick Online</h1>
+		<p>No software downloads required, just connect. Get real data on your controller's analog sticks, buttons, and vibration performance.</p>
+	</div>
+
 	<!-- SEO Content Section -->
 	<article class="content-section">
 		<h2>Gamepad Tester: Check Your Controller & Joystick Online</h2>
@@ -314,7 +314,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</article>
 
 	<style>
-		.header { text-align: center; margin-bottom: 1rem; }
+		.header { text-align: center; margin-bottom: 1rem; margin-top: 2rem; }
 		.header h1 { font-size: 1.75rem; margin-bottom: 0.25rem; color: var(--text-main); }
 		.header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 0.95rem; }
 
@@ -322,7 +322,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		.dashboard { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; width: 100%; margin-bottom: 1rem; }
 
-		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.25rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); }
+		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.25rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); font-family: 'Inter', sans-serif;}
 		.visualizer-panel { grid-column: span 1; grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
 		
 		.panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
@@ -437,7 +437,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		/* Content Section Styles */
 		.content-section {
-			margin-top: 2rem;
+			margin-top: 1rem;
 			padding: 2rem;
 			background: var(--bg-panel);
 			border: 1px solid var(--border-color);
