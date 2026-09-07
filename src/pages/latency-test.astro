@@ -119,13 +119,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<span><strong>Note:</strong> Continuously rotate your analog sticks to force the hardware to send data packets for accurate polling.</span>
 	</div>
 
-	<div class="header">
-		<h1>Controller Latency Test: Check Response Time & Input Lag</h1>
-		<p>Measure your controller-to-PC input delay, polling rate (Hz), and connection jitter.</p>
-	</div>
-
 	<article class="content-section">
-		<h2>Controller Latency Test: Check Response Time & Input Lag</h2>
+		<h1>Controller Latency Test: Check Response Time & Input Lag</h1>
 <p>You press the button. The character reacts a fraction too late. It is small enough that you cannot prove it, but big enough that you keep losing trades you should be winning.</p>
 <p>That gap has a number. This input lag test measures it.</p>
 <p>Connect your controller, press a few buttons, and the tool reports how many milliseconds pass between updates from your device. No install, no cost, works in any modern browser.</p>
@@ -264,10 +259,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</article>
 
 	<style>
-		.header { text-align: center; margin-bottom: 1rem; margin-top: 2rem; }
-		.header h1 { font-size: 1.75rem; margin-bottom: 0.25rem; color: var(--text-main); }
-		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif; font-size: 0.95rem; }
-
 		.dashboard { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; width: 100%; margin-bottom: 1rem; }
 
 		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.25rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); font-family: 'Inter', sans-serif;}
@@ -358,6 +349,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			font-family: 'Inter', sans-serif;
 			line-height: 1.7;
 		}
+		
+		.content-section h1,
 		.content-section h2 {
 			color: var(--text-main);
 			font-size: 1.8rem;
@@ -366,7 +359,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			border-bottom: 1px solid var(--border-color);
 			padding-bottom: 0.5rem;
 		}
+		.content-section h1:first-child,
 		.content-section h2:first-child { margin-top: 0; }
+		
 		.content-section h3 {
 			color: var(--accent-primary);
 			font-size: 1.3rem;
