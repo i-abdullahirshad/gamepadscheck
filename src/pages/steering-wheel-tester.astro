@@ -146,13 +146,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<span><strong>Tip:</strong> Axis mapping varies by device. If pedals appear swapped or hover at 50%, check your wheel's driver software to combine/split axes.</span>
 	</div>
 
-	<div class="header">
-		<h1>Steering Wheel Tester: Check Wheel, Pedals & Shifters Online</h1>
-		<p>Test wheel rotation, verify pedal sensor linearity, and log raw button events.</p>
-	</div>
-
 	<article class="content-section">
-		<h2>Steering Wheel Tester: Check Wheel, Pedals & Shifters Online</h2>
+		<h1>Steering Wheel Tester: Check Wheel, Pedals & Shifters Online</h1>
 <p>Your car pulls to one side on a straight. The brake grabs before your foot has really moved. The wheel turns fine in Windows but the game barely reacts.</p>
 <p>Any of these could be hardware. Any of these could be settings. Guessing is how people end up buying a new wheel they did not need.</p>
 <p>This steering wheel test shows the raw input your PC is receiving. Connect your wheel, turn it, press the pedals, and watch the numbers move in real time. No install, no account, no cost.</p>
@@ -275,10 +270,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</article>
 
 	<style>
-		.header { text-align: center; margin-bottom: 1rem; margin-top: 2rem; }
-		.header h1 { margin-bottom: 0.25rem; font-size: 1.75rem; color: var(--text-main); }
-		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif; font-size: 0.95rem;}
-
 		/* 3-Column Compact Dashboard */
 		.dashboard { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 1rem; width: 100%; margin-bottom: 1rem; align-items: stretch; }
 		.col-group { display: flex; flex-direction: column; gap: 1rem; }
@@ -389,6 +380,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			font-family: 'Inter', sans-serif;
 			line-height: 1.7;
 		}
+		
+		.content-section h1,
 		.content-section h2 {
 			color: var(--text-main);
 			font-size: 1.8rem;
@@ -397,7 +390,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			border-bottom: 1px solid var(--border-color);
 			padding-bottom: 0.5rem;
 		}
+		.content-section h1:first-child,
 		.content-section h2:first-child { margin-top: 0; }
+		
 		.content-section h3 {
 			color: var(--accent-primary);
 			font-size: 1.3rem;
