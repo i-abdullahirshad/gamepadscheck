@@ -7,12 +7,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	description="Free button mapping detection tool. See the exact index your PC assigns to every button and axis on your controller, with a live event log."
 >
 
-
-	<div class="header">
-		<h1>Button Mapping Test: Check Controller Layout & Input</h1>
-		<p>Verify exactly which physical button triggers which hardware index to diagnose mapping and driver issues.</p>
-	</div>
-
 	<div id="api-error" class="error-banner" style="display: none;">
 		⚠️ <strong>API Not Supported:</strong> Your browser does not support the required Gamepad API.
 	</div>
@@ -26,7 +20,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</div>
 				
 				<div class="visualizer-container">
-					<!-- High-Fidelity SVG with Mapping Labels -->
+					<!-- High-Fidelity SVG with Mapping Labels (Scaled Down) -->
 					<svg id="mapping-svg" viewBox="40 0 520 430" class="mapping-svg" xmlns="http://www.w3.org/2000/svg">
 						
 						<!-- Triggers & Bumpers (Fixed Overlap) -->
@@ -92,7 +86,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<div class="panel-header">
 					<h3><span style="color: #6366F1;">📋</span> Real-time Event Log</h3>
 					<button id="clear-log-btn" class="icon-btn" title="Clear Log">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
 					</button>
 				</div>
 				<div id="event-log-container" class="event-log">
@@ -101,7 +95,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</div>
 
 			<div class="panel axis-panel">
-				<h3 style="font-size: 0.9rem; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 1rem;">RAW AXIS DATA</h3>
+				<h3 style="font-size: 0.85rem; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 0.75rem;">RAW AXIS DATA</h3>
 				<div class="axis-grid">
 					<div class="axis-item">
 						<div class="axis-header"><span>AXIS 0</span><span id="ax-0-val" class="ax-val">0.00000</span></div>
@@ -122,6 +116,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="header">
+		<h1>Button Mapping Test: Check Controller Layout & Input</h1>
+		<p>Verify exactly which physical button triggers which hardware index to diagnose mapping and driver issues.</p>
 	</div>
 
 	<!-- SEO Content Section -->
@@ -243,31 +242,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</article>
 
 	<style>
-		.header { text-align: center; margin-bottom: 2rem; }
-		.header h1 { margin-bottom: 0.5rem; font-size: 2rem; color: var(--text-main); }
-		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif;}
+		.header { text-align: center; margin-bottom: 1rem; margin-top: 2rem; }
+		.header h1 { margin-bottom: 0.25rem; font-size: 1.75rem; color: var(--text-main); }
+		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif; font-size: 0.95rem; }
 
-		.dashboard { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.5rem; width: 100%; margin-bottom: 2rem; align-items: start; }
-		.left-col { display: flex; flex-direction: column; gap: 1.5rem; }
-		.right-col { display: flex; flex-direction: column; gap: 1.5rem; height: 100%; }
+		.error-banner { background: rgba(231, 76, 60, 0.15); border: 1px solid #E74C3C; color: var(--text-main); padding: 0.75rem; border-radius: 10px; text-align: center; margin-bottom: 1rem; font-family: 'Inter', sans-serif;}
 
-		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); font-family: 'Inter', sans-serif;}
+		.dashboard { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1rem; width: 100%; margin-bottom: 1rem; align-items: start; }
+		.left-col { display: flex; flex-direction: column; gap: 1rem; }
+		.right-col { display: flex; flex-direction: column; gap: 1rem; height: 100%; justify-content: flex-start;}
+
+		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.25rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); font-family: 'Inter', sans-serif;}
 		
-		h3 { color: var(--text-main); font-size: 1.1rem; font-weight: 600; margin: 0; display: flex; align-items: center; gap: 0.5rem; }
+		h3 { color: var(--text-main); font-size: 1.05rem; font-weight: 600; margin: 0; display: flex; align-items: center; gap: 0.5rem; }
 		
-		.panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-		.icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 8px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;}
+		.panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+		.icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;}
 		.icon-btn:hover { background: var(--border-color); color: var(--text-main); border-color: var(--text-muted);}
 
 		/* Visualizer */
 		.visualizer-panel { display: flex; flex-direction: column; }
-		.visualizer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-		.status-badge { padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid transparent; }
+		.visualizer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+		.visualizer-header h2 { font-size: 1.25rem; }
+		.status-badge { padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid transparent; }
 		.status-badge.disconnected { background: var(--border-color); border-color: var(--border-color); color: var(--text-muted); }
 		.status-badge.connected { background: rgba(99, 102, 241, 0.1); border-color: #6366F1; color: #6366F1; box-shadow: 0 0 10px rgba(99, 102, 241, 0.3); }
 
 		.visualizer-container { flex: 1; display: flex; align-items: center; justify-content: center; }
-		.mapping-svg { width: 100%; height: auto; max-width: 600px; }
+		.mapping-svg { width: 100%; height: auto; max-width: 500px; }
 		
 		/* SVG Button Styling */
 		.map-btn rect, .map-btn circle, .map-btn path { fill: var(--border-color); stroke: var(--border-color); stroke-width: 2; transition: all 0.05s linear; }
@@ -277,29 +279,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		.map-btn.active rect, .map-btn.active circle, .map-btn.active path { fill: #6366F1; stroke: #818CF8; filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6)); }
 		.map-btn.active text { fill: #FFF; }
 
-		.info-tip { background: var(--bg-panel); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 12px; color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.9rem; line-height: 1.5; text-align: center; }
+		.info-tip { background: var(--bg-panel); border: 1px solid var(--border-color); padding: 0.75rem 1rem; border-radius: 10px; color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.85rem; line-height: 1.5; text-align: center; margin-top: 0.5rem;}
 		.info-tip strong { color: var(--text-main); }
 
 		/* Event Log */
-		.log-panel { display: flex; flex-direction: column; height: 380px; }
-		.event-log { flex: 1; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 10px; padding: 0.5rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.35rem; }
+		.log-panel { display: flex; flex-direction: column; height: 260px; }
+		.event-log { flex: 1; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 10px; padding: 0.5rem; overflow-y: auto; display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem;}
 		.empty-state { padding: 1rem; text-align: center; color: var(--text-muted); font-style: italic; }
 		
-		.log-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.75rem; background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 6px; font-family: monospace; font-size: 0.8rem; white-space: nowrap; gap: 0.5rem; }
+		.log-row { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.6rem; background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 6px; font-family: monospace; white-space: nowrap; gap: 0.5rem; }
 		.log-row-content { display: flex; align-items: center; gap: 6px; overflow: hidden; }
 		.log-time { color: var(--text-muted); }
 		.log-btn { color: #6366F1; font-weight: bold; }
-		.log-state { padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase; }
+		.log-state { padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.65rem; letter-spacing: 0.5px; text-transform: uppercase; }
 		
 		.state-pressed { background: rgba(99, 102, 241, 0.15); color: #818CF8; border: 1px solid rgba(99, 102, 241, 0.3); }
 		.state-released { background: var(--bg-panel); color: var(--text-muted); border: 1px solid var(--border-color); }
 
 		/* Raw Axes */
 		.axis-panel { flex-shrink: 0; }
-		.axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-		.axis-item { background: var(--bg-main); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--border-color); }
-		.axis-header { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem; }
-		.ax-val { color: var(--text-main); font-family: monospace; font-size: 0.85rem; }
+		.axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+		.axis-item { background: var(--bg-main); padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid var(--border-color); }
+		.axis-header { display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.25rem; }
+		.ax-val { color: var(--text-main); font-family: monospace; font-size: 0.8rem; }
 		
 		.axis-track { width: 100%; height: 6px; background: var(--border-color); border-radius: 3px; position: relative; }
 		.axis-fill { position: absolute; top: 0; height: 100%; width: 6px; background: #6366F1; border-radius: 3px; transform: translateX(-50%); transition: left 0.05s linear; box-shadow: 0 0 8px rgba(99, 102, 241, 0.6); }
@@ -311,8 +313,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		/* Content Section Styles */
 		.content-section {
-			margin-top: 4rem;
-			padding: 2.5rem;
+			margin-top: 1rem;
+			padding: 2rem;
 			background: var(--bg-panel);
 			border: 1px solid var(--border-color);
 			border-radius: 16px;
