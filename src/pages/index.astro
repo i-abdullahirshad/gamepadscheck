@@ -186,7 +186,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	<!-- SEO Content Section -->
 	<article class="content-section">
-		<h2>Gamepad Tester: Check Your Controller Online in Under a Minute</h2>
+		<h2>Gamepad Tester: Check Your Controller & Joystick Online</h2>
 <p>Your controller feels off. Maybe your aim slides left when your thumb is nowhere near the stick. Maybe one button needs a hard press before it does anything. Maybe the pad just stopped showing up in your game.</p>
 <p>Before you spend money on a new one, find out what is actually wrong.</p>
 <p>This gamepad tester runs in your browser. Plug in your controller, press a few buttons, and you will see exactly what your PC sees. No install, no account, no waiting.</p>
@@ -222,14 +222,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </ul>
 
 <h3>Analog Sticks and Stick Drift</h3>
-<p>Both sticks show a live position dot plus X and Y values between -1.00 and 1.00. Dead centre reads 0.00, 0.00.</p>
-<p>This is where you run a proper <strong>stick drift test</strong>. Let go of both sticks and look at the numbers. A healthy stick sits at or very close to 0.00. If the value floats at 0.08, or slowly crawls in one direction on its own, that stick has drift.</p>
-<p>Each stick also shows an <strong>Error percentage</strong>. Roll the stick slowly around its outer edge and watch that figure. A worn stick will not trace a clean circle, and the error number rises to show it. A low percentage means the sensor is still tracking properly.</p>
-<p>You can check range the same way. The values should reach close to -1.00 and 1.00 in every direction. If one side stops at 0.72, the sensor or the plastic ring is worn down.</p>
+<p>Both sticks show a live position dot plus X and Y values between -1.00 and 1.00. Dead centre reads 0.00, 0.00. If you are unfamiliar with coordinate readouts, review our breakdown of <a href="/what-do-gamepad-tester-numbers-mean">what the numbers on screen mean</a>.</p>
+<p>This is where you run a proper <strong>stick drift test</strong>. Let go of both sticks and look at the numbers. A healthy stick sits at or very close to 0.00. If the value floats at 0.08, or slowly crawls in one direction on its own, that stick has drift. Check out our comprehensive guide on <a href="/controller-drift-fix">why stick drift happens and how to fix it</a>.</p>
+<p>Each stick also shows an Error percentage. Roll the stick slowly around its outer edge and watch that figure. A worn stick will not trace a clean circle, and the error number rises to show it. Learn <a href="/circularity-error-values">what your circularity error percentage means</a> to see if your module is within safe tolerance.</p>
+<p>You can check range the same way. The values should reach close to -1.00 and 1.00 in every direction. If one side stops at 0.72, the sensor or the plastic ring is worn down. If releasing a stick quickly causes an unintended phantom input in the opposite direction, perform a dedicated <a href="/controller-snapback-test">controller snapback test</a> to verify capacitor damping.</p>
+<p>Wondering if temporary debris will clear up on its own? Read our breakdown on whether <a href="/can-stick-drift-fix-itself">can drift fix itself</a> without opening up the hardware.</p>
 
 <h3>Deadzone Slider</h3>
 <p>The deadzone slider sits under the sticks and starts at 0.10. It sets how much movement the tool ignores before it counts input as real.</p>
-<p>This is genuinely useful when you find drift. Slide it up slowly until the drifting stick reads clean at rest. Whatever number stops the drift is roughly the deadzone you will need inside your games. If a small value fixes it, the pad is still usable. If you have to push the slider high before the noise disappears, the stick module is on its way out.</p>
+<p>This is genuinely useful when you find drift. Slide it up slowly until the drifting stick reads clean at rest. Whatever number stops the drift is roughly the deadzone you will need inside your games. Learn how to balance <a href="/inner-vs-outer-deadzone">inner and outer deadzone settings</a> in your game profiles. If a small value fixes it, the pad is still usable. If you have to push the slider high before the noise disappears, the stick module is on its way out.</p>
 
 <h3>Triggers</h3>
 <p>Xbox and PlayStation triggers are analog, so they report how far you pulled them rather than just on or off.</p>
