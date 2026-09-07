@@ -224,7 +224,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <h3>Analog Sticks and Stick Drift</h3>
 <p>Both sticks show a live position dot plus X and Y values between -1.00 and 1.00. Dead centre reads 0.00, 0.00. If you are unfamiliar with coordinate readouts, review our breakdown of <a href="/what-do-gamepad-tester-numbers-mean">what the numbers on screen mean</a>.</p>
 <p>This is where you run a proper <strong>stick drift test</strong>. Let go of both sticks and look at the numbers. A healthy stick sits at or very close to 0.00. If the value floats at 0.08, or slowly crawls in one direction on its own, that stick has drift. Check out our comprehensive guide on <a href="/controller-drift-fix">why stick drift happens and how to fix it</a>.</p>
-<p>Each stick also shows an Error percentage. Roll the stick slowly around its outer edge and watch that figure. A worn stick will not trace a clean circle, and the error number rises to show it. Learn <a href="/circularity-error-values">what your circularity error percentage means</a> to see if your module is within safe tolerance.</p>
+<p>Each stick also shows an Error percentage. Roll the stick slowly around its outer edge and watch that figure. A worn stick will not trace a clean circle, and the error number rises to show it. Learn <a href="/circularity-error">what your circularity error percentage means</a> to see if your module is within safe tolerance.</p>
 <p>You can check range the same way. The values should reach close to -1.00 and 1.00 in every direction. If one side stops at 0.72, the sensor or the plastic ring is worn down. If releasing a stick quickly causes an unintended phantom input in the opposite direction, perform a dedicated <a href="/controller-snapback-test">controller snapback test</a> to verify capacitor damping.</p>
 <p>Wondering if temporary debris will clear up on its own? Read our breakdown on whether <a href="/can-stick-drift-fix-itself">can drift fix itself</a> without opening up the hardware.</p>
 
@@ -251,13 +251,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <p>Many modern pads carry a built in mic or a headset jack. The microphone tester lets you pick your input device from the dropdown, hit Start Recording, and confirm the audio is actually reaching your PC. Useful before a party chat session, and a fast way to prove whether a chat problem sits in the hardware or in your game settings.</p>
 
 <h3>Polling Rate and Device Slot</h3>
-<p>A live rate readout in Hz shows how often your PC is reading the controller. Higher means more frequent updates and slightly tighter response. A wired pad usually reports a steadier figure than a Bluetooth one, and a rate that jumps around points to an unstable connection rather than a broken pad.</p>
+<p>A live rate readout in Hz shows how often your PC is reading the controller. Higher means more frequent updates and slightly tighter response, which is crucial if you want to measure your true <a href="/controller-latency-test">controller input lag</a>. A wired pad usually reports a steadier figure than a Bluetooth one, and a rate that jumps around points to an unstable connection rather than a broken pad.</p>
 <p>The P1 to P4 indicators show which slot your controller took. That detail matters when a game refuses to read your pad, because a second connected device may have claimed the first slot.</p>
 
 <h2>Which Controllers Work</h2>
 <p>Almost all of them. This gamepad test online supports:</p>
 <ul>
-	<li>Xbox Series X and S, Xbox One, Xbox 360 and Xbox Elite</li>
+	<li>Xbox Series X and S, Xbox One, Xbox 360 and Xbox Elite (If using Microsoft hardware, try our dedicated <a href="/xbox-controller-tester">Xbox controller tester</a>)</li>
 	<li>PlayStation 5 DualSense, PS4 DualShock 4 and PS3 pads</li>
 	<li>Nintendo Switch Pro Controller and Joy-Cons</li>
 	<li>8BitDo, GameSir, PowerA, Razer, Turtle Beach and other third party pads</li>
@@ -273,7 +273,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<li><strong>A stick drifts at rest:</strong> Common on Xbox and PlayStation pads after a year or two of heavy use. Small drift can be covered with a larger in-game deadzone. Large drift needs a new stick module.</li>
 	<li><strong>Triggers are jumpy or capped:</strong> Worn potentiometers. Repairable, but fiddly, and rarely worth it on a budget pad.</li>
 	<li><strong>Vibration does not fire:</strong> Check the connection type first, then the motors. A pad that rumbles on USB but not on Bluetooth is working normally.</li>
-	<li><strong>Nothing shows up at all:</strong> Not a hardware fault yet. Try a different USB port, a different cable, and check the charge. Make sure no other software has taken exclusive control of the device.</li>
+	<li><strong>Nothing shows up at all:</strong> Not a hardware fault yet. Try a different USB port, a different cable, and check the charge. Make sure no other software has taken exclusive control of the device, or read our guide to <a href="/controller-stopped-working">fix a controller that stopped working</a>.</li>
 </ul>
 
 <h2>Why Use a Browser Based Controller Checker</h2>
