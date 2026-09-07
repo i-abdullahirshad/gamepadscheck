@@ -1,0 +1,31 @@
+# GamepadsCheck
+
+> **Website:** https://gamepadscheck.com
+> **Description:** A comprehensive, free, browser-based suite of controller and gamepad testing tools. 
+> **Tech Stack:** Astro, TypeScript, HTML5 Gamepad API, WebHID API.
+> **Privacy:** 100% client-side processing. No data is stored, tracked, or sent to external servers.
+
+## Overview
+GamepadsCheck provides hardware diagnostic tools for gamers and technicians to test controllers, arcade sticks, and racing wheels without installing additional software. It reads raw inputs directly from the hardware to identify stick drift, polling rate latency, faulty microswitches, and axis mapping errors.
+
+## Core Tools (Hubs)
+
+* **Gamepad Tester** (`/gamepad-tester`): The primary diagnostic tool for standard controllers (PS4, PS5, Switch, Generic PC). Tests buttons, stick drift (X/Y axis and circularity error), analog triggers, vibration motors, and microphone inputs.
+* **Xbox Controller Tester** (`/xbox-controller-tester`): A specialized visualizer and diagnostic tool mapped specifically for Microsoft hardware (Xbox 360, Xbox One, Series X|S, Elite Series).
+* **Controller Latency Test** (`/controller-latency-test`): Measures controller-to-PC input delay, connection jitter, and polling rate (Hz). Uses WebHID to bypass the standard 200Hz browser cap and unlock true 1000Hz precision for competitive hardware.
+* **Fight Stick Tester** (`/fight-stick-tester`): Tailored for arcade sticks and Hitbox (leverless) controllers. Includes a Vewlix layout visualizer, SOCD (Simultaneous Opposite Cardinal Directions) cleaner testing, and a real-time input history log to catch switch bounce (double inputs).
+* **Steering Wheel Tester** (`/steering-wheel-tester`): Built for sim racing hardware. Visualizes wheel rotation in degrees, maps shifter buttons, and generates a live linearity graph for throttle, brake, and clutch pedals to detect dirty potentiometers.
+* **Button Mapping Test** (`/gamepad-mapping-test`): A utility to reveal the exact raw hardware index assigned to every button and axis to diagnose XInput vs DirectInput translation errors.
+
+## Knowledge Base & Troubleshooting (Spokes)
+The site includes a comprehensive library of guides addressing common hardware and software faults. Key topics include:
+
+* **Hardware Fixes:** Fixing stick drift, diagnosing controller snapback, repairing Xbox bumpers, and replacing worn microswitches.
+* **Latency & Connection:** Wired vs. Wireless latency comparisons, 2.4GHz dongle vs. Bluetooth stability, polling rate optimization (e.g., 8000Hz controllers), and resolving Bluetooth audio delay.
+* **Software & Mapping:** Explanations of XInput vs DirectInput, deadzone configuration (inner vs. outer), Steam Input conflicts, DS4Windows setup, and using legacy/console controllers (PS3, Switch Pro) on PC.
+
+## Target Audience
+* Competitive gamers needing to verify hardware latency and polling rates.
+* Casual players diagnosing stick drift, dead zones, or broken buttons.
+* Sim racers and fighting game players testing specialized peripherals.
+* PC gamers troubleshooting controller connection and mapping issues in Windows or Steam.
