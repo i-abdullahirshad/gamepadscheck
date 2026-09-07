@@ -6,12 +6,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	title="Steering Wheel Tester: Check Wheel, Pedals & Shifters Online" 
 	description="Free steering wheel tester in your browser. Check wheel rotation in degrees, pedal linearity, shifter buttons and raw axis data. No download needed."
 >
-	
-
-	<div class="header">
-		<h1>Steering Wheel Tester: Check Wheel, Pedals & Shifters Online</h1>
-		<p>Test wheel rotation, verify pedal sensor linearity, and log raw button events.</p>
-	</div>
 
 	<div id="api-error" class="error-banner" style="display: none;">
 		⚠️ <strong>API Not Supported:</strong> Your browser does not support the Gamepad API.
@@ -28,7 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</div>
 			
 			<div class="visualizer-container">
-				<!-- Wheel Rotation SVG (Scaled Up) -->
+				<!-- Wheel Rotation SVG (Scaled Down for Compact View) -->
 				<div class="wheel-container">
 					<svg class="wheel-svg" viewBox="0 0 200 200">
 						<!-- Static crosshairs -->
@@ -48,7 +42,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					</div>
 				</div>
 
-				<!-- Pedals (Scaled Up) -->
+				<!-- Pedals (Scaled Down) -->
 				<div class="pedals-container">
 					<div class="pedal-col">
 						<div class="pedal-track">
@@ -77,11 +71,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		<!-- Column 2: Linearity & Axes -->
 		<div class="col-group">
-			<!-- Linearity Chart (Taller) -->
+			<!-- Linearity Chart -->
 			<div class="panel">
 				<h3>📈 Pedal Linearity</h3>
 				<div class="chart-wrapper">
-					<canvas id="linearity-chart" width="400" height="150"></canvas>
+					<canvas id="linearity-chart" width="400" height="120"></canvas>
 					<div class="chart-legend">
 						<span class="legend-item"><span class="dot throttle-bg"></span> Throttle</span>
 						<span class="legend-item"><span class="dot brake-bg"></span> Brake</span>
@@ -91,7 +85,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<p class="panel-hint">Smooth curves = healthy sensors. Jumpy lines = dirty potentiometers.</p>
 			</div>
 
-			<!-- Raw Axis Data (Larger Text/Padding) -->
+			<!-- Raw Axis Data -->
 			<div class="panel">
 				<h3>🧭 Raw Axis Data</h3>
 				<div class="axis-grid">
@@ -121,7 +115,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		<!-- Column 3: Buttons & Logs -->
 		<div class="col-group">
-			<!-- Buttons Grid (Larger Targets) -->
+			<!-- Buttons Grid -->
 			<div class="panel">
 				<h3>🔘 Buttons (<span id="total-buttons-count">17</span>)</h3>
 				<div id="all-buttons-grid" class="all-buttons-grid">
@@ -131,12 +125,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</div>
 			</div>
 
-			<!-- Event Log (Taller) -->
+			<!-- Event Log -->
 			<div class="panel event-panel">
 				<div class="panel-header">
 					<h3>📋 Event Log</h3>
 					<button id="clear-log-btn" class="icon-btn" title="Clear Log">
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
 					</button>
 				</div>
 				<div id="event-log-container" class="event-log">
@@ -148,8 +142,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</div>
 
 	<div class="info-tip">
-		<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+		<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
 		<span><strong>Tip:</strong> Axis mapping varies by device. If pedals appear swapped or hover at 50%, check your wheel's driver software to combine/split axes.</span>
+	</div>
+
+	<div class="header">
+		<h1>Steering Wheel Tester: Check Wheel, Pedals & Shifters Online</h1>
+		<p>Test wheel rotation, verify pedal sensor linearity, and log raw button events.</p>
 	</div>
 
 	<article class="content-section">
@@ -276,44 +275,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	</article>
 
 	<style>
-		.header { text-align: center; margin-bottom: 2rem; }
-		.header h1 { margin-bottom: 0.5rem; font-size: 2rem; color: var(--text-main); }
-		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif; font-size: 1rem;}
+		.header { text-align: center; margin-bottom: 1rem; margin-top: 2rem; }
+		.header h1 { margin-bottom: 0.25rem; font-size: 1.75rem; color: var(--text-main); }
+		.header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-family: 'Inter', sans-serif; font-size: 0.95rem;}
 
-		/* Upscaled 3-Column Layout */
-		.dashboard { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 1.5rem; width: 100%; margin-bottom: 2rem; align-items: stretch; }
-		.col-group { display: flex; flex-direction: column; gap: 1.5rem; }
+		/* 3-Column Compact Dashboard */
+		.dashboard { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 1rem; width: 100%; margin-bottom: 1rem; align-items: stretch; }
+		.col-group { display: flex; flex-direction: column; gap: 1rem; }
+
+		.error-banner { background: rgba(231, 76, 60, 0.15); border: 1px solid #E74C3C; color: var(--text-main); padding: 0.75rem; border-radius: 10px; text-align: center; margin-bottom: 1rem; font-family: 'Inter', sans-serif;}
 
 		/* Universal Theme Panels */
-		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); font-family: 'Inter', sans-serif;}
+		.panel { background: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.25rem; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15); font-family: 'Inter', sans-serif;}
 		
 		.visualizer-panel { display: flex; flex-direction: column; }
 		.event-panel { flex: 1; display: flex; flex-direction: column; }
 
-		.visualizer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-		.visualizer-header h2 { font-size: 1.4rem; color: var(--text-main); }
+		.visualizer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+		.visualizer-header h2 { font-size: 1.25rem; color: var(--text-main); }
 		
-		.status-badge { padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid transparent; }
+		.status-badge { padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid transparent; }
 		.status-badge.disconnected { background: var(--border-color); border-color: var(--border-color); color: var(--text-muted); }
 		.status-badge.connected { background: rgba(46, 204, 113, 0.1); border-color: #2ECC71; color: #2ECC71; box-shadow: 0 0 10px rgba(46, 204, 113, 0.2); }
 
-		.visualizer-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-around; gap: 2rem;}
+		.visualizer-container { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: space-around; gap: 1rem;}
 
-		/* Wheel Visualizer (Upscaled) */
-		.wheel-container { position: relative; width: 240px; height: 240px; display: flex; flex-direction: column; align-items: center;}
+		/* Wheel Visualizer (Scaled Down) */
+		.wheel-container { position: relative; width: 180px; height: 180px; display: flex; flex-direction: column; align-items: center;}
 		.wheel-svg { width: 100%; height: 100%; }
-		.rotation-text { text-align: center; margin-top: 1rem; }
-		.deg-val { font-size: 2.25rem; font-weight: 800; color: var(--text-main); font-variant-numeric: tabular-nums; }
+		.rotation-text { text-align: center; margin-top: 0.75rem; }
+		.deg-val { font-size: 1.75rem; font-weight: 800; color: var(--text-main); font-variant-numeric: tabular-nums; }
 
-		/* Vertical Pedals (Upscaled) */
-		.pedals-container { display: flex; gap: 2rem; justify-content: center; margin-top: 1rem; }
-		.pedal-col { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+		/* Vertical Pedals (Scaled Down) */
+		.pedals-container { display: flex; gap: 1.25rem; justify-content: center; margin-top: 0.5rem; }
+		.pedal-col { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
 		
 		/* Tinted Inner Elements */
-		.pedal-track { width: 55px; height: 180px; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 10px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+		.pedal-track { width: 45px; height: 130px; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 		.pedal-fill { position: absolute; bottom: 0; left: 0; width: 100%; height: 0%; transition: height 0.05s linear; }
 		
-		/* New Pedal Colors */
+		/* Pedal Colors */
 		.throttle { background: #FFD700; box-shadow: 0 -4px 15px rgba(255, 215, 0, 0.4); }
 		.brake { background: #F43F5E; box-shadow: 0 -4px 15px rgba(244, 63, 94, 0.4); }
 		.clutch { background: #3498DB; box-shadow: 0 -4px 15px rgba(52, 152, 219, 0.4); }
@@ -326,49 +327,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		.brake-text { color: #F43F5E; }
 		.clutch-text { color: #3498DB; }
 
-		.pedal-pct { position: relative; z-index: 2; font-weight: 800; color: var(--text-main); text-shadow: 0 1px 2px var(--bg-main); font-size: 1.05rem; }
-		.pedal-label { font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; }
+		.pedal-pct { position: relative; z-index: 2; font-weight: 800; color: var(--text-main); text-shadow: 0 1px 2px var(--bg-main); font-size: 0.95rem; }
+		.pedal-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; }
 
 		/* Side Modules */
-		h3 { color: var(--text-main); font-size: 1.15rem; font-weight: 600; margin: 0 0 1.25rem 0; }
-		.panel-hint { font-size: 0.85rem; color: var(--text-muted); margin: 0.75rem 0 0 0; line-height: 1.5;}
+		h3 { color: var(--text-main); font-size: 1.05rem; font-weight: 600; margin: 0 0 1rem 0; }
+		.panel-hint { font-size: 0.8rem; color: var(--text-muted); margin: 0.5rem 0 0 0; line-height: 1.4;}
 
-		/* Linearity Chart (Upscaled) */
-		.chart-wrapper { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem; position: relative; }
-		#linearity-chart { width: 100%; height: 150px; }
-		.chart-legend { display: flex; justify-content: flex-end; gap: 1.25rem; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
-		.legend-item { display: flex; align-items: center; gap: 6px; }
-		.dot { width: 10px; height: 10px; border-radius: 50%; }
+		/* Linearity Chart (Scaled Down) */
+		.chart-wrapper { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 10px; padding: 0.75rem; position: relative; }
+		#linearity-chart { width: 100%; height: 120px; }
+		.chart-legend { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
+		.legend-item { display: flex; align-items: center; gap: 4px; }
+		.dot { width: 8px; height: 8px; border-radius: 50%; }
 
-		/* Raw Axes (Upscaled) */
-		.axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-		.axis-card { background: var(--bg-main); border: 1px solid var(--border-color); padding: 1rem; border-radius: 10px; }
-		.axis-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem; }
-		.axis-val { font-size: 1.25rem; font-weight: 800; color: var(--text-main); font-variant-numeric: tabular-nums; margin-bottom: 0.75rem; }
+		/* Raw Axes */
+		.axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+		.axis-card { background: var(--bg-main); border: 1px solid var(--border-color); padding: 0.75rem; border-radius: 8px; }
+		.axis-label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.25rem; }
+		.axis-val { font-size: 1.15rem; font-weight: 800; color: var(--text-main); font-variant-numeric: tabular-nums; margin-bottom: 0.5rem; }
 		.axis-track { width: 100%; height: 6px; background: var(--border-color); border-radius: 3px; position: relative; overflow: hidden; }
 		.axis-fill { position: absolute; left: 0; top: 0; height: 100%; width: 50%; background: #F43F5E; transition: width 0.05s linear; }
 
-		/* Buttons Grid (Upscaled) */
-		.all-buttons-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
-		.raw-btn-slot { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); transition: all 0.05s linear; cursor: default;}
-		.raw-btn-slot.active { background: #F43F5E; border-color: #FB7185; color: #FFF; box-shadow: 0 0 12px rgba(244, 63, 94, 0.4); transform: scale(0.95);}
+		/* Buttons Grid */
+		.all-buttons-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+		.raw-btn-slot { background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 6px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); transition: all 0.05s linear; cursor: default;}
+		.raw-btn-slot.active { background: #F43F5E; border-color: #FB7185; color: #FFF; box-shadow: 0 0 10px rgba(244, 63, 94, 0.4); transform: scale(0.95);}
 
-		/* Event Log (Upscaled) */
-		.panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-		.icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 8px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;}
+		/* Event Log */
+		.panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+		.icon-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 6px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;}
 		.icon-btn:hover { background: var(--border-color); color: var(--text-main); }
 
-		.event-log { flex: 1; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem; min-height: 200px; max-height: 300px; overflow-y: auto; font-family: monospace; font-size: 0.9rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.4rem; }
+		.event-log { flex: 1; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 10px; padding: 0.75rem; min-height: 140px; max-height: 180px; overflow-y: auto; font-family: monospace; font-size: 0.85rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.4rem; }
 		.log-entry span { color: var(--text-main); }
 		.log-entry .timestamp { color: var(--text-muted); margin-right: 0.5rem; }
 		.log-action-pressed { color: #F43F5E !important; }
 		.log-action-released { color: var(--text-muted) !important; }
 
-		.info-tip { display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); padding: 1rem 1.5rem; border-radius: 12px; color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-top: 1rem;}
+		.info-tip { display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.2); padding: 0.75rem; border-radius: 10px; color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.85rem; margin-top: 0.5rem;}
 
 		@media (max-width: 1200px) {
 			.dashboard { grid-template-columns: 1fr 1fr; }
-			.visualizer-panel { grid-column: span 2; flex-direction: row; justify-content: space-around; padding: 2.5rem;}
+			.visualizer-panel { grid-column: span 2; flex-direction: row; justify-content: space-around; padding: 2rem;}
 			.visualizer-container { flex-direction: row; width: 100%;}
 		}
 		@media (max-width: 900px) {
@@ -379,8 +380,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		/* Content Section Styles */
 		.content-section {
-			margin-top: 4rem;
-			padding: 2.5rem;
+			margin-top: 1rem;
+			padding: 2rem;
 			background: var(--bg-panel);
 			border: 1px solid var(--border-color);
 			border-radius: 16px;
