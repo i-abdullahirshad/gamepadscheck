@@ -182,13 +182,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<li><strong>Minimum:</strong> the best gap recorded</li>
 	<li><strong>Maximum:</strong> the worst gap recorded</li>
 </ul>
-<p>Jitter deserves as much attention as the average, so it is important to understand <a href="/controller-jitter-explained">jitter and why it matters</a>. A controller that averages 3ms but spikes to 20ms is worse to play on than one that sits steadily at 6ms. Consistency is what your hands learn. Random spikes are what break your timing. If your minimum and maximum are far apart, you have an unstable connection rather than a slow one.</p>
+<p>Jitter deserves as much attention as the average, so it helps to understand <a href="/controller-jitter">controller jitter and why it matters</a>. A controller that averages 3ms but spikes to 20ms is worse to play on than one that sits steadily at 6ms. Consistency is what your hands learn. Random spikes are what break your timing. If your minimum and maximum are far apart, you have an unstable connection rather than a slow one.</p>
 
 <h2>Wired vs Wireless Controller Latency</h2>
 <p>This is the question most people are really asking.</p>
 <p>Wired USB is the fastest and the most consistent. There is nothing to interfere with it. If you want the lowest possible input delay, use a cable. Expect to land in the 2ms to 5ms band, or lower with WebHID and a high polling rate pad.</p>
-<p>2.4GHz dongles come close to wired. A dedicated receiver means less negotiation and fewer collisions than Bluetooth. The Xbox Wireless Adapter and most third party dongles sit in the 5ms to 8ms band. See our breakdown of <a href="/dongle-vs-bluetooth-latency">dongle vs Bluetooth latency compared</a> to see how much performance you gain.</p>
-<p>Bluetooth is the slowest and the most variable. It shares crowded spectrum with WiFi, phones and everything else on 2.4GHz. It is fine for casual play and noticeably worse for competitive play, pushing many to research <a href="/wired-vs-wireless-competitive">wired vs wireless for competitive play</a>. Bluetooth pads usually report 8ms or more, often with higher jitter as well.</p>
+<p>2.4GHz dongles come close to wired. A dedicated receiver means less negotiation and fewer collisions than Bluetooth. The Xbox Wireless Adapter and most third party dongles sit in the 5ms to 8ms band. See our breakdown of <a href="/controller-dongle-vs-bluetooth-latency">dongle vs Bluetooth latency compared</a> to see how much stability you gain.</p>
+<p>Bluetooth is the slowest and the most variable. It shares crowded spectrum with WiFi, phones and everything else on 2.4GHz. It is fine for casual play and noticeably worse for competitive play, pushing many players to research <a href="/wired-vs-wireless-controller">wired vs wireless for competitive play</a>. Bluetooth pads usually report 8ms or more, often with higher jitter as well.</p>
 <p>Test your own setup both ways instead of trusting general numbers. Your room, your dongle and your USB ports all affect the result.</p>
 
 <h2>Polling Rate and Why It Matters</h2>
@@ -199,15 +199,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<li><strong>500Hz</strong> means every 2ms</li>
 	<li><strong>1000Hz</strong> means every 1ms</li>
 </ul>
-<p>Most standard controllers report at 125Hz or 250Hz. Higher end and third party pads support 1000Hz. Running a polling rate test on your own controller is the quickest way to find out which group yours falls into, and to learn <a href="/good-controller-polling-rate">what counts as a good polling rate</a>.</p>
-<p>A higher polling rate lowers the worst case delay between your press and your PC noticing it. The gain from 125Hz to 500Hz is real but small. The gain from 500Hz to 1000Hz is very small. If you are reading marketing material and wondering <a href="/is-8000hz-polling-worth-it">is 8000Hz polling worth it</a>, do not spend money chasing it unless everything else in your chain is already sorted.</p>
+<p>Most standard controllers report at 125Hz or 250Hz. Higher end and third party pads support 1000Hz. Running a polling rate test on your own controller is the quickest way to find out which group yours falls into, and to learn <a href="/good-controller-polling-rate">what counts as a good polling rate</a>. This is also crucial information when testing <a href="/fight-stick-tester">precision fight stick polling rates</a>.</p>
+<p>A higher polling rate lowers the worst case delay between your press and your PC noticing it. The gain from 125Hz to 500Hz is real but small. The gain from 500Hz to 1000Hz is very small. If you are reading marketing material and wondering <a href="/8000hz-controller-polling">is 8000Hz polling worth it</a>, do not spend money chasing it unless everything else in your chain is already sorted.</p>
 
 <h2>What Causes High Controller Latency</h2>
 <p>If your numbers came back worse than expected, work through these.</p>
 
 <h3>Connection problems</h3>
 <ul>
-	<li>Bluetooth interference from routers, phones or other paired devices</li>
+	<li>Bluetooth interference from routers, phones or other paired devices (which can also cause <a href="/bluetooth-audio-delay-controller">Bluetooth audio delay</a>)</li>
 	<li>A wireless dongle plugged into a crowded USB hub</li>
 	<li>Distance or obstacles between controller and receiver</li>
 	<li>A low battery, which makes some pads cut transmission power</li>
@@ -218,7 +218,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<li>Background downloads, updates or virus scans</li>
 	<li>Too many browser tabs eating CPU time</li>
 	<li>Power saving modes throttling your USB ports</li>
-	<li>Overlay software from Steam, Discord or your GPU driver (if you are wondering <a href="/does-steam-input-add-lag">does Steam Input add lag</a>, check your global settings)</li>
+	<li>Overlay software from Steam, Discord or your GPU driver (if you are wondering <a href="/does-steam-input-add-input-lag">does Steam Input add input lag</a>, check your global settings)</li>
 </ul>
 
 <h3>Hardware problems</h3>
