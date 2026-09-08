@@ -127,6 +127,14 @@ const {
 			color: var(--link-hover);
 			text-decoration-color: var(--link-hover);
 		}
+
+		/* Image Theme Toggles */
+		html[data-theme="dark"] .img-light {
+			display: none !important;
+		}
+		html[data-theme="light"] .img-dark {
+			display: none !important;
+		}
 	</style>
 </head>
 <body>
