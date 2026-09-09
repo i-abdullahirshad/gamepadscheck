@@ -40,7 +40,7 @@ Here is the practical picture.
 
 **8000Hz** saves a fraction of a millisecond over 1000Hz. The interval drops from 1ms to 0.125ms. For context, a single frame at 60fps lasts about 16ms, so the saving is a tiny slice of one frame.
 
-The short version: **the jump from 125Hz to 500Hz is worth caring about. Everything above 1000Hz is marketing more than performance.**
+The short version: **the jump from 125Hz to 500Hz is worth caring about. Everything above 1000Hz is marketing more than performance.** If you are wondering whether [is 8000Hz controller polling worth it](/8000hz-controller-polling/), the math shows the returns diminish rapidly.
 
 ### **Why the gains shrink so fast**
 
@@ -64,7 +64,7 @@ Polling rate is only one link in the chain, and it is rarely the weakest.
 
 **Your connection type.** Bluetooth adds scheduling delay that a high polling rate cannot undo, because the bottleneck happens before polling matters.
 
-**Your controller's own sensors.** The pad has to read its buttons and sticks and prepare the data. If the hardware only updates its internal state at a certain pace, polling it faster just returns the same value repeatedly.
+**Your controller's own sensors.** The pad has to read its buttons and sticks and prepare the data. If the hardware only updates its internal state at a certain pace, polling it faster just returns the same value repeatedly, and a fluctuating internal state is exactly what causes [controller jitter](/controller-jitter/).
 
 That last point is important with very high advertised rates. A controller can be polled 8000 times a second and still only produce new information a fraction of that often.
 
@@ -76,7 +76,7 @@ Wireless works differently and the labels can mislead.
 
 **Bluetooth** does not really have a user facing polling rate. It uses connection intervals, with a floor of 7.5ms for Bluetooth Low Energy and often more in practice. That places Bluetooth in roughly the same territory as 125Hz polling, and no setting on your side changes it.
 
-So if you are on Bluetooth and worried about polling rate, the useful change is switching to a cable or a dongle, not adjusting a number.
+So if you are on Bluetooth and worried about polling rate, the useful change is switching to a cable or a dongle, a point central to the [wired vs wireless controller](/wired-vs-wireless-controller/) decision.
 
 ### **Should you overclock your polling rate?**
 
@@ -105,7 +105,7 @@ Browsers read controller state on the animation frame, which is tied to your dis
 
 **What you can check in a browser**
 
-Open a gamepad tester, hold a stick steadily in one direction, and watch how often the reported value changes. Compare that behaviour across connections. A wired connection against Bluetooth will usually show a visible difference in how smoothly values update.
+Open a [latency tester](/latency-test/), hold a stick steadily in one direction, and watch how often the reported value changes. Compare that behaviour across connections. A wired connection against Bluetooth will usually show a visible difference in how smoothly values update.
 
 This is a comparison, not a certified measurement. Any tool claiming to verify 8000Hz polling from inside a browser is overstating what the browser can see.
 
