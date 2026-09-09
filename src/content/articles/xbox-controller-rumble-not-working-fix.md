@@ -19,7 +19,7 @@ Work through these in order.
 
 Before changing anything, check whether the rumble motors themselves still work.
 
-Open a gamepad tester with a vibration test and trigger it. If the controller vibrates there, the motors are fine and the problem sits in a game, a setting, or software. That narrows your search considerably.
+Open an [Xbox controller test](/xbox-controller-test/) with a vibration test and trigger it. If the controller vibrates there, the motors are fine and the problem sits in a game, a setting, or software. That narrows your search considerably.
 
 If nothing happens in a tester either, focus on the connection and hardware fixes further down.
 
@@ -72,7 +72,7 @@ Vibration motors draw far more current than buttons and sticks. When the battery
 - If you use a rechargeable pack, charge it fully and test again  
 - Rechargeable packs lose capacity with age, and an old pack can show a healthy indicator while delivering too little current for the motors
 
-If rumble returns with fresh batteries and fades again quickly, the pack is worn out.
+If rumble returns with fresh batteries and fades again quickly, the pack is worn out—a scenario frequently detailed in [Xbox controller battery draining fixes](/xbox-controller-battery-draining-fixes/).
 
 ### **5 Update the controller firmware**
 
@@ -96,7 +96,7 @@ Test with everything closed. If rumble returns, reintroduce programs one at a ti
 
 ### **7 Reinstall the driver**
 
-If rumble fails everywhere, including a gamepad tester, a broken driver install is a likely cause.
+If rumble fails everywhere, including a gamepad tester, a broken driver install is a likely cause—a core troubleshooting step among general [Xbox controller not working on PC fixes](/xbox-controller-not-working-on-pc-fixes/).
 
 - Right click Start and open Device Manager  
 - Find your controller under Xbox Peripherals, or under Human Interface Devices  
@@ -128,4 +128,3 @@ For a controller under warranty, contact Xbox support before opening anything. R
 - **Nothing works anywhere including a tester:** driver, firmware, or hardware  
 - **Grips vibrate but triggers do not:** impulse triggers, usually a Bluetooth or game support issue  
 - **Only one grip vibrates:** a failed motor
-
