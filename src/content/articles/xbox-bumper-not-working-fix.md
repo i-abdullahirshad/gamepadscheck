@@ -17,7 +17,7 @@ The good news is that a dead bumper is often not a dead switch. Dust, a misalign
 
 Before opening anything or blaming the hardware, find out whether the button registers at all.
 
-Open a gamepad tester and press LB and RB. Watch whether they show as pressed.
+Run an [Xbox controller test](/) and press LB and RB. Watch whether they show as pressed.
 
 **If the tester shows nothing when you press the bumper**, the input is not reaching your PC. The problem is mechanical or electrical, and the hardware fixes below apply.
 
@@ -28,8 +28,6 @@ This one check saves a lot of wasted effort, because these two situations need c
 Also test both bumpers. Both failing at once points to software or a driver. One failing alone points to that specific switch.
 
 ### **When the tester does not register the press**
-
-
 
 #### **Check for stiffness, looseness or a changed sound**
 
@@ -70,8 +68,6 @@ This sounds unrelated, but a controller running low on power can drop individual
 - Try a USB cable that carries data, not a charge only cable  
 - If the bumper works reliably when wired and fails wirelessly, the problem is power or interference rather than the button
 
-
-
 ### **When the tester registers the press but games do not respond**
 
 The hardware is fine. Something between the controller and the game is dropping the input.
@@ -82,8 +78,6 @@ The hardware is fine. Something between the controller and the game is dropping 
 - On an Elite controller, check whether a profile has swapped or unassigned the bumpers  
 - Reset to the default profile and test again
 
-
-
 #### **Check Steam Input**
 
 Steam can rebind controls without any obvious sign in the game itself.
@@ -91,8 +85,6 @@ Steam can rebind controls without any obvious sign in the game itself.
 - Right click the game in Steam, open Properties, then Controller  
 - Try switching Steam Input on and off, since both directions fix it for different setups  
 - Check the game's controller layout in Steam for a binding that has been changed or cleared
-
-
 
 #### **Close software that intercepts input**
 
@@ -111,10 +103,10 @@ If bumpers work in every game except one, that game is the problem.
 Worth doing before considering hardware repair, since both are quick.
 
 - Install the Xbox Accessories app and connect the controller with a data cable, then install any firmware update offered  
-- On PC, open Device Manager, find the controller under Xbox Peripherals or Human Interface Devices, uninstall the device, unplug it, restart, and reconnect so Windows reinstalls the driver  
+- On PC, open Device Manager, find the controller under Xbox Peripherals or Human Interface Devices, uninstall the device, unplug it, restart, and reconnect so Windows reinstalls the driver—a fundamental step in most [Xbox controller not working on PC fixes](/xbox-controller-not-working-on-pc-fixes/)  
 - Check Windows Update, since Xbox controller drivers arrive through it
 
-If both bumpers stopped working at the same moment, especially right after a system update, a driver problem is more likely than two switches failing simultaneously.
+If both bumpers stopped working at the same moment, especially if your [controller stopped working](/controller-stopped-working/) right after a system update, a driver problem is more likely than two switches failing simultaneously.
 
 ### **If the switch has genuinely failed**
 
