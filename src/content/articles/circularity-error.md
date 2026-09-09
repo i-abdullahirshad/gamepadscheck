@@ -53,9 +53,9 @@ The drawn shape tells you more than the percentage does.
 
 **A jagged, spiky outline.** The sensor is reading inconsistently as you rotate. This points to a worn or dirty track and is the pattern most worth acting on.
 
-**A shape that is clearly off centre.** Your resting position has shifted, which is drift rather than circularity. Check your resting values separately.
+**A shape that is clearly off centre.** Your resting position has shifted, which is drift rather than circularity. Check your resting values separately to see [what do gamepad tester numbers mean](/what-do-gamepad-tester-numbers-mean/) in your specific case.
 
-If you are unsure what your stick is doing, rotate it slowly on a gamepad tester and watch the numbers change rather than watching the drawing. Values should climb and fall smoothly. Skipping, stalling or bouncing means the sensor is struggling.
+If you are unsure what your stick is doing, rotate it slowly on a [gamepad tester](/) and watch the numbers change rather than watching the drawing. Values should climb and fall smoothly. Skipping, stalling or bouncing means the sensor is struggling.
 
 ### **Why the corners can never be reached**
 
@@ -83,8 +83,6 @@ That said, be realistic about the scale of this. A controller at 12% circularity
 
 ### **How to improve it**
 
-
-
 #### **Clean the stick**
 
 Dirt in the gate or on the track is a common cause of an uneven shape, especially a flat spot.
@@ -107,7 +105,7 @@ On Switch, use System Settings, then Controllers and Sensors, then Calibrate Con
 
 #### **Adjust the outer deadzone**
 
-If your stick cannot reach full value in some directions, an outer deadzone treats everything above a threshold as maximum.
+If your stick cannot reach full value in some directions, an [inner vs outer deadzone](/inner-vs-outer-deadzone/) adjustment treats everything above a threshold as maximum.
 
 Set it just below your worst straight direction reading. If your weakest direction reaches 0.94, an outer deadzone around 0.95 works.
 
@@ -115,7 +113,7 @@ Be careful when your stick is badly uneven. Setting the outer deadzone low enoug
 
 #### **Replace the stick module**
 
-If cleaning helps for a few days and the problem returns, or the shape is jagged rather than simply uneven, the track underneath is worn. A module replacement is the only real fix, and Hall effect replacements remove the wear mechanism entirely.
+If cleaning helps for a few days and the problem returns, or the shape is jagged rather than simply uneven, the track underneath is worn. A module replacement is the only real [controller drift fix](/controller-drift-fix/), and Hall effect replacements remove the wear mechanism entirely.
 
 ### **What circularity error will not tell you**
 
