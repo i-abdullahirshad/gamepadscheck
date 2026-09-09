@@ -15,11 +15,11 @@ It can still be done, and it is worth being clear about which parts are straight
 
 ### **Why it is harder than newer controllers**
 
-Windows handles modern gamepads through XInput, a fixed layout that guarantees buttons land where games expect. Xbox controllers speak it natively.
+Windows handles modern gamepads through XInput, a fixed layout that guarantees buttons land where games expect—a standard that makes understanding the [XInput vs DirectInput](/xinput-vs-directinput/) distinction crucial for older hardware. Xbox controllers speak it natively.
 
-The DualShock 3 does not. It also does not report itself the way later PlayStation controllers do, which is why tools built for the DualShock 4 do not simply work with it.
+The DualShock 3 does not. It also does not report itself the way later PlayStation controllers do, which is why tools built for the DualShock 4 (such as those configured in a standard [DS4Windows setup guide](/ds4windows-setup-guide/)) do not simply work with it.
 
-Connect one and Windows may detect a device, but games looking for a standard gamepad find nothing usable. You can see this yourself. Open a gamepad mapping test after connecting, and you will typically find a blank mapping field, meaning the controller is reporting a raw layout with no standard applied. Games ignore that.
+Connect one and Windows may detect a device, but games looking for a standard gamepad find nothing usable. You can see this yourself. Open a [button mapping test](/button-mapping-test/) after connecting, and you will typically find a blank mapping field, meaning the controller is reporting a raw layout with no standard applied. Games ignore that.
 
 So something has to translate it. That translation layer is the whole job.
 
@@ -72,7 +72,7 @@ Steam has some support for PlayStation controllers, and it is the least effort r
 
 Support for the DS3 specifically is inconsistent compared to newer pads. Try it before installing drivers, since it costs nothing to test, but do not be surprised if it does not detect the controller.
 
-If it does work, launch games through Steam, since Steam Input only applies to games in your library. For anything else, add it as a non Steam game first.
+If it does work, launch games through Steam, since Steam Input only applies to games in your library, which also gives you a powerful way to [remap controller buttons on PC](/remap-controller-buttons-on-pc/) for those titles. For anything else, add it as a non Steam game first.
 
 ### **Connecting over Bluetooth**
 
@@ -173,4 +173,3 @@ If you already have one in a drawer, the setup above is worth an hour. If you ar
 - **No driver recognises it at all:** likely a counterfeit controller  
 - **Inputs doubled:** two layers running at once  
 - **Sticks drifting:** hardware age, not a setup problem
-
