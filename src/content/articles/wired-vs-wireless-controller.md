@@ -17,11 +17,11 @@ For competitive play the question is narrower than it first appears. It is not w
 
 Both connections carry the same information. They differ in how it travels.
 
-**A cable** carries data on a direct physical link. The system asks the controller for its state at a fixed pace, the controller answers immediately, and nothing else competes for the path. There is no interference and no need to resend lost data.
+**A cable** carries data on a direct physical link. The system asks the controller for its state at a fixed pace (a process optimized by having a [good controller polling rate](/good-controller-polling-rate/)), the controller answers immediately, and nothing else competes for the path. There is no interference and no need to resend lost data.
 
-**Bluetooth** is a shared standard built to serve many device types at once. Input waits for a scheduled slot rather than leaving the instant you press. It shares the 2.4GHz band with WiFi, headphones, smart home devices and even the interference USB 3.0 ports throw out. When packets are lost on a busy band, they have to be sent again.
+**Bluetooth** is a shared standard built to serve many device types at once. Input waits for a scheduled slot rather than leaving the instant you press. It shares the 2.4GHz band with WiFi, headphones (a common reason for [Bluetooth audio delay when using a controller](/bluetooth-audio-delay-controller/)), smart home devices and even the interference USB 3.0 ports throw out. When packets are lost on a busy band, they have to be sent again.
 
-**A 2.4GHz dongle** sits between the two. The manufacturer controls both ends, so it can run a tighter, private protocol without serving unknown devices. A good dongle lands much closer to wired than Bluetooth does.
+**A 2.4GHz dongle** sits between the two. The manufacturer controls both ends, so it can run a tighter, private protocol without serving unknown devices. A good dongle lands much closer to wired than Bluetooth does, which is a major factor in the [controller dongle vs Bluetooth latency](/controller-dongle-vs-bluetooth-latency/) comparison.
 
 ### **The gap is smaller than the arguments suggest**
 
@@ -85,8 +85,6 @@ Not all wireless is equal, and a few changes close most of the gap:
 - **Move your WiFi to 5GHz** if your router supports it, which clears your network traffic off the controller's band  
 - **Update your controller firmware.** Manufacturers do improve wireless scheduling in updates
 
-
-
 ### **The things that matter more than your cable**
 
 This is the part most comparisons skip, and it is where the real gains are.
@@ -96,6 +94,8 @@ This is the part most comparisons skip, and it is where the real gains are.
 **Your frame rate.** Each frame of render delay lasts 1000 divided by your frames per second. At 60fps that is about 16ms per frame. At 120fps it is about 8ms. Raising your frame rate saves more time than switching from Bluetooth to a cable.
 
 **Frame stability.** A locked 60fps produces steadier input timing than an unstable 45 to 90fps, even though the average frame rate is higher in the second case.
+
+**Software translation.** Layers between your controller and the game take processing time. If you find yourself asking [does Steam Input add input lag](/does-steam-input-add-input-lag/), tweaking those software settings will often save more time than plugging in a cable.
 
 **Your deadzone settings.** A badly set deadzone feels exactly like input lag. If your stick has a dead patch before anything happens, that is a settings problem, not a connection problem.
 
@@ -111,7 +111,7 @@ Pressing a button twenty times and averaging your reaction speed does not measur
 
 A browser tool has its own limit. It reads controller state on the animation frame, tied to your display refresh, roughly every 16ms at 60Hz. It never sees the moment your finger physically moved, so it cannot report true end to end delay.
 
-**What a browser tool does well:** confirming the controller is detected, checking every button registers, watching how steadily values update between a cable and wireless, and spotting freezes or dropouts as you move around the room. Connection reliability is easy to see and matters just as much as fine timing.
+**What a browser tool does well:** Open a [latency tester](/latency-test/) to confirm the controller is detected, check every button registers, watch how steadily values update between a cable and wireless, and spot freezes or dropouts as you move around the room. Connection reliability is easy to see and matters just as much as fine timing.
 
 **For real measurement:** record your hand and the screen together with a phone shooting at 240fps, which gives about 4ms per frame. Count the frames between the button moving and the screen responding, then multiply by the frame time. Do around twenty runs and average them, changing nothing else between tests.
 
