@@ -45,7 +45,7 @@ The trap in polling rate numbers is that they double while the benefit halves. L
 
 The whole journey from 1000Hz to 8000Hz totals under 1ms. The single step from 125Hz to 250Hz beats it four times over.
 
-This is why the useful advice has not changed. If you are stuck at 125Hz, moving up matters. If you are already at 1000Hz, you have collected nearly everything polling has to give.
+This is why the useful advice for finding a [good controller polling rate](/good-controller-polling-rate/) has not changed. If you are stuck at 125Hz, moving up matters. If you are already at 1000Hz, you have collected nearly everything polling has to give.
 
 ### **The problem nobody prints on the box**
 
@@ -67,7 +67,7 @@ High polling is not free.
 
 **Losing frames to gain a fraction of a millisecond is a bad trade.** Dropping from 120fps to 110fps costs more time than the polling upgrade saves.
 
-**Stability.** Very high polling can expose weaknesses in USB controllers, drivers and cables. Audio crackling, stutter and disconnects are the usual signs.
+**Stability.** Very high polling can expose weaknesses in USB controllers, drivers and cables. Audio crackling, stutter, [controller jitter](/controller-jitter/), and disconnects are the usual signs.
 
 **Battery on wireless.** Higher rates mean more radio activity, which drains a battery faster. If a wireless controller advertises 8000Hz, check whether that mode shortens playtime, and whether it drops to a lower rate automatically when the battery gets low.
 
@@ -83,7 +83,7 @@ If your controller feels slow, polling rate is almost never the reason. The chai
 
 Polling is one small step in the middle. The game and display steps are usually the largest by a wide margin.
 
-This is why a 125Hz wired controller on a 120Hz monitor in game mode feels sharper than an 8000Hz controller on a TV with picture processing switched on. The expensive spec is fixing the cheapest part of the problem.
+This is why a 125Hz wired controller on a 120Hz monitor in game mode feels sharper than an 8000Hz controller on a TV with picture processing switched on, a dynamic that often settles the [wired vs wireless controller](/wired-vs-wireless-controller/) debate. The expensive spec is fixing the cheapest part of the problem.
 
 ### **Can you even see the difference?**
 
@@ -111,7 +111,7 @@ Browsers read controller state on the animation frame, which is tied to your dis
 
 **What a browser tool is good for**
 
-Open a gamepad tester and use it for what it genuinely does well. Confirm the controller is detected and mapped correctly. Check that every button registers. Check that triggers move smoothly across their range. Check resting stick values for drift. Compare how steadily values update between a cable and Bluetooth, which is a difference large enough to see.
+Open a gamepad tester and use it for what it genuinely does well. Confirm the controller is detected and mapped correctly. Check that every button registers. Check that triggers move smoothly across their range. Check resting stick values for drift. Run a [controller latency test](/latency-test/) to compare how steadily values update between a cable and Bluetooth, which is a difference large enough to see.
 
 **For actual polling verification**, use a desktop utility that sits closer to the driver and reports interval timing directly. That is the right tool for the job.
 
