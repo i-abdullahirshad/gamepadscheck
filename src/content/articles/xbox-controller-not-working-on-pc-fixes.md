@@ -13,7 +13,7 @@ An Xbox controller that will not work on PC is usually one of a few problems: a 
 
 Work through these in order. The early fixes take seconds and solve most cases. The later ones deal with the more stubborn problems.
 
-Before you start, it helps to know whether Windows sees the controller at all. Open a gamepad tester and press a button. If the controller appears and the buttons register, Windows and your hardware are fine and the problem is in the game or its settings. If nothing appears at all, the problem is further down the chain and the connection fixes below are where to look.
+Before you start, it helps to know whether Windows sees the controller at all. Open an [Xbox controller test](/xbox-controller-test/) and press a button. If the controller appears and the buttons register, Windows and your hardware are fine and the problem is in the game or its settings—a classic [controller detected but not working](/controller-detected-but-not-working/) scenario. If nothing appears at all, the problem is further down the chain and the connection fixes below are where to look.
 
 ### **1 Check the cable actually carries data**
 
@@ -97,7 +97,7 @@ Not every Xbox controller supports Bluetooth. Older models require the Xbox Wire
 If yours does support Bluetooth:
 
 - Remove the controller from your saved Bluetooth devices and pair it fresh  
-- Hold the small pair button on the top of the controller until the Xbox button flashes quickly  
+- Hold the small pair button on the top of the controller until the Xbox button flashes quickly (if it flashes in strange patterns or won't pair, consult our [Xbox controller blinking fixes](/xbox-controller-blinking-fixes/) to decode the light)  
 - Only pair one Xbox controller over Bluetooth at a time, since Bluetooth on these controllers is designed for a single connection  
 - Disconnect Bluetooth devices you are not using, since a crowded band causes dropouts
 
