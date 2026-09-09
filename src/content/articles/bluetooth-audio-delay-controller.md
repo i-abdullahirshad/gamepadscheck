@@ -57,7 +57,7 @@ Work through these roughly in order. The first two solve the problem for most pe
 This is the most effective change and often the easiest.
 
 - **Use a USB cable for the controller.** This removes it from the band completely, freeing airtime for audio. It also improves your input timing as a bonus  
-- **Use the 2.4GHz dongle** if your controller came with one. A dongle is still wireless but uses a private protocol that behaves better alongside other traffic than Bluetooth does
+- **Use the 2.4GHz dongle** if your controller came with one. A dedicated receiver is still wireless but uses a private protocol that behaves much better alongside other traffic, which is a major factor in the [controller dongle vs Bluetooth latency](/controller-dongle-vs-bluetooth-latency/) debate.
 
 On a PS5, check Settings, then Accessories, then Controllers, then Communication Method, and set it to USB Cable. Some controllers keep the Bluetooth radio active even while plugged in, so this setting matters.
 
@@ -105,7 +105,7 @@ These get confused constantly, and they need different fixes.
 
 A quick check: watch a cutscene or a menu with no input involved. If sound still trails the picture there, it is audio delay. If everything is in sync until you start pressing buttons, you are dealing with input lag instead.
 
-You can also check your controller's side of things directly. Open a gamepad tester and confirm your inputs register cleanly and promptly, and watch for freezes or stutters as you move around the room. A controller that stutters on a crowded band is a sign the band is congested, which is the same problem affecting your audio.
+You can also check your controller's side of things directly. Open a [latency tester](/latency-test/) and confirm your inputs register cleanly and promptly, and watch for freezes or stutters as you move around the room. A controller that stutters on a crowded band is a sign the band is congested, which is the same problem affecting your audio.
 
 ### **What will not help**
 
@@ -120,7 +120,7 @@ A few things get recommended that do not address the cause:
 
 ### **The simplest setup that works**
 
-If you want to stop thinking about this, one of these two combinations solves it:
+If you want to stop thinking about this, and avoid the complications of [wired vs wireless controller](/wired-vs-wireless-controller/) setups entirely, one of these two combinations solves it:
 
 - **Controller wired, headphones wireless.** Frees the band for audio and improves input timing  
 - **Controller wireless on its dongle, headphones wired into the controller.** Keeps your hands free of cables and removes audio delay entirely
