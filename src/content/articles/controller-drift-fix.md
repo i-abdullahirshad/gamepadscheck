@@ -13,11 +13,11 @@ Controller drift is when your stick reports movement you are not making. The cam
 
 The controller is not dead. It is reporting a resting position that is no longer the true centre.
 
-Before you try any fix, find out what kind of drift you have, because the answer decides what will actually work.
+Many players wait and wonder, [can stick drift fix itself](/can-stick-drift-fix-itself/)? Before you try any fix, find out what kind of drift you have, because the answer decides what will actually work.
 
 ### **First, check what your controller is doing**
 
-Rest the controller on a flat surface, take your hands off completely, and watch the stick values on a gamepad tester for a full minute.
+Rest the controller on a flat surface, take your hands off completely, and watch the stick values on a [gamepad tester](/) for a full minute.
 
 Two patterns matter far more than the number itself.
 
@@ -28,8 +28,6 @@ Two patterns matter far more than the number itself.
 Write down the highest value you see. You will need it later if you decide to adjust deadzones.
 
 ### **Why controller drift happens**
-
-
 
 #### **Worn potentiometers**
 
@@ -47,7 +45,7 @@ This is the cause most worth chasing, because cleaning genuinely fixes it.
 
 The centring mechanism pulls the stick back to neutral. After enough use the spring weakens and stops returning the stick to exactly the same spot.
 
-You can spot this easily. Push the stick fully in one direction, release, and see where it lands. Repeat five times. If it settles somewhere different each time, the spring is tired.
+You can spot this easily by performing a quick [controller snapback test](/controller-snapback-test/). Push the stick fully in one direction, release, and see where it lands. Repeat five times. If it settles somewhere different each time, the spring is tired.
 
 #### **Wrong calibration**
 
@@ -65,8 +63,6 @@ Hall effect and TMR sticks measure a magnetic field instead of dragging a contac
 
 ### **Every fix, from easiest to hardest**
 
-
-
 #### **1 Update the firmware**
 
 Manufacturers ship centre point corrections in firmware updates, and this takes two minutes.
@@ -74,8 +70,6 @@ Manufacturers ship centre point corrections in firmware updates, and this takes 
 - **Xbox:** use the Xbox Accessories app on PC or console  
 - **PlayStation:** connect the controller by USB and check for a device update in system settings  
 - **Nintendo:** check controller firmware update in system settings
-
-
 
 #### **2 Recalibrate**
 
@@ -110,7 +104,7 @@ If the drift goes away and comes back within days, the track underneath is worn 
 
 #### **5 Raise the deadzone**
 
-This hides the problem rather than solving it, and the trade off is worth understanding. A larger deadzone stops unwanted input, but it also means small deliberate movements are ignored, which costs you precision.
+This hides the problem rather than solving it, and the trade off is worth understanding. Adjusting your [inner vs outer deadzone](/inner-vs-outer-deadzone/) is the primary software workaround. A larger inner deadzone stops unwanted input, but it also means small deliberate movements are ignored, which costs you precision.
 
 Set it to roughly 1.5 times your measured peak drift. If your worst resting value was 0.04, try 0.06. Where the game allows separate settings, keep the aiming stick lower than the movement stick, since micro adjustments matter more there.
 
@@ -142,7 +136,6 @@ If the controller is old, out of warranty, and the sticks are noisy rather than 
 
 ### **What to try first, by symptom**
 
-
 | What you see                            | Start here                                       |
 | --------------------------------------- | ------------------------------------------------ |
 | Steady offset that appeared slowly      | Firmware, then calibration, then cleaning        |
@@ -151,7 +144,6 @@ If the controller is old, out of warranty, and the sticks are noisy rather than 
 | Drift right after a drop                | Check inside. Software fixes rarely help         |
 | Returns to a different centre each time | Weak spring. Module replacement                  |
 | Only happens in one game                | Not drift. Check that game's deadzone settings   |
-
 
 That last row catches more people than you would expect. If the problem happens in one game and nowhere else, and the resting values look clean in a tester, the controller is fine and the game's settings are the cause.
 
