@@ -17,14 +17,14 @@ The main thing to get right is choosing the correct tool for your situation, bec
 
 Remapping goes badly when you do not know how the game currently sees your controller. A button that appears to do nothing may not be broken. It may be arriving as something the game does not recognise.
 
-Open a gamepad mapping test and press every button in turn. Note which index each one reports.
+Open a [button mapping test](/button-mapping-test/) and press every button in turn. Note which index each one reports.
 
 Two things are worth checking:
 
 - **The mapping field.** If it says standard, your controller is being read in the modern XInput layout and button numbers will match what games expect. If it is blank, the controller is in a raw DirectInput mode, and button numbers will match nothing  
 - **Whether every button registers at all.** A button that does not appear in a tester is not a mapping problem. It is a hardware problem, and no remapping tool will fix it
 
-If the mapping is blank, check for a physical XInput and DirectInput switch on the controller first. Flipping that switch often solves the problem without any remapping at all.
+If the mapping is blank, check for a physical switch on the controller first. Understanding the distinctions in [XInput vs DirectInput](/xinput-vs-directinput/) helps clarify why flipping that toggle often solves detection issues without needing custom software mappings.
 
 ### **Option 1: Steam Input**
 
@@ -80,7 +80,7 @@ Because the remap lives on the controller, remember to undo it when you are fini
 
 ### **Option 3: DS4Windows**
 
-Built for PlayStation controllers on PC, and useful for other pads too.
+Built for PlayStation controllers on PC, and useful for other pads too. Following a detailed [DS4Windows setup guide](/ds4windows-setup-guide/) ensures virtual drivers and hidden controller modes are configured properly.
 
 **What it does**
 
@@ -98,8 +98,6 @@ It reads your controller and creates a virtual Xbox controller that games recogn
 - Close Steam Input for the same game, or both will try to handle the controller and produce doubled or missing inputs  
 - Some anti cheat systems are sensitive to virtual controller drivers, so check before using it in a competitive online game  
 - It needs updating after major Windows updates, since it ties closely into the system
-
-
 
 ### **Option 4: reWASD**
 
@@ -124,8 +122,6 @@ Check the game's controls menu before installing anything. If it offers what you
 - **Non Steam game with a normal gamepad:** add it to Steam as a non Steam game, then use Steam Input  
 - **Competitive online game:** the game's own settings, to avoid anti cheat issues with virtual drivers
 
-
-
 ### **The rule that prevents most problems**
 
 **Use one remapping layer at a time.**
@@ -148,7 +144,7 @@ Remember the Xbox Accessories app counts as a layer too, even though nothing is 
 
 **Buttons doubled or firing twice.** Two remapping tools are both active. Close one.
 
-**Remap does nothing.** The game may be reading raw input that bypasses your remapping layer. Check whether the game has its own controller settings, and try toggling Steam Input on or off.
+**Remap does nothing.** The game may be reading raw input that bypasses your remapping layer. If your [controller works in Steam but not in game](/controller-works-in-steam-but-not-in-game/), check whether the game has its own controller settings, and try toggling Steam Input on or off.
 
 **A button feels delayed after remapping.** Check for an activator such as a long press or double press binding, which waits before resolving.
 
