@@ -19,7 +19,7 @@ Here is how to work through it.
 
 Detection in Windows is not the same as detection in a game. What matters is the **format** the controller reports in, because a game reading one format will ignore a controller speaking another.
 
-Open a gamepad mapping test and press every button.
+Open a [gamepad tester](/) and press every button.
 
 Check the mapping field:
 
@@ -94,11 +94,11 @@ Some games ignore controller input when their window is not active.
 - Click the game window before pressing anything  
 - Check whether an overlay or a second monitor is stealing focus
 
-If the controller works and then stops after you alt tab away and back, this is the cause.
+If your [controller stopped working](/controller-stopped-working/) after you alt-tab away and back, this is the cause.
 
 ### **Fix 7: Reinstall the driver**
 
-A controller can be detected with a partly broken driver, which produces exactly this pattern.
+A controller can be detected with a partly broken driver, which produces exactly this pattern. If you need specific [Xbox controller not working on PC fixes](/xbox-controller-not-working-on-pc-fixes/), a clean driver installation is often the first step.
 
 - Right click Start and open Device Manager  
 - Find the controller under Xbox Peripherals, or under Human Interface Devices  
@@ -109,7 +109,7 @@ A warning icon next to the device makes this fix more likely to be the right one
 
 ### **Fix 8: Check Steam is not involved**
 
-Even outside Steam games, Steam can capture controller input while running in the background.
+If your [controller works in Steam but not in game](/controller-works-in-steam-but-not-in-game/), Steam is likely capturing the input in the background.
 
 - Try closing Steam completely and launching the game again  
 - If the controller works with Steam closed, adjust Steam's controller settings rather than leaving it closed permanently
