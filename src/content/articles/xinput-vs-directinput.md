@@ -49,7 +49,7 @@ The limitation is the same as the strength. XInput only understands that one sha
 
 The quickest way is to look at how your controller reports itself.
 
-Open a gamepad mapping test and check the mapping field.
+Open a [button mapping test](/button-mapping-test/) and check the mapping field.
 
 **If it says standard**, your controller is being read in the modern XInput style. Buttons will be numbered in the usual order, with the face buttons at 0 to 3, bumpers at 4 and 5, analog triggers at 6 and 7, stick clicks at 10 and 11, and the D pad at 12 to 15
 
@@ -93,11 +93,11 @@ Many controllers can do both, and switching is usually simple once you know wher
 
 **Look for a button combination.** Some controllers change mode by holding a button while powering on, for example holding a face button and the home button together. This is usually printed in the manual, which is worth finding since the combination varies by brand.
 
-**Check the manufacturer's software.** Some pads have a companion app that sets the mode.
+**Check the manufacturer's software.** Some pads have a companion app that sets the mode. If you decide to [remap controller buttons on PC](/remap-controller-buttons-on-pc/) using the manufacturer's tool, make sure the input mode is set correctly first.
 
-**Use a wrapper on PC.** Tools like DS4Windows create a virtual XInput controller from a device Windows sees differently. This is how PlayStation controllers work in games that only support XInput.
+**Use a wrapper on PC.** Tools like DS4Windows create a virtual XInput controller from a device Windows sees differently. Following a [DS4Windows setup guide](/ds4windows-setup-guide/) is how PlayStation controllers work in games that only support XInput.
 
-**Use Steam Input.** Steam reads your controller and presents a virtual one to the game, which solves most mapping problems without any manual configuration.
+**Use Steam Input.** Steam reads your controller and presents a virtual one to the game, which solves most mapping problems without any manual configuration. If your [controller works in Steam but not in game](/controller-works-in-steam-but-not-in-game/), it often means Steam Input is failing to translate properly for that specific title.
 
 ### **Which one should you use**
 
