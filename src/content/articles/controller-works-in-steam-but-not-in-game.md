@@ -19,7 +19,7 @@ Here is how to find out which link is failing.
 
 Steam detecting your controller tells you Steam can see it. It does not tell you what a game outside Steam sees, because Steam has its own input layer.
 
-Close Steam completely, then open a gamepad mapping test and press every button.
+Close Steam completely, then open a [button mapping test](/button-mapping-test/) and press every button.
 
 **If the tester detects the controller and buttons register**, your hardware and drivers are fine. The problem is between Steam and the game, and the fixes below apply.
 
@@ -40,7 +40,7 @@ This is the most common fix, and it works in both directions depending on the ga
 
 **Why both directions work**
 
-Some games have no controller support of their own and rely entirely on Steam Input to translate your pad into something they understand. Turn it off and they see nothing.
+Some games have no controller support of their own and rely entirely on Steam Input to translate your pad into something they understand. Turn it off and they see nothing. (If you usually keep this disabled out of performance concerns, answering whether [does Steam Input add input lag](/does-steam-input-add-input-lag/) shows the base translation is actually practically instant).
 
 Other games have their own controller support and get confused when Steam creates a virtual controller on top. They end up seeing two devices, or reading the wrong one, and ignore your input.
 
@@ -83,7 +83,7 @@ This is a common cause when a game works for someone else with identical hardwar
 
 ### **Fix 5: Close software that intercepts the controller**
 
-Remapping tools create virtual controllers, and two layers fighting over the same pad produces exactly this symptom.
+If you use third-party software to [remap controller buttons on PC](/remap-controller-buttons-on-pc/), be aware that remapping tools create virtual controllers, and two layers fighting over the same pad produces exactly this symptom.
 
 - **DS4Windows** running alongside Steam Input is the classic conflict. Pick one. If using DS4Windows, disable PlayStation controller support in Steam settings. If using Steam Input, close DS4Windows entirely  
 - **reWASD and similar tools** cause the same problem  
@@ -115,7 +115,7 @@ If the controller works and then stops when you alt tab away and back, this is t
 
 If your mapping field showed blank rather than standard, the controller is reporting a raw layout that most modern games do not understand.
 
-- Look for a physical switch on the controller marked X and D, or XInput and DInput. Many third party pads have one, often on the back  
+- Look for a physical switch on the controller marked X and D, or XInput and DInput. Many third party pads have one, often on the back. Understanding the difference between [XInput vs DirectInput](/xinput-vs-directinput/) helps explain why this setting breaks game compatibility.
 - Look for a button combination that changes mode, usually printed in the manual  
 - Switch to XInput and test again
 
