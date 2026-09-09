@@ -19,19 +19,17 @@ Both options send your input through the air on the 2.4GHz band, so people assum
 
 **Bluetooth** is a shared standard built for many device types at once. Your headphones, your phone, your smart home gadgets and your controller all speak it. Because it has to serve everything, it is built around scheduled connection intervals. Your controller stores its input and sends it when its turn arrives, not the instant you press a button.
 
-**A 2.4GHz dongle** is a private link. The dongle and the controller are paired at the factory and speak a protocol the manufacturer designed for one job. There is no general purpose standard to satisfy, no pairing negotiation with unknown devices, and no need to share airtime with your headphones.
+**A 2.4GHz dongle** is a private link. The dongle and the controller are paired at the factory and speak a protocol the manufacturer designed for one job. There is no general purpose standard to satisfy, no pairing negotiation with unknown devices, and no need to share airtime with your headphones—a conflict that often causes [Bluetooth audio delay when using a controller](/bluetooth-audio-delay-controller/).
 
 That difference in purpose is the whole story behind the latency gap.
 
 ### **Why the dongle is usually faster**
 
-
-
 #### **Shorter and more consistent intervals**
 
 Bluetooth Low Energy has a minimum connection interval of 7.5ms, and in real use many controllers sit above that. Your input waits for the next scheduled slot before it leaves the controller.
 
-A proprietary dongle can run its own timing, often much tighter, because it only needs to serve one device. Some dongles are marketed at 1000Hz, which means a slot every millisecond.
+A proprietary dongle can run its own timing, often much tighter, because it only needs to serve one device. Some dongles are marketed at 1000Hz, which is considered a [good controller polling rate](/good-controller-polling-rate/) because it means a slot every millisecond.
 
 #### **Less competition for the airwaves**
 
@@ -68,8 +66,6 @@ Pick the dongle if any of these apply:
 - You have a free USB port near where you sit  
 - Your Bluetooth connection drops or stutters
 
-
-
 ### **When Bluetooth is fine**
 
 Bluetooth is the sensible choice more often than enthusiast advice suggests:
@@ -84,15 +80,11 @@ There is also a practical trade off. A dongle occupies a port and can be lost, a
 
 ### **How to get the best out of each**
 
-
-
 #### **Making a dongle perform well**
 
 - **Put it on a front port or a short USB extension.** A dongle buried behind a desktop tower has your PC case between it and your hands  
 - **Keep it away from USB 3.0 ports.** These emit interference right in the 2.4GHz range. Moving the dongle to a USB 2.0 port a few centimetres away often fixes stuttering  
 - **Do not put it next to your WiFi router**
-
-
 
 #### **Making Bluetooth perform well**
 
@@ -101,8 +93,6 @@ There is also a practical trade off. A dongle occupies a port and can be lost, a
 - **Update your controller firmware.** Manufacturers do improve Bluetooth scheduling in updates  
 - **Use 5GHz WiFi if your router supports it.** That moves your network traffic off the band your controller is using  
 - **Avoid charging over a cheap cable while connected by Bluetooth**, since poor cables can add electrical noise
-
-
 
 ### **How to compare them on your own setup**
 
@@ -114,7 +104,7 @@ A browser based tool has its own limit too. It reads controller state on the ani
 
 **What a browser tool can usefully show you**
 
-Open a gamepad tester, hold a stick in one direction, and watch how often the reported value updates. Do this once on the dongle and once on Bluetooth. You are comparing update behaviour between two states of the same setup, which is a fair comparison even though it is not a full latency figure.
+Open a [controller latency test](/latency-test/), hold a stick in one direction, and watch how often the reported value updates. Do this once on the dongle and once on Bluetooth. You are comparing update behaviour between two states of the same setup, which is a fair comparison even though it is not a full latency figure.
 
 Also watch for dropouts. Move around the room, hold a direction, and see whether the value freezes or stutters. Connection reliability is easier to spot than raw latency, and it affects gameplay just as much.
 
@@ -130,6 +120,6 @@ Before you spend money on a new dongle, check the bigger sources of delay:
 
 - **Frame rate.** Each frame of render delay is 1000 divided by your frames per second. At 30fps that is about 33ms per frame, which dwarfs any wireless difference  
 - **Display processing.** A TV in a standard picture mode can add far more delay than every wireless option combined. Game mode is the single biggest fix available to most players  
-- **Wired connection.** If you sit close enough for a cable, a cable beats both wireless options and costs almost nothing
+- **Wired connection.** If you sit close enough for a cable, a cable beats both wireless options—a dynamic often central to the [wired vs wireless controller](/wired-vs-wireless-controller/) debate—and costs almost nothing
 
 The dongle versus Bluetooth question is worth answering, but it sits near the bottom of the list of things that make a controller feel slow.
