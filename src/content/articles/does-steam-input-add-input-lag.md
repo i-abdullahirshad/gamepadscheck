@@ -61,9 +61,9 @@ The overlay is separate from Steam Input, but the two get blamed together becaus
 
 Turning it off is not automatically the faster choice. There are cases where leaving it on is clearly better:
 
-- Your controller only works through Steam Input, which is common with PlayStation pads, Switch pads, and many third party controllers  
+- Your [controller works in Steam but not in game](/controller-works-in-steam-but-not-in-game/) without it, which is common with PlayStation pads, Switch pads, and many third party controllers  
 - You use gyro aiming, since Steam Input is the main way to get gyro working in games that do not support it  
-- You need remapping the game does not offer  
+- You need to [remap controller buttons on PC](/remap-controller-buttons-on-pc/) because the game does not offer it natively  
 - You want one profile that follows you across every game
 
 If a game supports your controller natively and you use no remapping at all, then turning Steam Input off for that game removes the layer and is the cleanest option. In Steam, open the game's properties, go to Controller, and set it to disable Steam Input.
@@ -78,7 +78,7 @@ What you can do is compare timing between two states of the same setup.
 
 **A simple comparison you can run**
 
-1. Connect your controller by USB and open a gamepad tester with Steam Input disabled for that session
+1. Connect your controller by USB and open a [latency tester](/latency-test/) with Steam Input disabled for that session
 2. Hold a direction on the stick and watch how often the reported value updates
 3. Note the gap between updates
 4. Enable Steam Input, repeat the same test, and compare
