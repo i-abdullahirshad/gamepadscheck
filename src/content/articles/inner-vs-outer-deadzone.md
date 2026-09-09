@@ -31,7 +31,7 @@ That stretching is the part people miss. Deadzone settings do not simply ignore 
 
 There is a second problem. Most games do not fade in gently from the deadzone edge. They jump. Cross the 0.20 line and your input snaps from nothing to whatever 0.20 maps to. That produces the sticky then sudden feel people describe as loose aim.
 
-**How to set it.** Measure your real resting drift first. Rest the controller untouched on a flat surface and watch the axis values on a gamepad tester for a full minute. Note the **highest** value you see, not the average, because you are setting a floor above the worst case.
+**How to set it.** Measure your real resting drift first. Rest the controller untouched on a flat surface and watch the axis values on a [gamepad tester](/) for a full minute to see exactly [what do gamepad tester numbers mean](/what-do-gamepad-tester-numbers-mean/) for your hardware. Note the **highest** value you see, not the average, because you are setting a floor above the worst case.
 
 Then set your inner deadzone to roughly **1.5 times that peak**.
 
@@ -49,7 +49,7 @@ The extra margin matters because drift is not perfectly constant. Temperature an
 
 **The bigger reason is diagonals.** This is where outer deadzone earns its place, and most players do not realise they have the problem.
 
-Sticks move in a circle. The number space is a square. Push fully right and one axis reaches 1.00. Push fully on a diagonal and each axis reaches only about 0.71, because that is where the circle meets the diagonal. The corners of the square cannot be reached on any controller ever made.
+Sticks move in a circle. The number space is a square. Push fully right and one axis reaches 1.00. Push fully on a diagonal and each axis reaches only about 0.71, because that is where the circle meets the diagonal. The corners of the square cannot be reached on any controller ever made, a geometric fact central to understanding [circularity error](/circularity-error/).
 
 In games that read each axis separately, this means diagonal movement can be slower than straight movement. Strafing at an angle ends up worse than strafing straight. An outer deadzone pushes the reachable circle outward so diagonals register closer to full.
 
@@ -96,7 +96,7 @@ This is why a single shared slider is always a compromise. Tune it for aiming an
 ### **The order to work in**
 
 - Measure your resting values and full push range in a tester before touching any slider  
-- If the resting values jump around rather than sitting steady, stop. That is worn hardware, and deadzone settings only hide it while it gets worse  
+- If the resting values jump around rather than sitting steady, stop. That is worn hardware, and deadzone settings only hide it while it gets worse, requiring a proper [controller drift fix](/controller-drift-fix/) instead.
 - Set the inner deadzone to about 1.5 times your peak drift, per stick  
 - Set the outer deadzone just below your worst straight direction maximum  
 - Test in game and adjust in steps of 0.01, since deadzone changes feel much bigger in play than the numbers suggest
