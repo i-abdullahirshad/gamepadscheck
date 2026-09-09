@@ -21,7 +21,7 @@ Windows handles gamepads through XInput, a fixed layout that guarantees every bu
 
 So when you connect one, Windows detects a device, but games looking for an XInput controller find nothing. The controller is fine. It is simply speaking a language the game does not read.
 
-You can check this yourself. Connect the controller and open a gamepad mapping test with Steam closed. You will usually see the controller appear with a blank mapping field, meaning it is reporting a raw layout with no standard applied. That is exactly why games ignore it.
+You can check this yourself. Connect the controller and open a [button mapping test](/button-mapping-test/) with Steam closed. You will usually see the controller appear with a blank mapping field, meaning it is reporting a raw layout with no standard applied. That is exactly why games ignore it.
 
 ### **Method 1: Steam (recommended)**
 
@@ -53,7 +53,7 @@ If you would rather not use Steam, you need something else to do the translation
 
 **BetterJoy** is the common free option. It creates a virtual Xbox controller from your Switch pad, supports the Pro Controller and Joy-Cons, and handles gyro and rumble.
 
-**DS4Windows** supports Switch controllers in recent versions too, and works the same way by creating a virtual Xbox controller.
+**DS4Windows** supports Switch controllers in recent versions too, and works the same way by creating a virtual Xbox controller. Following a complete [DS4Windows setup guide](/ds4windows-setup-guide/) will ensure the required drivers are properly installed.
 
 Both need the **ViGEmBus driver** installed, which is the piece that actually creates the virtual controller. If games still ignore your pad after installing either tool, ViGEmBus is the first thing to check.
 
@@ -81,6 +81,7 @@ So the game says press A, and the button in that position on your Pro Controller
 
 - In Steam, enable the Nintendo button layout option, which corrects prompts in many games  
 - Check the game's own settings for a controller icon or prompt style option  
+- If you want custom bindings across all titles, learn how to [remap controller buttons on PC](/remap-controller-buttons-on-pc/) using Steam Input or external software
 - Otherwise, learn the swap. It takes a session to get used to
 
 
@@ -128,6 +129,8 @@ Without configuration, the gyro sensor is detected and does nothing.
 
 #### **The controller works in Steam but not in games**
 
+If your [controller works in Steam but not in game](/controller-works-in-steam-but-not-in-game/):
+
 - Make sure you are launching the game **through Steam**, since Steam Input does not apply otherwise  
 - For a non Steam game, add it to your library first  
 - Try toggling Steam Input for that specific game, since both on and off fix different titles
@@ -170,4 +173,3 @@ Steady values slightly off zero mean a shifted centre point, which is normal. Va
 - **Gyro does nothing:** needs configuring in the Steam layout  
 - **Bluetooth keeps dropping:** re-pair fresh, and check the Switch is off  
 - **Broke after a Windows update:** reinstall ViGEmBus and update your tool
-
