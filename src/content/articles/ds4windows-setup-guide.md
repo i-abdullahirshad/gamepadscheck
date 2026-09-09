@@ -21,7 +21,7 @@ Two quick checks save a lot of trouble later.
 
 **Check whether you actually need it.** Many games now support PlayStation controllers directly, and Steam Input handles them well for Steam games. If your controller already works, adding DS4Windows introduces a layer you do not need. Test the game first.
 
-**Check the controller works at all.** Connect it and open a gamepad mapping test. Press every button and roll both sticks.
+**Check the controller works at all.** Connect it and open a [button mapping test](/button-mapping-test/). Press every button and roll both sticks.
 
 If the tester detects the controller and buttons register, the hardware is fine and DS4Windows will work. If nothing appears, fix that first, because no software can help a controller Windows cannot see. Try a different cable, since many cables carry power only and never transfer data.
 
@@ -96,7 +96,7 @@ When you want to customise, open the Profiles tab and create a new one.
 - **Deadzones.** Set these from your controller's actual resting values rather than guessing. Rest the controller untouched on a flat surface, watch the stick values in a tester for a minute, and note the highest reading. Setting your deadzone slightly above that stops drift without costing more precision than necessary  
 - **Light bar.** Turn it off or dim it to save battery on Bluetooth  
 - **Touchpad as mouse.** Useful in games with menus designed for a mouse  
-- **Button remapping.** Change any button to any other input, including keyboard and mouse
+- **Button remapping.** You can easily [remap controller buttons on PC](/remap-controller-buttons-on-pc/) through the software, changing any button to any other input, including keyboard and mouse
 
 **Per game profiles** can be set to switch automatically when a game launches, using the auto profile feature.
 
@@ -104,7 +104,7 @@ When you want to customise, open the Profiles tab and create a new one.
 
 Launch a game and check the button prompts.
 
-**If you see Xbox prompts**, it is working. The game thinks you have an Xbox controller, which is the whole point. Cross is A, Circle is B, Square is X, Triangle is Y.
+**If you see Xbox prompts**, it is working. The game thinks you have an Xbox controller, which is the whole point. Cross is A, Circle is B, Square is X, Triangle is Y. If you are curious why this translation is necessary, reading about [XInput vs DirectInput](/xinput-vs-directinput/) explains how Windows handles these devices differently.
 
 **If you see PlayStation prompts**, the game has native support and is reading your controller directly. That is fine, and it means you may not need DS4Windows for that title.
 
@@ -179,7 +179,7 @@ If you want the lowest possible delay:
 - Avoid running Steam Input on top of DS4Windows  
 - Skip complex bindings such as long press or double press actions, which wait by design before deciding what you meant
 
-If a game supports your controller natively, using that support avoids the layer entirely and is the fastest option.
+If a game supports your controller natively, using that support avoids the layer entirely and is the fastest option. (This logic is very similar to the advice for those wondering [use a PS3 controller on PC](/use-a-ps3-controller-on-pc/), as extra software layers always carry a minor cost).
 
 ### **Quick reference**
 
@@ -189,4 +189,3 @@ If a game supports your controller natively, using that support avoids the layer
 - **Works wired, fails wireless:** re-pair Bluetooth from scratch  
 - **Broke after a Windows update:** update DS4Windows and reinstall ViGEmBus  
 - **Game will not launch:** anti cheat. Use native support or Steam Input
-
