@@ -59,7 +59,7 @@ Xbox controllers switch off automatically after a period of inactivity, but that
 - **Bluetooth still active on a phone or laptop nearby** that the controller is paired to  
 - **A stick or trigger held down by something.** A controller resting under a cushion with a stick pressed reads that as continuous input and stays awake
 
-To turn a controller off deliberately, hold the Xbox button for around six seconds until the light goes out. Do this when you finish playing rather than relying on the automatic timeout.
+To turn a controller off deliberately, hold the Xbox button for around six seconds until the light goes out (if the light behaves erratically or flashes continuously instead of turning off, you may need to consult some [Xbox controller blinking fixes](/xbox-controller-blinking-fixes/)). Do this when you finish playing rather than relying on the automatic timeout.
 
 If your controller feels warm when you pick it up after hours of not playing, it was never off.
 
@@ -69,7 +69,7 @@ Vibration motors are by far the largest power draw in the controller. Everything
 
 You do not have to switch rumble off entirely to see a benefit:
 
-- Open the Xbox Accessories app, select your controller, and reduce the vibration strength sliders  
+- Open the Xbox Accessories app, select your controller, and reduce the vibration strength sliders (this menu is also where you would begin troubleshooting an [Xbox controller rumble not working fix](/xbox-controller-rumble-not-working-fix/) if the motors fail completely)  
 - The app has separate controls for the main grip motors and the trigger motors, so you can lower the ones you notice least  
 - Impulse triggers are worth turning down first, since they run frequently in shooters and racing games and add up over a session
 
@@ -123,7 +123,7 @@ A stick held slightly off centre, a trigger not returning fully, or a bumper bei
 
 Check for this properly:
 
-- Rest the controller untouched on a flat surface, open a gamepad tester, and watch for a minute  
+- Rest the controller untouched on a flat surface, open an [Xbox controller test](/), and watch for a minute  
 - Confirm no button shows as pressed while your hands are off it  
 - Watch the stick values. Steady values slightly off zero mean a shifted centre point, which is normal. Values that never settle mean a worn stick  
 - Pull each trigger and release it, checking the value returns to zero
