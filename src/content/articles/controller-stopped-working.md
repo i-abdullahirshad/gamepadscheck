@@ -19,9 +19,9 @@ Work through these in order.
 
 Before changing drivers, find out what Windows currently sees.
 
-Open a gamepad tester and press a button.
+Open our [gamepad tester](/) and press a button.
 
-**If the controller appears and buttons register**, Windows and your hardware are fine. The problem is in a game or in software sitting between the two, so skip to the sections on Steam Input and game settings.
+**If the controller appears and buttons register**, Windows and your hardware are fine. The problem is in a game or in software sitting between the two, which is the classic scenario of a [controller detected but not working](/controller-detected-but-not-working/) in-game, so skip to the sections on Steam Input and game settings.
 
 **If nothing appears at all**, Windows is not seeing the device and the driver fixes below are where to look.
 
@@ -38,7 +38,7 @@ This is the most common fix, because updates frequently leave a driver half inst
 - Find your controller, right click it, and choose Uninstall device  
 - Unplug the controller, restart the PC, then plug it back in
 
-Windows reinstalls the driver on reconnection. A warning icon next to the device in Device Manager makes this fix even more likely to be the right one.
+Windows reinstalls the driver on reconnection. A warning icon next to the device in Device Manager makes this fix even more likely to be the right one, and is a core step in any comprehensive list of [Xbox controller not working on PC fixes](/xbox-controller-not-working-on-pc-fixes/).
 
 If the controller does not appear anywhere in Device Manager, try a different cable first. Many cables carry power only, so the controller lights up while the PC never sees a device.
 
