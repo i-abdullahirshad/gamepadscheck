@@ -53,8 +53,6 @@ This is variation in when your input arrives. Its causes sit in the connection a
 - **Background system load.** Other software competing for CPU can delay input processing at random moments  
 - **Frame pacing.** A game running at an unstable 45 to 90fps has frames of constantly changing length, which shifts when your input gets used
 
-
-
 #### **Signal jitter**
 
 This is variation in the value itself. Its causes sit in the controller's sensors:
@@ -92,7 +90,7 @@ Rest the controller on a flat surface, take your hands off completely, and open 
 
 That distinction decides your fix. Recalibration corrects a steady offset and does nothing at all for jumping values.
 
-Also test the sticks in motion. Push a stick slowly along one axis and watch the numbers climb. They should rise smoothly. If they skip, stall or bounce backward while you move steadily, the track underneath is worn or contaminated.
+Also test the sticks in motion. Push a stick slowly along the outer edge to check for [circularity error](/circularity-error/), and along one axis to watch the numbers climb. They should rise smoothly. If they skip, stall or bounce backward while you move steadily (something you can easily verify with a [controller snapback test](/controller-snapback-test/)), the track underneath is worn or contaminated.
 
 Do the same with your triggers. A trigger pulled slowly should climb evenly from 0.00 toward 1.00. Values that jump about mid pull point to a failing analog sensor.
 
@@ -100,13 +98,11 @@ Do the same with your triggers. A trigger pulled slowly should climb evenly from
 
 Here is the honest limitation. Browsers read controller state on the animation frame, tied to your display refresh, which is roughly every 16ms at 60Hz. That window is too coarse to measure millisecond level timing variation properly.
 
-What you can do is compare behaviour between two states of the same setup. Hold a stick steadily in one direction on a cable, then on Bluetooth, and watch how consistently the reported value updates. Watch for freezes and stutters as you move around the room. Connection dropouts are easy to spot and matter just as much as fine timing.
+What you can do is run a [controller latency test](/latency-test/) to compare behaviour between two states of the same setup. Hold a stick steadily in one direction on a cable, then on Bluetooth, and watch how consistently the reported value updates. Watch for freezes and stutters as you move around the room. Connection dropouts are easy to spot and matter just as much as fine timing.
 
 For real timing measurement, you need a high frame rate camera recording your hand and the screen together, with enough runs to see the spread rather than the average.
 
 ### **How to reduce jitter**
-
-
 
 #### **For timing jitter**
 
@@ -116,8 +112,6 @@ For real timing measurement, you need a high frame rate camera recording your ha
 - **Keep your frame rate stable.** A locked 60fps produces steadier input timing than an unstable 45 to 90fps, even though the average is lower  
 - **Close background software** that competes for CPU during play
 
-
-
 #### **For signal jitter**
 
 - **Clean the sticks.** Push the stick to one side, apply a small amount of 99% isopropyl alcohol into the gap under the rubber gate, rotate through full circles about twenty times, then let it dry for fifteen minutes. Use 99%, not 70%, because the missing 30% is water  
@@ -125,10 +119,8 @@ For real timing measurement, you need a high frame rate camera recording your ha
 - **Replace the stick module** if cleaning only helps for a few days. That points to a worn track rather than dirt  
 - **Consider Hall effect or TMR sticks** on your next controller. They measure a magnetic field instead of dragging a contact across a track, so they do not develop this kind of noise
 
-
-
 ### **Why this matters more than a spec sheet**
 
-Chasing polling rates past 1000Hz buys you fractions of a millisecond. Fixing jitter can remove several milliseconds of unpredictable variation, and unpredictable variation is the part your hands cannot adapt to.
+While chasing a [good controller polling rate](/good-controller-polling-rate/) past 1000Hz buys you fractions of a millisecond, fixing jitter can remove several milliseconds of unpredictable variation—and unpredictable variation is the part your hands cannot adapt to.
 
 If a controller feels inconsistent rather than simply slow, stop looking at the numbers on the box. Rest it on a table, watch the values, and find out whether the problem is in the connection or in the sticks. That answer is more useful than any spec the manufacturer chose to print.
