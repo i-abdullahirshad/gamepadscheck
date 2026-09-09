@@ -29,13 +29,13 @@ These get mixed up all the time, and they need different fixes.
 
 **Snapback** happens only after you release the stick. It appears for a fraction of a second, then disappears. Leave the controller alone and it shows nothing.
 
-A controller can have both, and they have separate causes, so test for them separately.
+A controller can have both, and they have separate causes, so test for them separately, and consult a comprehensive [controller drift fix](/controller-drift-fix/) guide if resting movement is your primary issue.
 
 ### **How to test for snapback**
 
 The test is straightforward, but the way you do it matters.
 
-Open a gamepad tester and watch the stick values.
+Open our [gamepad tester](/) and watch the stick values.
 
 **The release test**
 
@@ -61,7 +61,7 @@ These are practical guides rather than official grades, and the more useful comp
 
 **Also test slowly**
 
-Push the stick out and release it slowly rather than flicking. If the overshoot only appears on fast releases, the spring is the cause. If it appears on slow releases too, something else is wrong, most likely a sensor problem.
+Push the stick out and release it slowly rather than flicking. If the overshoot only appears on fast releases, the spring is the cause. If it appears on slow releases too, something else is wrong, most likely a sensor problem that can also introduce [controller jitter](/controller-jitter/).
 
 ### **Why snapback happens**
 
@@ -77,11 +77,9 @@ Push the stick out and release it slowly rather than flicking. If the overshoot 
 
 ### **How to fix it**
 
-
-
 #### **1 Adjust your deadzone**
 
-The simplest fix, and often the right one.
+Understanding how to balance your [inner vs outer deadzone](/inner-vs-outer-deadzone/) is the simplest fix, and often the right one.
 
 If your overshoot peaks at 0.12, an inner deadzone slightly above that will hide it. The cost is that small deliberate movements below that value are also ignored, which reduces precision.
 
@@ -149,4 +147,3 @@ Before spending time on this, check the more common problems. Resting drift, dea
 - **Appeared after lowering your deadzone:** it was always there and was previously hidden  
 - **Movement while your hands are off the controller:** that is drift, not snapback  
 - **Worse in one direction only:** uneven wear or an obstruction in the gate.
-
