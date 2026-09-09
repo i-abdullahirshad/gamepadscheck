@@ -13,7 +13,7 @@ You plug in your controller, open a gamepad tester, and see a screen full of dec
 
 Nothing is labelled in plain English, so most people guess. This guide explains what each number is, where it comes from, and which values mean your controller is healthy versus worn.
 
-Open a gamepad tester in another tab and follow along. The numbers make far more sense when you can move a stick and watch them react.
+Open our [gamepad tester](/) in another tab and follow along. The numbers make far more sense when you can move a stick and watch them react.
 
 ### **Where the numbers come from**
 
@@ -53,7 +53,7 @@ Push a stick fully right and you often see 0.96 or 0.98 rather than a clean 1.00
 
 Both are normal.
 
-A stick moves in a circle, but the number space is a square. The corners of that square cannot be reached. When you push fully on a diagonal, the circle meets the diagonal at roughly 0.707 on each axis. That is geometry, not a fault, and it happens on every controller ever made.
+A stick moves in a circle, but the number space is a square. The corners of that square cannot be reached. When you push fully on a diagonal, the circle meets the diagonal at roughly 0.707 on each axis. That is geometry, not a fault, and it happens on every controller ever made—a key concept when evaluating [circularity error](/circularity-error/).
 
 A slightly short reading in a straight direction, somewhere between 0.95 and 0.99, is usually just factory calibration. It only matters if the two sides do not match. Left reaching negative 0.98 while right stops at 0.85 points to a worn or misaligned stick.
 
@@ -111,10 +111,10 @@ Rest the controller on a flat surface, take your hands off completely, and watch
 | 0.00 to 0.02   | Normal. Every stick has a tiny offset                                       |
 | 0.03 to 0.08   | Small offset. Usually hidden by game deadzones, and calibration often helps |
 | 0.09 to 0.15   | Real drift. Expect unwanted movement in games with low deadzones            |
-| 0.16 and above | Severe. This will affect almost every game                                  |
+| 0.16 and above | Severe. This will affect almost every game, requiring a [controller drift fix](/controller-drift-fix/)      |
 
 
-These are practical guide bands rather than a diagnosis. Two details matter more than the number itself.
+These are practical guide bands rather than a diagnosis. If your resting value falls into the "Real drift" or "Severe" range, setting an appropriate [inner vs outer deadzone](/inner-vs-outer-deadzone/) can mask the issue, but two details matter more than the number itself.
 
 **Is it steady or jumping?** A stick sitting calmly at 0.06 has a shifted centre point. The sensor is still reading cleanly, so calibration can help. A stick flickering between 0.02, 0.19 and negative 0.07 while untouched has electrical noise from worn contacts. That is hardware, and calibration will not fix it.
 
@@ -148,4 +148,3 @@ What it is reliable for is detecting drift, finding dead or sticking buttons, co
 - Mapping says standard when the browser knows your pad, and blank usually means DirectInput  
 - At rest, **under 0.02 is healthy**. Steady means calibration, jumping means worn hardware  
 - Push, release, and check it returns to the same centre
-
