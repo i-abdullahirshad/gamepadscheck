@@ -40,7 +40,7 @@ A weak battery can leave a controller able to light up, able to enter pairing mo
 - Rechargeable packs lose capacity with age. An old pack can show a healthy indicator while delivering too little power to stay connected  
 - Check the battery contacts inside the compartment for corrosion or dirt, and clean them if they look dull
 
-If fresh batteries stop the blinking, you have your answer.
+If fresh batteries stop the blinking, you have your answer, though if it happens too often, you may need to look into [Xbox controller battery draining fixes](/xbox-controller-battery-draining-fixes/) to see if a worn pack or incorrect settings are the actual root cause.
 
 ### **If it is flashing fast: pairing mode**
 
@@ -127,7 +127,7 @@ A saved pairing entry that has gone stale will block reconnection while looking 
 
 #### **Reinstall the driver on PC**
 
-If the controller pairs but Windows behaves oddly, the driver may have failed to install correctly.
+If the controller pairs but Windows behaves oddly—a frequent issue requiring specific [Xbox controller not working on PC fixes](/xbox-controller-not-working-on-pc-fixes/)—the driver may have failed to install correctly.
 
 - Right click Start and open Device Manager  
 - Find the controller under Xbox Peripherals or Human Interface Devices  
@@ -139,7 +139,7 @@ If the controller pairs but Windows behaves oddly, the driver may have failed to
 
 Once the light goes solid, check the controller is working properly rather than just connected.
 
-Open a gamepad tester and press every button, roll both sticks through their full range, and pull each trigger slowly. Then rest the controller untouched on a flat surface and watch the stick values for a minute.
+Open an [Xbox controller test](/xbox-controller-test/) and press every button, roll both sticks through their full range, and pull each trigger slowly. Then rest the controller untouched on a flat surface and watch the stick values for a minute.
 
 This catches problems that blinking does not reveal. A controller can pair perfectly and still have a dead bumper, a trigger that no longer reads its full range, or sticks that drift on their own. If the light is solid but something still feels wrong in games, the connection was never the issue.
 
@@ -150,4 +150,3 @@ This catches problems that blinking does not reveal. A controller can pair perfe
 - **Blinks then dies:** batteries  
 - **Drops out during play:** batteries first, then interference  
 - **Solid but games feel wrong:** not a connection problem. Check the controller in a tester
-
