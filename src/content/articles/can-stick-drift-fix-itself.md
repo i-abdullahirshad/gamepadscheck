@@ -27,13 +27,13 @@ That all happens, and there are ordinary explanations for it. None of them invol
 
 **Software state.** Games and drivers store calibration and connection information. A restart, a reconnect, or a controller reset can clear a bad stored centre point. This is the closest thing to a real self fix, and it is worth trying because it costs nothing.
 
-**Your deadzone changed.** You updated a game, switched titles, or a developer changed their default deadzone. The drift is identical. The software just stopped acting on it.
+**Your deadzone changed.** You updated a game, switched titles, or a developer changed their default deadzone. Understanding how your [inner vs outer deadzone](/inner-vs-outer-deadzone/) interacts with raw input explains why the exact same physical drift can be invisible in one game but completely ruin your aim in another. The drift is identical. The software just stopped acting on it.
 
 ### **The test that settles it**
 
 Your own judgement is unreliable here. You notice drift when it interferes and stop noticing when it does not, which makes it feel fixed even when nothing changed.
 
-Rest the controller untouched on a flat surface and watch the axis values on a gamepad tester for a full minute. Write down the peak value. Do this on a day the drift feels bad, and again on a day it feels fine.
+Rest the controller untouched on a flat surface and watch the axis values on our [gamepad tester](/) for a full minute. Write down the peak value. Do this on a day the drift feels bad, and again on a day it feels fine.
 
 **If the numbers are basically the same**, nothing changed in the hardware. Your deadzone, your game, or your attention changed.
 
@@ -58,7 +58,7 @@ Rest the controller untouched on a flat surface and watch the axis values on a g
 
 Two things, honestly.
 
-**Cleaning**, when dirt is the cause. Push the stick to one side, apply a small amount of 99% isopropyl alcohol into the gap under the rubber cover, rotate the stick in full circles about twenty times, repeat for each direction, and let it dry for fifteen minutes.
+**Cleaning**, when dirt is the cause. Push the stick to one side, apply a small amount of 99% isopropyl alcohol into the gap under the rubber cover, rotate the stick in full circles about twenty times (which coincidentally is exactly how you check for a [circularity error](/circularity-error/)), repeat for each direction, and let it dry for fifteen minutes.
 
 Use 99%, not 70%, because the missing 30% is water. If the drift returns within days, the track is worn rather than dirty and cleaning only bought you time.
 
@@ -66,7 +66,7 @@ Use 99%, not 70%, because the missing 30% is water. If the drift returns within 
 
 One thing worth knowing here. The Windows calibration wizard you reach by typing joy.cpl applies to DirectInput devices. Xbox controllers use XInput, and games read those values directly, so calibrating an Xbox pad there will look successful and change nothing in play.
 
-Beyond those two, a genuinely worn stick has one real answer. Replace the module. Hall effect replacements remove the wear mechanism entirely instead of restarting the same countdown.
+Beyond those two, a genuinely worn stick has one real answer. Replace the module, or follow a comprehensive [controller drift fix](/controller-drift-fix/) guide to swap out the failing components. Hall effect replacements remove the wear mechanism entirely instead of restarting the same countdown.
 
 ### **What to do with a controller that seems to have recovered**
 
@@ -86,4 +86,3 @@ The controllers that catch people out are the ones where drift disappeared, the 
 - Steady values mean a calibration problem that can be genuinely corrected  
 - Jumping values mean worn hardware that will keep getting worse  
 - Cleaning and recalibration are the only real reversals, and a module replacement is the only permanent one.
-
