@@ -7,7 +7,10 @@
   <div class="header-bg"></div>
   
   <div class="header-container">
-    <a href="/" class="logo">Gamepads<span>Check</span></a>
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="GamepadsCheck Logo" class="logo-img" width="36" height="36" />
+      Gamepads<span>Check</span>
+    </a>
     
     <div class="header-right">
       <!-- Main Nav (Desktop & Slide-out Sidebar on Mobile) -->
@@ -79,12 +82,21 @@
   }
   
   .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--text-main);
     text-decoration: none;
     letter-spacing: -0.02em;
   }
+  
+  .logo-img {
+    display: block;
+    object-fit: contain;
+  }
+  
   .logo span {
     color: var(--accent-primary);
   }
@@ -186,7 +198,7 @@
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    z-index: 990; /* <-- Change this line from 1001 to 990 */
+    z-index: 990; 
     transition: opacity 0.3s ease, visibility 0.3s;
   }
 
